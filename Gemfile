@@ -28,7 +28,7 @@ gem 'spring',        group: :development
 
 gem 'omniauth'
 gem 'omniauth-twitter'
-gem 'omniauth-linkedin'
+gem 'omniauth-linkedin-oauth2'
 gem 'omniauth-github'
 
 # Use ActiveModel has_secure_password
