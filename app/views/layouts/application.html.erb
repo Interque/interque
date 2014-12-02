@@ -7,6 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<%= form_tag questions_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :user, params[:user] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+	<%= debug params %>
 	<div id="container">
 		<div id="user_nav">
 			<% if current_user %>
@@ -15,7 +22,7 @@
 			<% else %>
   			<%= link_to "Sign in with Twitter", "/auth/twitter" %>
   			<%= link_to "Sign in with Github", "/auth/github" %>
-  				
+
 			<% end %>
 
 		</div>
