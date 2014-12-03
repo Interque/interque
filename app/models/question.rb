@@ -1,8 +1,7 @@
 class Question < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :employer
-
-	#accepts_nested_attributes_for :employer
+	has_many :answers
 
 	def self.search(params)
 		if params

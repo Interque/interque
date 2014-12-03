@@ -12,6 +12,7 @@ class QuestionsController < ApplicationController
   # GET /questions/1
   # GET /questions/1.json
   def show
+    @answer = @question.answers.new
   end
 
   # GET /questions/new
@@ -31,6 +32,9 @@ class QuestionsController < ApplicationController
 
     employer = Employer.find_or_create_by(name: params[:name])
     @question.employer = employer
+
+    # answer = Answer.create(params)
+    # @question.answer = answer
 
     respond_to do |format|
       if @question.save
@@ -69,16 +73,12 @@ class QuestionsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_question
-      @question = Question.find(params[:id])
-    end
+  def set_question
+    @question = Question.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def question_params
-      params.require(:question).permit(:title, :description, :user_id)
-    end
-
-    # def employer_params
-    #    params.require(:question).permit(:employers => :name)
-    # end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def question_params
+    params.require(:question).permit(:title, :description, :user_id)
+  end
 end
