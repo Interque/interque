@@ -1,12 +1,12 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
+  before_action :require_login, only: [:edit, :update, :new, :create, :destroy, :show]
 
 
   # GET /questions
   # GET /questions.json
   def index
      @questions = Question.search(params[:user])
-
   end
 
   # GET /questions/1
@@ -80,5 +80,11 @@ class QuestionsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def question_params
     params.require(:question).permit(:title, :description, :user_id)
+  end
+
+  def require_login
+    unless current_user
+      redirect_to root_url, { :notice => "Please login to continue." }
+    end
   end
 end
