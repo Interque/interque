@@ -1,10 +1,12 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
 
+
   # GET /questions
   # GET /questions.json
   def index
      @questions = Question.search(params[:user])
+
   end
 
   # GET /questions/1
@@ -15,6 +17,7 @@ class QuestionsController < ApplicationController
   # GET /questions/new
   def new
     @question = Question.new
+    @employer = Employer.new
   end
 
   # GET /questions/1/edit
@@ -25,6 +28,9 @@ class QuestionsController < ApplicationController
   # POST /questions.json
   def create
     @question = Question.new(question_params)
+
+    employer = Employer.find_or_create_by(name: params[:name])
+    @question.employer = employer
 
     respond_to do |format|
       if @question.save
@@ -71,4 +77,8 @@ class QuestionsController < ApplicationController
     def question_params
       params.require(:question).permit(:title, :description, :user_id)
     end
+
+    # def employer_params
+    #    params.require(:question).permit(:employers => :name)
+    # end
 end

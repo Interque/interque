@@ -5,6 +5,8 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 <%= form_tag questions_path, :method => 'get' do %>
@@ -13,7 +15,7 @@
     <%= submit_tag "Search", :name => nil %>
   </p>
 <% end %>
-	<%= debug params %>
+	
 	<div id="container">
 		<div id="user_nav">
 			<% if current_user %>
