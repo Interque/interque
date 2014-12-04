@@ -12,8 +12,11 @@
   </thead>
 
   <tbody>
-    <% @questions.each do |question| %>
+    <% Question.order(:cached_votes_up => :desc).each do |question| %>
+    <%#@questions.each do |question| %>
       <tr>
+        <td><%= question.score %></td>
+        <td><%= link_to "me too", like_question_path(question), method: :put %></td>
         <td><%= question.title %></td>
         <td><%= question.description %></td>
         <td><%= link_to 'Show', question %></td>

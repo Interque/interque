@@ -9,6 +9,14 @@ Rails.application.routes.draw do
       put "dislike", to: "answers#downvote"
     end
   end
+
+  resources :questions do 
+    member do 
+      put "like", to: "questions#upvote"
+    end
+  end
+
+
   resources :comments, only: [:update, :create, :destroy]
 
   resources :employers
