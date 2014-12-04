@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  resources :answers
-  resources :questions do
-    resources :answers
-  end
+  resources :answers, only: [:update, :create, :destroy]
+  resources :comments, only: [:update, :create, :destroy]
+ 
 
   resources :employers
   resources :questions
