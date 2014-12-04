@@ -10,23 +10,22 @@
   <%= @question.description %>
 </p>
 
+<h3>New Question Comment</h3>
+<%= render 'question_comments' %>
+
 <h3>Answers</h3>
 <% @question.answers.each do |answer| %>
 	<p>
-		<%= debug answer.description %>
 		<br>
 		<% answer.comments.each do |comment| %>
 		<%= comment.description %>
 		<% end %>
-		<h3>New Comment</h3>
+		<h3>New Answer Comment</h3>
 		<%= render 'answer_comments', answer: answer %>
 	
 		Added: <%= answer.updated_at %>
 	</p>
 <% end %>
-
-<h3>New Comment</h3>
-<%= render 'question_comments' %>
 
 <h3>New Answer</h3>
 <%= render 'answers/form' %>
