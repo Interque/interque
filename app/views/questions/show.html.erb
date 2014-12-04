@@ -14,11 +14,10 @@
 
 <br> <!-- ANSWERS BELOW THIS LINE-->
 
-<a href="#" class="new-answer-btn">New Answer</a>
+<%= render 'answers/form' %>
+<a href="#" class="new-answer-btn">View Answers</a>
 <div class="answers-container">
-  <h3>Answers</h3>
-    <h3>New Answer</h3>
-    <%= render 'answers/form' %>
+    <h3>Answers</h3>
     <% @question.answers.each do |answer| %>  
       <%= answer.description %>
       <p><%= answer.updated_at %></p>
