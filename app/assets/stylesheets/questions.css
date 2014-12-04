@@ -2,3 +2,22 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+
+
+
+
+
+/*******************************
+*******FIELDS & CONTAINERS******
+********************************/
+.question-comment-container {
+  display: none;
+}
+
+.question-comment-field {
+  display: none;
+}
+
+.answers-container {
+  display: none;
+}
