@@ -8,7 +8,7 @@
 <!-- QUESTION COMMMENTS BELOW THIS LINE -->
 
 <div id="question-container">
-  <h2>Question:</h2>
+  <h2>Question</h2>
     <h3><%= @question.description %></h3>
 </div>
 
@@ -18,10 +18,15 @@
 <a href="#" class="new-answer-btn">View Answers</a>
 <div class="answers-container">
     <h3>Answers</h3>
-    <% @question.answers.each do |answer| %>  
+
+    <% Answer.order(:cached_votes_up => :desc).each do |answer| %>
+      <%= answer.score %>
+      <%= link_to "upvote", like_answer_path(answer), method: :put %>
+      <%= link_to "downvote", dislike_answer_path(answer), method: :put %>
       <%= answer.description %>
       <p><%= answer.updated_at %></p>
-  <% end %>
+      
+    <% end %>
 
 </div>
 

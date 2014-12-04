@@ -3,6 +3,20 @@ Rails.application.routes.draw do
   root 'splash#index'
 
   resources :answers, only: [:update, :create, :destroy]
+  resources :answers do 
+    member do 
+      put "like", to: "answers#upvote"
+      put "dislike", to: "answers#downvote"
+    end
+  end
+
+  resources :questions do 
+    member do 
+      put "like", to: "questions#upvote"
+    end
+  end
+
+
   resources :comments, only: [:update, :create, :destroy]
 
   resources :employers

@@ -6,15 +6,20 @@ class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.json
   def index
-     @questions = Question.search(params[:user])
+    if params[:employer]
+     @questions = Question.search(params[:employer]).order(:cached_votes_up => :desc)
+   else
+    @questions = Question.all.order(:cached_votes_up => :desc)
+   end
   end
 
   # GET /questions/1
   # GET /questions/1.json
   def show
-    @answer = @question.answers.new
-    @question_comment = @question.comments.new
-    @answer_comment = @answer.comments.new
+    @answer = Answer.new(question: @question)
+    #@answer = @question.answers.new
+    #@question_comment = @question.comments.new
+    #@answer_comment = @answer.comments.new
   end
 
   # GET /questions/new
@@ -71,6 +76,12 @@ class QuestionsController < ApplicationController
       format.html { redirect_to questions_url, notice: 'Question was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def upvote
+    @question = Question.find(params[:id])
+    @question.upvote_by current_user
+    redirect_to :back
   end
 
   private

@@ -36,9 +36,14 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-linkedin-oauth2'
 gem 'omniauth-github'
-gem 'better_errors'
-gem 'binding_of_caller'
+# gem 'better_errors'
+# gem 'binding_of_caller'
 gem 'rails_12factor'
+
+gem 'acts_as_votable', '~> 0.10.0'
+
+gem 'sunspot_rails'
+gem 'sunspot_solr'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
