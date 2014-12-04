@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+
+  root 'splash#index'
+
   resources :answers, only: [:update, :create, :destroy]
   resources :comments, only: [:update, :create, :destroy]
- 
 
   resources :employers
   resources :questions
@@ -10,7 +12,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'questions#index'
+  #root 'questions#index'
 
   match '/auth/twitter/callback', to: 'sessions#create', via: [:get, :post]
   match '/auth/github/callback', to: 'sessions#create', via: [:get, :post]

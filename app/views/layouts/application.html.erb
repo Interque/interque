@@ -6,6 +6,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/4.2.1/bootstrap-social.css">
   <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
@@ -16,20 +17,6 @@
   </p>
 <% end %>
 	
-	<div id="container">
-		<div id="user_nav">
-			<% if current_user %>
-  			Signed in as <%= current_user.name %>!
-  			<%= link_to "Sign out", signout_path %>
-			<% else %>
-  			<%= link_to "Sign in with Twitter", "/auth/twitter" %>
-  			<%= link_to "Sign in with Github", "/auth/github" %>
-
-			<% end %>
-
-		</div>
-
-	</div>
 
 <%= yield %>
 
