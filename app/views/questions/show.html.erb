@@ -10,11 +10,15 @@
   <%= @question.description %>
 </p>
 
+<% @question.comments.each do |question_comment| %>
+	<p>
+		<%= question_comment.description %>
+	</p>
+<% end %>
+
 <h3>New Question Comment</h3>
 <%= render 'question_comments' %>
 
-<h3>New Answer</h3>
-<%= render 'answers/form' %>
 <h3>Answers</h3>
 <% @question.answers.each do |answer| %>
 	<p>
@@ -31,6 +35,9 @@
 		Added: <%= answer.updated_at %>
 	</p>
 <% end %>
+
+<h3>New Answer</h3>
+<%= render 'answers/form' %>
 
 
 <%= link_to 'Edit', edit_question_path(@question) %> |
