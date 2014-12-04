@@ -12,45 +12,16 @@
     <h3><%= @question.description %></h3>
 </div>
 
-<br>
-
-<a href="#" class="question-comments-btn">Question Comments</a>
-<div class="question-comment-container">
-<% @question.comments.each do |question_comment| %>
-	<p>
-		<%= question_comment.description %>
-	</p>
-<% end %>
-
-  <div class="question-comment-field">
-    <h3>New Question Comment</h3>
-    <%= render 'question_comments' %>
-  </div>
-  <a href="#" class="new-question-comment">New Question Comment</a>
-</div>
-
 <br> <!-- ANSWERS BELOW THIS LINE-->
 
 <a href="#" class="new-answer-btn">New Answer</a>
 <div class="answers-container">
   <h3>Answers</h3>
-  Added: <%= @answer.updated_at %>
     <h3>New Answer</h3>
     <%= render 'answers/form' %>
-  <% @question.answers.each do |answer| %>
-    <p>
+    <% @question.answers.each do |answer| %>  
       <%= answer.description %>
-      <br>
-      <% answer.comments.each do |comment| %>
-      <%= comment.description %>
-      <br>
-      <% end %>
-
-      <h3>New Answer Comment</h3>
-      <%= render 'answer_comments', answer: answer %>
-    
-      Added: <%# answer.updated_at %>
-    </p>
+      <p>Added: <%= @answer.updated_at %></p>
   <% end %>
 
 </div>
