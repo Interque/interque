@@ -12,7 +12,7 @@
   </thead>
 
   <tbody>
-    <% Question.order(:cached_votes_up => :desc).each do |question| %>
+    <% @questions.each do |question| %>
     <%#@questions.each do |question| %>
       <tr>
         <td><%= question.score %></td>

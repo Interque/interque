@@ -6,11 +6,12 @@ class Question < ActiveRecord::Base
 	acts_as_votable
 
 	def self.search(params)
-		if params
-			@questions = Question.where(user_id: params)
-    else
-      @questions = Question.all     
-    end
+		emp = Employer.where(name: params).take
+		if emp
+			Question.where(employer_id: emp.id)
+		else
+			Question.all  
+		end
 	end
 
 	def score
