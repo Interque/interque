@@ -13,22 +13,24 @@
 <h3>New Question Comment</h3>
 <%= render 'question_comments' %>
 
+<h3>New Answer</h3>
+<%= render 'answers/form' %>
 <h3>Answers</h3>
 <% @question.answers.each do |answer| %>
 	<p>
+		<%= answer.description %>
 		<br>
 		<% answer.comments.each do |comment| %>
 		<%= comment.description %>
+		<br>
 		<% end %>
+
 		<h3>New Answer Comment</h3>
 		<%= render 'answer_comments', answer: answer %>
 	
 		Added: <%= answer.updated_at %>
 	</p>
 <% end %>
-
-<h3>New Answer</h3>
-<%= render 'answers/form' %>
 
 
 <%= link_to 'Edit', edit_question_path(@question) %> |
