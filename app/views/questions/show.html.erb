@@ -21,7 +21,7 @@
     <%= render 'answers/form' %>
     <% @question.answers.each do |answer| %>  
       <%= answer.description %>
-      <p>Added: <%= @answer.updated_at %></p>
+      <p><%= answer.updated_at %></p>
   <% end %>
 
 </div>
