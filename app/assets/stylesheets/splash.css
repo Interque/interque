@@ -4,13 +4,3 @@
 	max-width: 400px;
 	max-height: 400px;
 }
-
-.container{
-  background: -webkit-linear-gradient(left top, darkblue , blue); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(bottom right, darkblue, blue); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(bottom right, darkblue, blue); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to bottom right, darkblue, blue); /* Standard syntax */
-  background-repeat: repeat;
-  width: 100%;
-  height: 100%;
-  }
