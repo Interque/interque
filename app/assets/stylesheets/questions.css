@@ -10,14 +10,6 @@
 /*******************************
 *******FIELDS & CONTAINERS******
 ********************************/
-.question-comment-container {
-  display: none;
-}
-
-.question-comment-field {
-  display: none;
-}
-
 .answers-container {
   display: none;
 }
