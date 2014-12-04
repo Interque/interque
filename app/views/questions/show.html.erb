@@ -1,14 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
-  <%= @question.title %>
+  <h1><%= @question.title %></h1>
 </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @question.description %>
-</p>
+<div id="question_container">
+  <h2>Question:</h2>
+    <%= @question.description %>
+</div>
 
 <% @question.comments.each do |question_comment| %>
 	<p>
