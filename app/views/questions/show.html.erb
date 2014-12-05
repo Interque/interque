@@ -24,7 +24,7 @@
       <%= link_to "upvote", like_answer_path(answer), method: :put %>
       <%= link_to "downvote", dislike_answer_path(answer), method: :put %>
       <%= answer.description %>
-      <p><%= answer.updated_at %></p>
+      <p><%= time_ago_in_words(answer.updated_at) %> ago.</p>
       
     <% end %>
 
