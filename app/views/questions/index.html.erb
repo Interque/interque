@@ -1,8 +1,8 @@
 <%= render 'login' %>
 <p id="notice"><%= notice %></p>
-<h1>Listing questions</h1>
+<h1 class="list-title text-center">Listing questions</h1>
 
-<div>
+<div class="all-questions text-center">
   <% @questions.each do |question| %>
       <%= question.score %>
       <%= link_to "me too", like_question_path(question), method: :put %>
@@ -13,7 +13,8 @@
       <%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %><br>
       Tags: <%= raw question.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %><br>
   <% end %>
-</div>
+
 <br>
 
 <%= link_to 'New Question', new_question_path %>
+</div>

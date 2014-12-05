@@ -13,3 +13,18 @@
 .answers-container {
   display: none;
 }
+
+.list-title{
+
+}
+
+.all-questions{
+	margin: 0 auto;
+	border-style: solid;
+	border-color: #d3d3d3;
+	max-width: 50%;
+}
+
+.question-title{
+	border-style: solid;
+}
