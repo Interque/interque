@@ -23,6 +23,14 @@
 	
 }
 
+#question_tag_list {
+	width: 190px;
+}
+
+/*******************************
+**************DIVS**************
+********************************/
+
 .tags-excluded{
 	margin: 0 auto;
 	border-width: 1px;
@@ -35,6 +43,10 @@
 .just-tags{
 	padding-bottom: 15px;
 }
+
+/*******************************
+************TITLES**************
+********************************/
 
 .question-title{
 	border-style: none;
