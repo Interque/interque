@@ -1,13 +1,13 @@
 <%= render 'login' %>
 <p id="notice"><%= notice %></p>
-<h1 class="list-title text-center">Listing questions</h1>
+<!-- <h2 class="list-title text-center">Listing questions</h2> -->
 
 <div class="all-questions text-center">
   <% @questions.each do |question| %>
+  <h4 class="question-title"><%= question.title %></h4>
     <div class="tags-excluded">
       <%= question.score %>
       <%= link_to "me too", like_question_path(question), method: :put %>
-      <%= question.title %>
       <%= question.description %>
       <%= link_to 'Show', question %>
       <%= link_to 'Edit', edit_question_path(question) %>
