@@ -7,7 +7,7 @@ class QuestionsController < ApplicationController
   def index
     if params[:tag]
       #if (Question.tagged_with(params[:tag])).length > 0
-        @questions = Question.tagged_with(params[:tag]).order(:cached_votes_up => :desc)
+        @questions = Question.tagged_with(params[:tag].downcase).order(:cached_votes_up => :desc)
       #end
     else
       @questions = Question.all.order(:cached_votes_up => :desc)
