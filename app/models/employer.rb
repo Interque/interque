@@ -1,5 +1,5 @@
 class Employer < ActiveRecord::Base
-	after_create :create_tag
+	#after_create :create_tag
 	has_many :questions
 	acts_as_taggable
 
