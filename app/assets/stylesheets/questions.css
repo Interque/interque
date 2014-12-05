@@ -15,13 +15,20 @@
 }
 
 .list-title{
-
+	margin-top: 25px;
 }
 
 .all-questions{
 	margin: 0 auto;
+	
+}
+
+.tags-excluded{
+	margin: 0 auto;
+	border-width: 1px;
 	border-style: solid;
 	border-color: #d3d3d3;
+	padding: 20px;
 	max-width: 50%;
 }
 

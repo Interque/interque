@@ -4,6 +4,7 @@
 
 <div class="all-questions text-center">
   <% @questions.each do |question| %>
+    <div class="tags-excluded">
       <%= question.score %>
       <%= link_to "me too", like_question_path(question), method: :put %>
       <%= question.title %>
@@ -11,6 +12,7 @@
       <%= link_to 'Show', question %>
       <%= link_to 'Edit', edit_question_path(question) %>
       <%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %><br>
+    </div>
       Tags: <%= raw question.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %><br>
   <% end %>
 
