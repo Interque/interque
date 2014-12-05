@@ -1,10 +1,17 @@
 class Question < ActiveRecord::Base
+	after_save :create_tag
+
 	belongs_to :user
 	belongs_to :employer
 	has_many :answers
 	has_many :comments
 	acts_as_votable
 	acts_as_taggable
+
+	def create_tag
+		self.tag_list.add(self.employer.name)
+		#find_or_create_with_like_by_name
+	end
 
 	def self.search(params)
 		emp = Employer.where(name: params).take
