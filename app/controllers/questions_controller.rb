@@ -14,8 +14,16 @@ class QuestionsController < ApplicationController
       @questions = Question.all.order(:cached_votes_up => :desc)
     end
 
+
     # if params[:employer]
     #   @questions = Question.search(params[:employer]).order(:cached_votes_up => :desc)  
+
+    if params[:tag]
+      @questions = Question.tagged_with(params[:tag]).order(:cached_votes_up => :desc)
+    else
+      @questions = Question.all.order(:cached_votes_up => :desc)
+    end  
+
   end
 
   # GET /questions/1
