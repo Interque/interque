@@ -32,6 +32,10 @@
 	max-width: 50%;
 }
 
+.just-tags{
+	padding-bottom: 15px;
+}
+
 .question-title{
 	border-style: solid;
 }

@@ -13,7 +13,9 @@
       <%= link_to 'Edit', edit_question_path(question) %>
       <%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %><br>
     </div>
+    <div class="just-tags">
       Tags: <%= raw question.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %><br>
+    </div>
   <% end %>
 
 <br>
