@@ -28,3 +28,9 @@
 .question-title{
 	border-style: solid;
 }
+
+.nav-menu{
+	float: right;
+	margin-right: 50px;
+	padding: 10px;
+}
