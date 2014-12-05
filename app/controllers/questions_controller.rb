@@ -13,9 +13,9 @@ class QuestionsController < ApplicationController
     end
 
     if params[:tag]
-      @questions = Question.tagged_with(params[:tag])
+      @questions = Question.tagged_with(params[:tag]).order(:cached_votes_up => :desc)
     else
-      @questions = Question.all
+      @questions = Question.all.order(:cached_votes_up => :desc)
     end  
   end
 
