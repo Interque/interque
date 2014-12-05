@@ -11,6 +11,7 @@
   <h2>Question</h2>
     <h3><%= @question.description %></h3>
 </div>
+  <p>Created by: <%= @question.user.name %></p>
   <p><%= time_ago_in_words(@question.created_at) %> ago.</p>
   Tags: <%= raw @question.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %><br>
 
