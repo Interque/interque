@@ -10,12 +10,12 @@
   <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-<%# form_tag questions_path, :method => 'get' do %>
-  <!--p>
-    <%# text_field_tag :employer, params[:employer] %>
-    <%# submit_tag "Search", :name => nil %>
-  </p -->
-<%# end %>
+<%= form_tag questions_path, id: "search-box", :method => 'get' do %>
+  <p>
+    <%= text_field_tag :tag, params[:tag] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p >
+<% end %>
 	
 <%= yield %>
 

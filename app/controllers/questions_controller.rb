@@ -6,17 +6,16 @@ class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.json
   def index
-    if params[:employer]
-      @questions = Question.search(params[:employer]).order(:cached_votes_up => :desc)
+    if params[:tag]
+      #if (Question.tagged_with(params[:tag])).length > 0
+        @questions = Question.tagged_with(params[:tag]).order(:cached_votes_up => :desc)
+      #end
     else
       @questions = Question.all.order(:cached_votes_up => :desc)
     end
 
-    if params[:tag]
-      @questions = Question.tagged_with(params[:tag])
-    else
-      @questions = Question.all
-    end  
+    # if params[:employer]
+    #   @questions = Question.search(params[:employer]).order(:cached_votes_up => :desc)  
   end
 
   # GET /questions/1

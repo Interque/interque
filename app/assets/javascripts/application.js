@@ -14,3 +14,16 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+	$('#search-box').submit(function(e){
+		if(!$(this).val()){
+			$(this)
+
+		}
+	})
+})
+
+#search-box > div > input[type="hidden"]
+#search-box > div > input[type="hidden"]
+

@@ -13,6 +13,12 @@ class Question < ActiveRecord::Base
 		else
 			Question.all  
 		end
+
+		# if params
+  #   	find(:all, :conditions => ['name LIKE ?', "%#{params}%"])
+  # 	else
+  #   	find(:all)
+  # 	end
 	end
 
 	def score
