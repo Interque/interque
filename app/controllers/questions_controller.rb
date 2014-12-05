@@ -7,10 +7,16 @@ class QuestionsController < ApplicationController
   # GET /questions.json
   def index
     if params[:employer]
-     @questions = Question.search(params[:employer]).order(:cached_votes_up => :desc)
-   else
-    @questions = Question.all.order(:cached_votes_up => :desc)
-   end
+      @questions = Question.search(params[:employer]).order(:cached_votes_up => :desc)
+    else
+      @questions = Question.all.order(:cached_votes_up => :desc)
+    end
+
+    if params[:tag]
+      @questions = Question.tagged_with(params[:tag])
+    else
+      @questions = Question.all
+    end  
   end
 
   # GET /questions/1
@@ -92,7 +98,7 @@ class QuestionsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def question_params
-    params.require(:question).permit(:title, :description, :user_id)
+    params.require(:question).permit(:title, :description, :user_id, :tag_list)
   end
 
   def require_login

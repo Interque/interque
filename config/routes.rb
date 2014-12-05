@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'tags/:tag', to: 'questions#index', as: :tag
 
   resources :comments, only: [:update, :create, :destroy]
 
