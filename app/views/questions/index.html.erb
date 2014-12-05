@@ -2,31 +2,18 @@
 <p id="notice"><%= notice %></p>
 <h1>Listing questions</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @questions.each do |question| %>
-    <%#@questions.each do |question| %>
-      <tr>
-        <td><%= question.score %></td>
-        <td><%= link_to "me too", like_question_path(question), method: :put %></td>
-        <td><%= question.title %></td>
-        <td><%= question.description %></td>
-        <td><%= link_to 'Show', question %></td>
-        <td><%= link_to 'Edit', edit_question_path(question) %></td>
-        <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<div>
+  <% @questions.each do |question| %>
+      <%= question.score %>
+      <%= link_to "me too", like_question_path(question), method: :put %>
+      <%= question.title %>
+      <%= question.description %>
+      <%= link_to 'Show', question %>
+      <%= link_to 'Edit', edit_question_path(question) %>
+      <%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %><br>
+      Tags: <%= raw question.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %><br>
+  <% end %>
+</div>
 <br>
 
 <%= link_to 'New Question', new_question_path %>

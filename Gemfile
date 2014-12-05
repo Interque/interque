@@ -42,6 +42,8 @@ gem 'rails_12factor'
 
 gem 'acts_as_votable', '~> 0.10.0'
 
+gem 'acts-as-taggable-on', '~> 3.4'
+
 # gem 'sunspot_rails'
 # gem 'sunspot_solr'
 # Use ActiveModel has_secure_password

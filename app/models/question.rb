@@ -4,6 +4,7 @@ class Question < ActiveRecord::Base
 	has_many :answers
 	has_many :comments
 	acts_as_votable
+	acts_as_taggable
 
 	def self.search(params)
 		emp = Employer.where(name: params).take

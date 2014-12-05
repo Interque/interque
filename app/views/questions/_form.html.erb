@@ -18,6 +18,10 @@
     <%= f.text_field :title %>
   </div>
   <div class="field">
+    <%= f.label :tag_list, "Tags (separated by commas)" %><br>
+    <%= f.text_field :tag_list %>
+  </div>
+  <div class="field">
     <%= f.label :description %><br>
     <%= f.text_area :description %>
     
@@ -27,8 +31,6 @@
     <%= label_tag "Employer Name" %><br>
     <%= text_field_tag :name %>
   </div>
-    
-
   <div class="actions">
     <%= f.submit %>
   </div>
