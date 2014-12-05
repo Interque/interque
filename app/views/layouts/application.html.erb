@@ -9,6 +9,16 @@
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/4.2.1/bootstrap-social.css">
   <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 </head>
+
+<header>
+  <nav class="nav-menu">
+    <%= link_to 'Home', root_path %>
+    <%= link_to 'New Question', new_question_path, class: "btn btn-primary" %>
+    <%= link_to 'Job Board', '#' %>
+  </nav>
+
+</header>
+
 <body>
 <%= form_tag questions_path, id: "search-box", :method => 'get' do %>
   <p>
@@ -16,13 +26,6 @@
     <%= submit_tag "Search", :name => nil %>
   </p >
 <% end %>
-
-<nav class="nav-menu">
-  <%= link_to 'Home', root_path %>
-  <%= link_to 'New Question', new_question_path, class: "btn btn-primary" %>
-  <%= link_to 'Job Board', '#' %>
-
-</nav>
 	
 <%= yield %>
 
