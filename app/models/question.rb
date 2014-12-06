@@ -8,6 +8,9 @@ class Question < ActiveRecord::Base
 	acts_as_votable
 	acts_as_taggable
 
+  validates :title, presence: true
+  validates :description, presence: true
+
 	def create_tag
 		self.tag_list.add(self.employer.name.downcase)
 		#find_or_create_with_like_by_name
