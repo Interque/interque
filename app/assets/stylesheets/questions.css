@@ -39,8 +39,27 @@
 .all-questions{
 	margin: 0 auto;
 	margin-top: 50px;
-	
 }
+
+.created-at{
+	/*font-style: italic;*/
+	font-weight: bold;
+}
+
+#question-container{
+	max-width: 600px; 
+	margin: 0 auto;
+}
+
+.answer-description{
+	max-width: 500px;
+	font-size: 17px;
+	display: inline-block;
+}
+
+/*#show-question{
+	max-width: 100px;
+}*/
 
 #question_tag_list {
 	width: 190px;
@@ -94,3 +113,17 @@
 	margin-top: 3%;
 	padding-right: 10px;
 }
+
+/*******************************
+************Up/Downvote*********
+********************************/
+
+.glyphicon-chevron-up{
+	margin: auto auto;
+}
+
+.answer-votes{
+	display: inline;
+}
+
+

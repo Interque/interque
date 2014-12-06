@@ -20,18 +20,31 @@
 
 <%= render 'answers/form' %>
 Answers<a href="#" class="new-answer-btn">(<%= @question.answers.count %>)</a>
-<div class="answers-container">
+<div class="answers-container text-center">
     <h4>Answers</h4>
+    <table>
+      <% @question.answers.order(:cached_votes_up => :desc).each do |answer| %>
+          <tr>
+            <td class="text-center">
+              <div class="answer-votes">
+                <%= link_to "", like_answer_path(answer), method: :put, class: "glyphicon glyphicon-chevron-up" %><br>
+                <%= answer.score %><br>
+                <%= link_to "", dislike_answer_path(answer), method: :put, class: "glyphicon glyphicon-chevron-down" %>
+              </div>
+            </td>
 
-    <% @question.answers.order(:cached_votes_up => :desc).each do |answer| %>
-      <%= answer.score %>
-      <%= link_to "", like_answer_path(answer), method: :put, class: "glyphicon glyphicon-arrow-up" %>
-      <%= link_to "", dislike_answer_path(answer), method: :put, class: "glyphicon glyphicon-arrow-down" %>
-      <%= answer.description %>
-      <p><%= time_ago_in_words(answer.created_at) %> ago.</p>
-      
-    <% end %>
-
+            <td>
+              <div class="answer-description text-center">
+                <%= answer.description %>
+              </div>
+            
+              <div class="created-at text-center"><%= time_ago_in_words(answer.created_at) %> ago.
+              </div>
+            </td>
+          </tr>
+        
+      <% end %>
+    </table>
 </div>
 
 <br>
