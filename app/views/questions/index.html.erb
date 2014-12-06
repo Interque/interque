@@ -9,7 +9,7 @@
   <h4 class="question-title"><%= question.title %></h4>
     <div class="tags-excluded">
       <%= question.score %>
-      <%= link_to '', like_question_path(question), method: :put, class: "fa fa-plus-square-o" %>
+      <%= link_to '', like_question_path(question), method: :put, class: "fa fa-check-circle" %>
       <%# question.description %>
       <%= link_to "#{question.description}", question, class: "question-description" %>
       <%= link_to 'Edit', edit_question_path(question) %>
