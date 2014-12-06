@@ -3,9 +3,14 @@
   They will automatically be included in application.css.
 */
 
+/*******************************
+************IMAGES**************
+********************************/
 
-
-
+#logo{
+	float: left;
+	margin-top: 3%;
+}
 
 /*******************************
 *******FIELDS & CONTAINERS******
@@ -14,9 +19,17 @@
   display: none;
 }
 
+#search-bar{
+	text-align: right;
+}
+
 .random{
 	color: #fff;
 	background-color: red;
+}
+
+#input{
+	color: green;
 }
 
 .list-title{
@@ -25,6 +38,7 @@
 
 .all-questions{
 	margin: 0 auto;
+	margin-top: 50px;
 	
 }
 
@@ -42,11 +56,27 @@
 	border-style: solid;
 	border-color: #d3d3d3;
 	padding: 20px;
-	max-width: 50%;
+	max-width: 45%;
 }
 
 .just-tags{
 	padding-bottom: 15px;
+}
+
+.question-description{
+	color: black;
+}
+
+.new-question-button{
+	padding: 10px;
+}
+
+.glyphicon-ban-circle{
+	color: red;
+}
+
+.glyphicon-plus-sign{
+	color: #5cb85c;
 }
 
 /*******************************
@@ -61,5 +91,6 @@
 .nav-menu{
 	float: right;
 	margin-right: 50px;
-	padding: 10px;
+	margin-top: 3%;
+	padding-right: 10px;
 }

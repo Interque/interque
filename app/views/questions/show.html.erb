@@ -1,15 +1,15 @@
-<%= render 'login' %>
-<p id="notice"><%= notice %></p>
 
+<p id="notice"><%= notice %></p>
+<br>
+<div class="text-center">
 <p>
-  <h1><%= @question.title %></h1>
+  <h3><%= @question.title %></h3>
 </p>
 
 <!-- QUESTION COMMMENTS BELOW THIS LINE -->
 
 <div id="question-container">
-  <h2>Question</h2>
-    <h3><%= @question.description %></h3>
+    <h4><%= @question.description %></h4>
 </div>
   <p>Created by: <%= @question.user.name %></p>
   <p><%= time_ago_in_words(@question.created_at) %> ago.</p>
@@ -21,12 +21,12 @@
 <%= render 'answers/form' %>
 Answers<a href="#" class="new-answer-btn">(<%= @question.answers.count %>)</a>
 <div class="answers-container">
-    <h3>Answers</h3>
+    <h4>Answers</h4>
 
     <% @question.answers.order(:cached_votes_up => :desc).each do |answer| %>
       <%= answer.score %>
-      <%= link_to "upvote", like_answer_path(answer), method: :put %>
-      <%= link_to "downvote", dislike_answer_path(answer), method: :put %>
+      <%= link_to "", like_answer_path(answer), method: :put, class: "glyphicon glyphicon-arrow-up" %>
+      <%= link_to "", dislike_answer_path(answer), method: :put, class: "glyphicon glyphicon-arrow-down" %>
       <%= answer.description %>
       <p><%= time_ago_in_words(answer.created_at) %> ago.</p>
       
@@ -38,3 +38,4 @@ Answers<a href="#" class="new-answer-btn">(<%= @question.answers.count %>)</a>
 
 <%= link_to 'Edit', edit_question_path(@question) %> |
 <%= link_to 'Back', questions_path %>
+</div>

@@ -1,4 +1,4 @@
-<%= render 'login' %>
+
 <p id="notice"><%= notice %></p>
 <!-- <h2 class="list-title text-center">Listing questions</h2> -->
 
@@ -9,11 +9,15 @@
   <h4 class="question-title"><%= question.title %></h4>
     <div class="tags-excluded">
       <%= question.score %>
+<<<<<<< HEAD
       <%= link_to '', like_question_path(question), method: :put, class: "fa fa-check-circle" %>
+=======
+      <%= link_to '', like_question_path(question), method: :put, class: "glyphicon glyphicon-plus-sign", id: "counter", title: "Click if you were also asked this question." %>
+>>>>>>> 85564c55a68259200f0d0b6aa15aa71b38d100bb
       <%# question.description %>
       <%= link_to "#{question.description}", question, class: "question-description" %>
-      <%= link_to 'Edit', edit_question_path(question) %>
-      <%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %><br>
+      <%= link_to '', edit_question_path(question), class: "glyphicon glyphicon-edit" %>
+      <%= link_to '', question, method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-ban-circle", title: "Delete this question." %><br>
     </div>
     <div class="just-tags">
       Tags: <%= raw question.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %><br>

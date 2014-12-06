@@ -12,23 +12,25 @@
 </head>
 
 <header>
+  <div id="logo" class="text-center"><%= image_tag("logo.png", size: "367x55") %></div>
   <nav class="nav-menu">
-    <%= link_to 'Home', root_path %>
-    <%= link_to 'New Question', new_question_path, class: "btn btn-primary" %>
-    <%= link_to 'Job Board', '#' %>
+    <%= link_to 'Home', root_path, class: "btn btn-success" %>
+    <%= link_to 'New Question', new_question_path, class: "btn btn-primary", id: "new-link", remote: true %>
+    <%= link_to 'Job Board', '#', class: "btn btn-success" %>
+    <%= form_tag questions_path, id: "search-box", :method => 'get' do %>
+      <p id="search-bar">
+        <%= text_field_tag :tag, params[:tag] %>
+        <%= submit_tag "Search", :name => nil, class: "btn btn-default" %>
+      </p >
+    <% end %>
   </nav>
+
 <!-- model callback, question model -->
 </header>
-
 <body>
-<%= form_tag questions_path, id: "search-box", :method => 'get' do %>
-  <p>
-    <%= text_field_tag :tag, params[:tag] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p >
-<% end %>
+  <br><br><br><br><br>
 	
-<%= yield %>
+  <%= yield %>
 
 </body>
 </html>
