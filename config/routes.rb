@@ -31,6 +31,7 @@ Rails.application.routes.draw do
 
   match '/auth/twitter/callback', to: 'sessions#create', via: [:get, :post]
   match '/auth/github/callback', to: 'sessions#create', via: [:get, :post]
+  match '/auth/google_oauth2/callback', to: 'sessions#create', via: [:get, :post]
   #match '/auth/linkedin/callback', to: 'sessions#create', via: [:get, :post]
   match 'auth/failure', to: redirect('/'), via: [:get, :post]
   match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
