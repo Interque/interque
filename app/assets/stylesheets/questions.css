@@ -71,6 +71,14 @@
 	padding: 10px;
 }
 
+.glyphicon-ban-circle{
+	color: red;
+}
+
+.glyphicon-plus-sign{
+	color: #5cb85c;
+}
+
 /*******************************
 ************TITLES**************
 ********************************/

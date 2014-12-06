@@ -12,6 +12,7 @@
 </head>
 
 <header>
+  <div id="logo" class="text-center"><%= image_tag("logo.png", size: "367x55") %></div>
   <nav class="nav-menu">
     <%= link_to 'Home', root_path, class: "btn btn-success" %>
     <%= link_to 'New Question', new_question_path, class: "btn btn-primary", id: "new-link", remote: true %>
@@ -23,8 +24,6 @@
       </p >
     <% end %>
   </nav>
-  
-    <div id="logo" class="text-center"><%= image_tag("logo.png", size: "367x55") %></div>
 
 <!-- model callback, question model -->
 </header>
