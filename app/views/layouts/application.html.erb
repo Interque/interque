@@ -17,16 +17,18 @@
     <%= link_to 'New Question', new_question_path, class: "btn btn-primary" %>
     <%= link_to 'Job Board', '#' %>
   </nav>
+  <div>
+    <div id="logo"><%= image_tag("logo.png", size: "367x55") %></div>
+    <%= form_tag questions_path, id: "search-box", :method => 'get' do %>
+      <p id="search-bar">
+        <%= text_field_tag :tag, params[:tag] %>
+        <%= submit_tag "Search", :name => nil %>
+      </p >
+    <% end %>
+  </div>
 <!-- model callback, question model -->
 </header>
-
 <body>
-<%= form_tag questions_path, id: "search-box", :method => 'get' do %>
-  <p>
-    <%= text_field_tag :tag, params[:tag] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p >
-<% end %>
 	
 <%= yield %>
 

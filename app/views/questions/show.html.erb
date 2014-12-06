@@ -1,6 +1,7 @@
 <%= render 'login' %>
 <p id="notice"><%= notice %></p>
 
+<div class="text-center">
 <p>
   <h1><%= @question.title %></h1>
 </p>
@@ -8,7 +9,6 @@
 <!-- QUESTION COMMMENTS BELOW THIS LINE -->
 
 <div id="question-container">
-  <h2>Question</h2>
     <h3><%= @question.description %></h3>
 </div>
   <p>Created by: <%= @question.user.name %></p>
@@ -38,3 +38,4 @@ Answers<a href="#" class="new-answer-btn">(<%= @question.answers.count %>)</a>
 
 <%= link_to 'Edit', edit_question_path(@question) %> |
 <%= link_to 'Back', questions_path %>
+</div>

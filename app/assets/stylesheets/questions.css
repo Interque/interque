@@ -14,6 +14,15 @@
   display: none;
 }
 
+#logo{
+	float: left;
+	margin: 0 auto;
+}
+
+#search-bar{
+	text-align: right;
+}
+
 .random{
 	color: #fff;
 	background-color: red;
