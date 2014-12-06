@@ -21,6 +21,7 @@
 
 #search-bar{
 	text-align: right;
+	width: ;
 }
 
 .random{
@@ -92,5 +93,6 @@
 	float: right;
 	margin-right: 50px;
 	margin-top: 3%;
-	padding-right: 10px;
+	/*padding-right: 10px;*/
+	width: 
 }
