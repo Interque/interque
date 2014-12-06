@@ -5,24 +5,19 @@ class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.json
   def index
+    #@questions = Question.all.order(:cached_votes_up => :desc)
+    # if !(params[:tag].nil?) && params[:tag].empty?
+    #    flash[:notice] = "Please enter some text you'd like to search."
     if params[:tag]
       #if (Question.tagged_with(params[:tag])).length > 0
-        @questions = Question.tagged_with(params[:tag].downcase).order(:cached_votes_up => :desc)
+      @questions = Question.tagged_with(params[:tag].downcase).order(:cached_votes_up => :desc)
       #end
     else
       @questions = Question.all.order(:cached_votes_up => :desc)
     end
 
-
     # if params[:employer]
     #   @questions = Question.search(params[:employer]).order(:cached_votes_up => :desc)  
-
-    if params[:tag]
-      @questions = Question.tagged_with(params[:tag]).order(:cached_votes_up => :desc)
-    else
-      @questions = Question.all.order(:cached_votes_up => :desc)
-    end  
-
   end
 
   # GET /questions/1
