@@ -9,6 +9,8 @@
   <h4 class="question-title"><%= question.title %></h4>
     <div class="tags-excluded">
       <%= question.score %>
+      <%= link_to '', like_question_path(question), method: :put, class: "fa fa-check-circle" %>
+      <%= link_to '', like_question_path(question), method: :put, class: "glyphicon glyphicon-plus-sign", id: "counter", title: "Click if you were also asked this question." %>
       <%# question.description %>
       <%= link_to "#{question.description}", question, class: "question-description" %>
       <%= link_to '', edit_question_path(question), class: "glyphicon glyphicon-edit" %>
