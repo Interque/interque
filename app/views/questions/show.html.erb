@@ -25,8 +25,8 @@ Answers<a href="#" class="new-answer-btn">(<%= @question.answers.count %>)</a>
 
     <% @question.answers.order(:cached_votes_up => :desc).each do |answer| %>
       <%= answer.score %>
-      <%= link_to "upvote", like_answer_path(answer), method: :put %>
-      <%= link_to "downvote", dislike_answer_path(answer), method: :put %>
+      <%= link_to "", like_answer_path(answer), method: :put, class: "glyphicon glyphicon-arrow-up" %>
+      <%= link_to "", dislike_answer_path(answer), method: :put, class: "glyphicon glyphicon-arrow-down" %>
       <%= answer.description %>
       <p><%= time_ago_in_words(answer.created_at) %> ago.</p>
       

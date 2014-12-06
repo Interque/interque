@@ -67,6 +67,10 @@
 	color: black;
 }
 
+.new-question-button{
+	padding: 10px;
+}
+
 /*******************************
 ************TITLES**************
 ********************************/
@@ -80,5 +84,5 @@
 	float: right;
 	margin-right: 50px;
 	margin-top: 3%;
-	padding: 10px;
+	padding-right: 10px;
 }
