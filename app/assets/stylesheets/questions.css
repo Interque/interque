@@ -3,20 +3,20 @@
   They will automatically be included in application.css.
 */
 
+/*******************************
+************IMAGES**************
+********************************/
 
-
-
+#logo{
+	float: left;
+	margin-top: 3%;
+}
 
 /*******************************
 *******FIELDS & CONTAINERS******
 ********************************/
 .answers-container {
   display: none;
-}
-
-#logo{
-	float: left;
-	margin: 0 auto;
 }
 
 #search-bar{
@@ -34,6 +34,7 @@
 
 .all-questions{
 	margin: 0 auto;
+	margin-top: 50px;
 	
 }
 
@@ -51,7 +52,7 @@
 	border-style: solid;
 	border-color: #d3d3d3;
 	padding: 20px;
-	max-width: 50%;
+	max-width: 45%;
 }
 
 .just-tags{
@@ -70,5 +71,6 @@
 .nav-menu{
 	float: right;
 	margin-right: 50px;
+	margin-top: 3%;
 	padding: 10px;
 }

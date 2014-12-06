@@ -1,15 +1,15 @@
-<%= render 'login' %>
-<p id="notice"><%= notice %></p>
 
+<p id="notice"><%= notice %></p>
+<br>
 <div class="text-center">
 <p>
-  <h1><%= @question.title %></h1>
+  <h3><%= @question.title %></h3>
 </p>
 
 <!-- QUESTION COMMMENTS BELOW THIS LINE -->
 
 <div id="question-container">
-    <h3><%= @question.description %></h3>
+    <h4><%= @question.description %></h4>
 </div>
   <p>Created by: <%= @question.user.name %></p>
   <p><%= time_ago_in_words(@question.created_at) %> ago.</p>
@@ -21,7 +21,7 @@
 <%= render 'answers/form' %>
 Answers<a href="#" class="new-answer-btn">(<%= @question.answers.count %>)</a>
 <div class="answers-container">
-    <h3>Answers</h3>
+    <h4>Answers</h4>
 
     <% @question.answers.order(:cached_votes_up => :desc).each do |answer| %>
       <%= answer.score %>

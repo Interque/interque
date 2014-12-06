@@ -16,21 +16,22 @@
     <%= link_to 'Home', root_path %>
     <%= link_to 'New Question', new_question_path, class: "btn btn-primary" %>
     <%= link_to 'Job Board', '#' %>
-  </nav>
-  <div>
-    <div id="logo"><%= image_tag("logo.png", size: "367x55") %></div>
     <%= form_tag questions_path, id: "search-box", :method => 'get' do %>
       <p id="search-bar">
         <%= text_field_tag :tag, params[:tag] %>
-        <%= submit_tag "Search", :name => nil %>
+        <%= submit_tag "Search", :name => nil, class: "btn btn-default" %>
       </p >
     <% end %>
-  </div>
+  </nav>
+  
+    <div id="logo" class="text-center"><%= image_tag("logo.png", size: "367x55") %></div>
+
 <!-- model callback, question model -->
 </header>
 <body>
+  <br><br><br><br><br>
 	
-<%= yield %>
+  <%= yield %>
 
 </body>
 </html>
