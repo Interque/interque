@@ -14,7 +14,7 @@
 <header>
   <nav class="nav-menu">
     <%= link_to 'Home', root_path %>
-    <%= link_to 'New Question', new_question_path, class: "btn btn-primary" %>
+    <%= link_to 'New Question', new_question_path, class: "btn btn-primary", id: "new-link", remote: true %>
     <%= link_to 'Job Board', '#' %>
     <%= form_tag questions_path, id: "search-box", :method => 'get' do %>
       <p id="search-bar">

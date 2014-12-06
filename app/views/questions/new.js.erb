@@ -1,0 +1,7 @@
+$(document).ready(function(){
+	var form = '<%= j render("form") %>'
+	$('#new-link').click(function(){
+		$(this).after(form);
+		//form display:none...slideToggle should work
+	});
+});
