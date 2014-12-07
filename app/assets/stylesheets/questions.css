@@ -40,8 +40,26 @@
 .all-questions{
 	margin: 0 auto;
 	margin-top: 50px;
-	
 }
+
+.created-at{
+	/*font-style: italic;*/
+	font-weight: bold;
+}
+
+#question-container{
+	max-width: 600px; 
+	margin: 0 auto;
+}
+
+.answer-description{
+	max-width: 500px;
+	font-size: 17px;
+}
+
+/*#show-question{
+	max-width: 100px;
+}*/
 
 #question_tag_list {
 	width: 190px;
@@ -93,6 +111,36 @@
 	float: right;
 	margin-right: 50px;
 	margin-top: 3%;
+
 	/*padding-right: 10px;*/
-	width: 
+	/*width: */
 }
+
+	padding-right: 10px;
+}
+
+/*******************************
+************Up/Downvote*********
+********************************/
+
+/*.glyphicon-chevron-up{
+	margin: 0 auto;
+}*/
+
+.answer-votes{
+	display: inline;
+}
+
+.answer-description{
+
+}
+
+.list-item{
+	display: inline;
+	list-style: none;
+	/*margin: 1px;*/
+
+}
+
+
+
