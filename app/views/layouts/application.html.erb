@@ -15,12 +15,13 @@
   <div id="logo" class="text-center"><%= link_to image_tag("logo.png", size: "500x91"), root_path %></div>
   <nav class="nav-menu">
     <%= link_to 'Home', root_path, class: "btn btn-success" %>
-    <%# link_to 'New Question', new_question_path, class: "btn btn-primary", id: "new-link", remote: true %>
+    <%= link_to 'New Question', new_question_path, class: "btn btn-primary", id: "new-link", remote: true %>
 
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+
+    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
       New Question
-    </button>
+    </button> -->
     <%= link_to 'Job Board', '#', class: "btn btn-success" %>
     <%= form_tag questions_path, id: "search-box", :method => 'get' do %>
     <% end %>
@@ -31,7 +32,7 @@
   </nav>
 
   <!-- Modal -->
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -39,15 +40,15 @@
           <h4 class="modal-title" id="myModalLabel">Add New Listing</h4>
         </div>
         <div class="modal-body">
-          <%= render 'questions/form' %>
+          <%# render 'questions/form' %>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-        </div>
+          <button type="button" class="btn btn-primary">Save changes</button> -->
+        <!-- /div>
       </div>
     </div>
-  </div>
+  </div> --> -->
 
 <!-- model callback, question model -->
 </header>
