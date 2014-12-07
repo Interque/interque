@@ -1,0 +1,202 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+
+
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+
+/*******************************
+************IMAGES**************
+********************************/
+
+#logo{
+	float: left;
+	margin-top: 3%;
+}
+
+/*******************************
+*******FIELDS & CONTAINERS******
+********************************/
+.answers-container {
+  display: none;
+  margin-top: 
+}
+
+#search-bar{
+	text-align: right;
+	
+}
+
+.random{
+	color: #fff;
+	background-color: red;
+}
+
+#input{
+	color: green;
+}
+
+.list-title{
+	margin-top: 25px;
+}
+
+.all-questions{
+	margin: 0 auto;
+	margin-top: 50px;
+}
+
+.created-at{
+	/*font-style: italic;*/
+	font-weight: bold;
+}
+
+#question-container{
+	max-width: 600px; 
+	margin: 0 auto;
+}
+
+.answer-description{
+	max-width: 500px;
+	font-size: 17px;
+}
+
+#question_tag_list {
+	width: 190px;
+}
+
+.tweet {
+	margin-top: 8px;
+	margin-left: 50px;
+}
+
+/*******************************
+**************DIVS**************
+********************************/
+
+.tags-excluded{
+	margin: 0 auto;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #d3d3d3;
+	padding: 20px;
+	max-width: 45%;
+}
+
+.just-tags{
+	padding-bottom: 15px;
+}
+
+.question-description{
+	color: black;
+}
+
+.new-question-button{
+	padding: 10px;
+}
+
+.glyphicon-ban-circle{
+	color: red;
+}
+
+.glyphicon-plus-sign{
+	color: #5cb85c;
+}
+
+/*******************************
+************TITLES**************
+********************************/
+
+.question-title{
+	border-style: none;
+	margin-bottom: 0.8px;
+}
+
+.nav-menu{
+	float: right;
+	margin-right: 50px;
+	margin-top: 3%;
+}
+
+	padding-right: 10px;
+}
+
+/*******************************
+************Up/Downvote*********
+********************************/
+
+.answer-votes{
+	display: inline;
+}
+
+.list-item{
+	display: inline;
+	list-style: none;
+}
+
+
+#notice {
+	text-align: center;
+	padding-left: 19px;
+	float: left;
+}
+.social-login{
+	margin-top: 20%;
+	background-color: #fff;
+	max-width: 400px;
+	max-height: 400px;
+}
+
+.login-buttons{
+	margin-top: 50px;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
+
+ #search-box{
+ 	margin: 10px;
+ }
+
+ .search-bar {
+  padding: 8px 15px;
+  border: 1px solid #dbdbdb;
+  border-radius: 5px;
+  width: 217px;
+}
+
+.search-button {
+  position: relative;
+  padding: 6px 15px;
+  left: -8px;
+  border: 2px solid #4cae4c;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: #5cb85c;
+  color: #fff;
+  height: 38px;
+}
+
+.all-questions {
+  margin-top: 70px;
+}
