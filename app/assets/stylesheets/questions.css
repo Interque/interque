@@ -54,7 +54,6 @@
 .answer-description{
 	max-width: 500px;
 	font-size: 17px;
-	display: inline-block;
 }
 
 /*#show-question{
@@ -118,12 +117,23 @@
 ************Up/Downvote*********
 ********************************/
 
-.glyphicon-chevron-up{
-	margin: auto auto;
-}
+/*.glyphicon-chevron-up{
+	margin: 0 auto;
+}*/
 
 .answer-votes{
 	display: inline;
+}
+
+.answer-description{
+
+}
+
+.list-item{
+	display: inline;
+	list-style: none;
+	/*margin: 1px;*/
+
 }
 
 
