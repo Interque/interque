@@ -12,7 +12,6 @@
  *
  *= require_tree .
  *= require_self
- 
  */
 
 
@@ -21,8 +20,8 @@
  }
 
  .search-bar {
-  padding:8px 15px;
-  border:1px solid #dbdbdb;
+  padding: 8px 15px;
+  border: 1px solid #dbdbdb;
   border-radius: 5px;
   width: 217px;
 }
@@ -31,7 +30,7 @@
   position: relative;
   padding: 6px 15px;
   left: -8px;
-  border:2px solid #4cae4c;
+  border: 2px solid #4cae4c;
   border-bottom-right-radius: 5px;
   border-top-right-radius: 5px;
   background-color: #5cb85c;
