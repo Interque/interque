@@ -17,6 +17,7 @@
 ********************************/
 .answers-container {
   display: none;
+  margin-top: 
 }
 
 #search-bar{
@@ -65,6 +66,11 @@
 	width: 190px;
 }
 
+.tweet {
+	margin-top: 8px;
+	margin-left: 50px;
+}
+
 /*******************************
 **************DIVS**************
 ********************************/
@@ -111,6 +117,7 @@
 	float: right;
 	margin-right: 50px;
 	margin-top: 3%;
+<<<<<<< HEAD
 
 	/*padding-right: 10px;*/
 	/*width: */
@@ -143,4 +150,8 @@
 }
 
 
-
+#notice {
+	text-align: center;
+	padding-left: 19px;
+	float: left;
+}

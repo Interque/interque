@@ -6,4 +6,6 @@ $( document ).on('ready page:load', function() {
     event.preventDefault();
     $('.answers-container').slideToggle();
   });
+
+  $('#notice').fadeOut(1200);
 });

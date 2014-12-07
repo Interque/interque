@@ -12,7 +12,7 @@
 </head>
 
 <header>
-  <div id="logo" class="text-center"><%= image_tag("logo.png", size: "500x91") %></div>
+  <div id="logo" class="text-center"><%= link_to image_tag("logo.png", size: "500x91"), root_path %></div>
   <nav class="nav-menu">
     <%= link_to 'Home', root_path, class: "btn btn-success" %>
     <%= link_to 'New Question', new_question_path, class: "btn btn-primary", id: "new-link", remote: true %>

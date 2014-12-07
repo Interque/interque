@@ -10,12 +10,11 @@
 
 <div id="question-container">
     <h4><%= @question.description %></h4>
-</div>
   <p>Created by: <%= @question.user.name %></p>
   <p><%= time_ago_in_words(@question.created_at) %> ago.</p>
   Tags: <%= raw @question.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %><br>
-
-
+  <div class="tweet"><%= twitter_button :turbolinks => true %></div>
+</div>
 <br> <!-- ANSWERS BELOW THIS LINE -->
 
 <%= render 'answers/form' %>
@@ -43,6 +42,15 @@ Answers<a href="#" class="new-answer-btn">(<%= @question.answers.count %>)</a>
           </tr>
       <% end %>
     </table>
+
+    <% @question.answers.order(:cached_votes_up => :desc).each do |answer| %>
+      <%= answer.score %>
+      <%= link_to "", like_answer_path(answer), method: :put, class: "glyphicon glyphicon-arrow-up" %>
+      <%= link_to "", dislike_answer_path(answer), method: :put, class: "glyphicon glyphicon-arrow-down" %>
+      <%= answer.description %>
+      <p><%= time_ago_in_words(answer.created_at) %> ago.</p>
+    <% end %>
+
 </div>
 
 <br>
