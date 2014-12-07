@@ -22,6 +22,13 @@
   <% end %>
 
 <br>
+
+<div class="container">
+  <div class="row">
+    <%= will_paginate @questions, class:"digg_pagination col-md-11 col-md-offset-11" %>
+  </div>
+</div>
+
 </div>
 <% else %>
   <div class="alert alert-warning" role="alert">We're sorry, but your search didn't match any results</div>

@@ -8,12 +8,13 @@ class QuestionsController < ApplicationController
     #@questions = Question.all.order(:cached_votes_up => :desc)
     # if !(params[:tag].nil?) && params[:tag].empty?
     #    flash[:notice] = "Please enter some text you'd like to search."
+    
     if params[:tag]
       #if (Question.tagged_with(params[:tag])).length > 0
       @questions = Question.tagged_with(params[:tag].downcase).order(:cached_votes_up => :desc)
       #end
     else
-      @questions = Question.all.order(:cached_votes_up => :desc)
+      @questions = Question.all.order(:cached_votes_up => :desc).page(params[:page]).per_page(5)
     end
 
     # if params[:employer]
