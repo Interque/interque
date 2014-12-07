@@ -17,6 +17,7 @@
 ********************************/
 .answers-container {
   display: none;
+  margin-top: 
 }
 
 #search-bar{
@@ -45,6 +46,11 @@
 
 #question_tag_list {
 	width: 190px;
+}
+
+.tweet {
+	margin-top: 8px;
+	margin-left: 50px;
 }
 
 /*******************************
@@ -93,6 +99,10 @@
 	float: right;
 	margin-right: 50px;
 	margin-top: 3%;
-	/*padding-right: 10px;*/
-	width: 
+}
+
+#notice {
+	text-align: center;
+	padding-left: 19px;
+	float: left;
 }
