@@ -18,9 +18,10 @@
 <br> <!-- ANSWERS BELOW THIS LINE -->
 
 <%= render 'answers/form' %>
-Answers<a href="#" class="new-answer-btn">(<%= @question.answers.count %>)</a>
+
+<h4>Answer<a href="#" class="new-answer-btn">(<%= @question.answers.count %>)</a></h4>
 <div class="answers-container text-center">
-    <h4>Answers</h4>
+    <!-- <h4>Answers</h4> -->
       <table class="col-md-4 col-md-offset-4">
       <% @question.answers.order(:cached_votes_up => :desc).each do |answer| %>
           <tr>
