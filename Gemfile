@@ -49,6 +49,8 @@ gem 'acts-as-taggable-on', '~> 3.4'
 
 gem 'shareable'
 
+gem 'will_paginate'
+
 # gem 'sunspot_rails'
 # gem 'sunspot_solr'
 # Use ActiveModel has_secure_password
