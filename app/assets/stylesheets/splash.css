@@ -6,5 +6,10 @@
 }
 
 .login-buttons{
-	margin-top: 50px;
+	margin-top: 70px;
+}
+
+.btn-social {
+  width: 236px;
+  height: 45px;
 }
