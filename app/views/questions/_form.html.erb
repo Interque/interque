@@ -1,5 +1,5 @@
 <%= form_for(@question) do |f| %>
-  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :user_id, value: current_user.id if current_user %>
   
   <% if @question.errors.any? %>
     <div id="error_explanation">
