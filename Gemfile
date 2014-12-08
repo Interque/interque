@@ -51,8 +51,6 @@ gem 'shareable'
 
 gem 'will_paginate'
 
-gem 'tinymce-rails'
-
 gem 'bootstrap-modal-rails'
 
 gem 'redcarpet'
