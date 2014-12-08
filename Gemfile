@@ -51,8 +51,6 @@ gem 'shareable'
 
 gem 'will_paginate'
 
-gem 'tinymce-rails'
-
 # gem 'sunspot_rails'
 # gem 'sunspot_solr'
 # Use ActiveModel has_secure_password
