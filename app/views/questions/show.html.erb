@@ -34,7 +34,7 @@
             <td>
               </div>
                 <div class="answer-description">
-                  <%= answer.description.html_safe %>
+                  <%= markdown(answer.description).html_safe %>
                 </div>
                 <br>
                 <div class="created-at text-center"><%= time_ago_in_words(answer.created_at) %> ago.</div>
