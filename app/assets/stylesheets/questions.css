@@ -137,3 +137,12 @@
 	padding-left: 19px;
 	float: left;
 }
+
+#answer_description {
+	height: 206px;
+	width: 500px;
+}
+
+.markdown {
+	font-size: 12px;
+}
