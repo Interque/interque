@@ -25,20 +25,19 @@
       <table class="col-md-4 col-md-offset-4">
       <% @question.answers.order(:cached_votes_up => :desc).each do |answer| %>
           <tr>
-            <td>
+            <td class="answer-text">
               <div class="answer-votes text-center">
                 <%= link_to "", like_answer_path(answer), method: :put, class: "glyphicon glyphicon-chevron-up" %><br>
                 <%= answer.score %><br>
                 <%= link_to "", dislike_answer_path(answer), method: :put, class: "glyphicon glyphicon-chevron-down" %>
             </td>
             <td>
-                <div class="answer-description">
-                  <%= answer.description %>
-                </div>
               </div>
-            
-            <div class="created-at text-center"><%= time_ago_in_words(answer.created_at) %> ago.
-            </div>
+                <div class="answer-description">
+                  <%= answer.description.html_safe %>
+                </div>
+                <br>
+                <div class="created-at text-center"><%= time_ago_in_words(answer.created_at) %> ago.</div>
             </td>
           </tr>
       <% end %>
