@@ -25,6 +25,7 @@ class QuestionsController < ApplicationController
   # GET /questions/1.json
   def show
     @answer = Answer.new(question: @question)
+    
     #@answer = @question.answers.new
     #@question_comment = @question.comments.new
     #@answer_comment = @answer.comments.new

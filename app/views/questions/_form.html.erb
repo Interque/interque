@@ -1,12 +1,12 @@
-<%= form_for(@question) do |f| %>
+<%= form_for(@new_question = Question.new) do |f| %>
   <%= f.hidden_field :user_id, value: current_user.id if current_user %>
   
-  <% if @question.errors.any? %>
+  <% if @new_question.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
+      <h2><%= pluralize(@new_question.errors.count, "error") %> prohibited this question from being saved:</h2>
 
       <ul>
-      <% @question.errors.full_messages.each do |message| %>
+      <% @new_question.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
