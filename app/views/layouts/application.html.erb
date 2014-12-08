@@ -43,21 +43,14 @@
       </div>
     </div>
 
-
-
-
-
-
-
     <%= link_to 'Job Board', '#', class: "btn btn-success" %>
     
     <%= form_tag questions_path, id: "search-box", :method => 'get' do %>
-    <% end %>
-
-      <div id="search-bar">
-        <%= text_field_tag :tag, params[:tag], placeholder: 'filter by tag', class: "search-bar" %>
-        <%= submit_tag "Filter", :name => nil, class: "search-button" %>
-      </div >
+        <div id="search-bar">
+          <%= text_field_tag :tag, params[:tag], placeholder: 'filter by tag', class: "search-bar" %>
+          <%= submit_tag "Filter", :name => nil, class: "search-button" %>
+        </div >
+      <% end %>
   </nav>
 
   <!-- modal -->
