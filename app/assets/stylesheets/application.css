@@ -41,3 +41,8 @@
 .all-questions {
   margin-top: 70px;
 }
+
+.answer-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
