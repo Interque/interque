@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
   before_action :require_login, only: [:edit, :update, :new, :create, :destroy, :show]
-  before_action :require_current, only: [:edit, :destroy]
+  #before_action :require_current, only: [:edit, :destroy]
 
   impressionist actions: [:show]
 
@@ -42,6 +42,9 @@ class QuestionsController < ApplicationController
 
   # GET /questions/1/edit
   def edit
+    unless @question.user_id == current_user.id
+      redirect_to root_url
+    end
   end
 
   # POST /questions
@@ -102,13 +105,13 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
   end
 
-  def require_current
-    if @user.id == current_user.id
-      true
-    else
-      false
-    end
-  end
+  # def require_current
+  #   if @user.id == current_user.id
+  #     true
+  #   else
+  #     false
+  #   end
+  # end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def question_params
