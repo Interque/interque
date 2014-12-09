@@ -56,6 +56,8 @@
 .answer-description{
 	max-width: 500px;
 	font-size: 17px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 
 #question_tag_list {
@@ -145,6 +147,9 @@
 	font-size: 12px;
 }
 
+.markdown-new {
+	padding-left: 12px;
+}
 /*******************************
 ************Forms***************
 ********************************/
@@ -153,4 +158,13 @@
 	margin: 10px;
 }
 
+.created-at {
+	border-bottom: 1px solid #000;
+	border-color: #d3d3d3;
+	padding-bottom: 5px;
+}
 
+#question_description {
+	height: 156px;
+	width: 342px;
+}
