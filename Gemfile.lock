@@ -47,7 +47,11 @@ GEM
       multipart-post (>= 1.2, < 3)
     hashie (3.3.2)
     hike (1.2.3)
+    httpclient (2.5.3.3)
     i18n (0.6.11)
+    impressionist (1.5.1)
+      httpclient (~> 2.2)
+      nokogiri (~> 1.5)
     jbuilder (2.2.5)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
@@ -59,10 +63,13 @@ GEM
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
     mime-types (2.4.3)
+    mini_portile (0.6.1)
     minitest (5.4.3)
     multi_json (1.10.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
+    nokogiri (1.6.5)
+      mini_portile (~> 0.6.0)
     oauth (0.4.7)
     oauth2 (1.0.0)
       faraday (>= 0.8, < 0.10)
@@ -164,6 +171,7 @@ DEPENDENCIES
   acts_as_votable (~> 0.10.0)
   bootstrap-modal-rails
   coffee-rails (~> 4.0.0)
+  impressionist
   jbuilder (~> 2.0)
   jquery-rails
   omniauth

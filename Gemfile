@@ -55,6 +55,8 @@ gem 'bootstrap-modal-rails'
 
 gem 'redcarpet'
 
+gem 'impressionist'
+
 # gem 'sunspot_rails'
 # gem 'sunspot_solr'
 # Use ActiveModel has_secure_password
