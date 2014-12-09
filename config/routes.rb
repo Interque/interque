@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   resources :answers, only: [:update, :create, :destroy]
   resources :answers do 
     member do 
-      put "like", to: "answers#upvote"
-      put "dislike", to: "answers#downvote"
+      put "upvote", to: "answers#upvote"
+      put "downvote", to: "answers#downvote"
     end
   end
 

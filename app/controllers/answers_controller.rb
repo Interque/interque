@@ -41,13 +41,13 @@ class AnswersController < ApplicationController
   def upvote
     @answer = Answer.find(params[:id])
     @answer.upvote_by current_user
-    redirect_to :back
+      render json: answer
   end
 
   def downvote
     @answer = Answer.find(params[:id])
     @answer.downvote_by current_user
-    redirect_to :back
+      render json: answer
   end
 
   # PATCH/PUT /answers/1

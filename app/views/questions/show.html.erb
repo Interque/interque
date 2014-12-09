@@ -26,10 +26,10 @@
       <% @question.answers.order(:cached_votes_up => :desc).each do |answer| %>
           <tr>
             <td class="answer-text">
-              <div class="answer-votes text-center">
-                <%= link_to "", like_answer_path(answer), method: :put, class: "glyphicon glyphicon-chevron-up" %><br>
-                <%= answer.score %><br>
-                <%= link_to "", dislike_answer_path(answer), method: :put, class: "glyphicon glyphicon-chevron-down" %>
+              <div class="answer-votes text-center" data-id="<%= answer.id %>">
+                <%= link_to "", upvote_answer_path(answer), class: "glyphicon glyphicon-chevron-up answer-upvote", id: answer.id %><br>
+                <span><%= answer.score %></span>
+                <%= link_to "", downvote_answer_path(answer), class: "glyphicon glyphicon-chevron-down answer-downvote" %>
             </td>
             <td>
               </div>
@@ -43,4 +43,33 @@
     </table>
 
 </div>
+
+<script>
+console.log("document isn't ready yet");
+
+$(document).ready(function(){
+  console.log("document is ready");
+  
+  $(".answer-upvote").on("click", function(e){
+    e.preventDefault();
+    var answer_id = $(this).closest(".answer-votes").attr("data-id");
+    var path = "/answers/" + answer_id + "/upvote"
+    
+    $.ajax({
+      type: "PUT",
+      url: path,
+      data: { },
+      crossDomain: true,
+      xhrFields: {
+        withCredentials: true
+      },
+      success: function(response){
+        console.log(response);
+        $(e.target).siblings("span").text(response["cached_votes_score"]);
+      }
+    });
+  });
+});
+
+</script>
 
