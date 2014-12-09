@@ -11,6 +11,8 @@ class Question < ActiveRecord::Base
   validates :title, presence: true
   validates :description, presence: true
 
+  is_impressionable
+
 	def create_tag
 		self.tag_list.add(self.employer.name.downcase)
 		#find_or_create_with_like_by_name
