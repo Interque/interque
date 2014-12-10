@@ -29,7 +29,7 @@
             <td class="answer-text">
               <div class="answer-votes text-center">
                 <%= link_to "", like_answer_path(answer), method: :put, class: "glyphicon glyphicon-chevron-up" %><br>
-                <div class="score"><%= answer.score %></div><br>
+                <span class="score"><%= answer.score %></span><br>
                 <%= link_to "", dislike_answer_path(answer), method: :put, class: "glyphicon glyphicon-chevron-down" %>
             </td>
             <td>
