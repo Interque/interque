@@ -56,3 +56,7 @@ div {
   width: 100%;
   margin: 0 auto;
 }
+
+.glyphicon:hover {
+  text-decoration: none;
+}
