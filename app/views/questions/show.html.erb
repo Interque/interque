@@ -58,7 +58,9 @@ $(document).ready(function(){
     $.ajax({
       type: "PUT",
       url: path,
-      data: { },
+      data: {  },
+      accepts: "js",
+      dataType: "json",
       crossDomain: true,
       xhrFields: {
         withCredentials: true
