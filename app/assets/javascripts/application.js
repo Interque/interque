@@ -14,3 +14,9 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).on('ready page:load', function(){
+  $('.question-description').succinct({
+    size: 120
+  });
+});
