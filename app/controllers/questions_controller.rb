@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
   before_action :require_login, only: [:edit, :update, :new, :create, :destroy, :show]
-
+  
   impressionist actions: [:show]
 
   # GET /questions
@@ -41,6 +41,9 @@ class QuestionsController < ApplicationController
 
   # GET /questions/1/edit
   def edit
+    unless @question.user_id == current_user.id
+      redirect_to root_url
+    end
   end
 
   # POST /questions
@@ -82,6 +85,9 @@ class QuestionsController < ApplicationController
   # DELETE /questions/1
   # DELETE /questions/1.json
   def destroy
+    unless @question.user_id == current_user.id
+      redirect_to root_url
+    end
     @question.destroy
     respond_to do |format|
       format.html { redirect_to questions_url, notice: 'Question was successfully destroyed.' }

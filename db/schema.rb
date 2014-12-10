@@ -134,6 +134,7 @@ ActiveRecord::Schema.define(version: 20141209231059) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "admin",      default: false
   end
 
   create_table "votes", force: true do |t|
