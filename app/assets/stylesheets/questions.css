@@ -90,6 +90,7 @@
 .question-description{
 	color: black;
 	font-size: 20px;
+	padding: 0 15px;
 }
 
 .new-question-button{
@@ -171,4 +172,3 @@
 	height: 156px;
 	width: 342px;
 }
-
