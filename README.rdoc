@@ -1,1 +1,1 @@
-http://interque.herokuapp.com/
+http://interque.co
