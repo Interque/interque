@@ -17,7 +17,7 @@
     <p><%= time_ago_in_words(@question.created_at) %> ago.</p>
     Tags: <%= raw @question.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %><br>
     <div class="tweet"><%= twitter_button :turbolinks => true %></div>
-    <%= "#{@question.impressionist_count} views" %>
+    <%= pluralize @question.impressionist_count, "view" %>
   </div>
   <br> <!-- ANSWERS BELOW THIS LINE -->
 
