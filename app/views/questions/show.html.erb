@@ -1,47 +1,49 @@
 
+
+
+
 <p id="notice"><%= notice %></p>
 <br>
 <div class="text-center">
-<p>
-  <h3><%= @question.title %></h3>
-</p>
+  <p>
+    <h3><%= @question.title %></h3>
+  </p>
 
-<!-- QUESTION COMMMENTS BELOW THIS LINE -->
+  <!-- QUESTION COMMMENTS BELOW THIS LINE -->
 
-<div id="question-container">
+  <div id="question-container">
     <h4><%= markdown(@question.description).html_safe %></h4>
-  <p>Created by: <%= @question.user.name %></p>
-  <p><%= time_ago_in_words(@question.created_at) %> ago.</p>
-  Tags: <%= raw @question.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %><br>
-  <div class="tweet"><%= twitter_button :turbolinks => true %></div>
-  <%= "#{@question.impressionist_count} views" %>
-</div>
-<br> <!-- ANSWERS BELOW THIS LINE -->
+    <p>Created by: <%= @question.user.name %></p>
+    <p><%= time_ago_in_words(@question.created_at) %> ago.</p>
+    Tags: <%= raw @question.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %><br>
+    <div class="tweet"><%= twitter_button :turbolinks => true %></div>
+    <%= "#{@question.impressionist_count} views" %>
+  </div>
+  <br> <!-- ANSWERS BELOW THIS LINE -->
 
-<%= render 'answers/form' %>
+  <%= render 'answers/form' %>
 
-<h4>Answer<a href="#" class="new-answer-btn">(<%= @question.answers.count %>)</a></h4>
-<div class="answers-container text-center">
+  <h4>Answer<a href="#" class="new-answer-btn">(<%= @question.answers.count %>)</a></h4>
+  <div class="answers-container text-center">
     <!-- <h4>Answers</h4> -->
-      <table class="col-md-4 col-md-offset-4">
+    <table class="col-md-4 col-md-offset-4">
       <% @question.answers.order(:cached_votes_up => :desc).each do |answer| %>
-          <tr>
-            <td class="answer-text">
-              <div class="answer-votes text-center">
-                <%= link_to "", like_answer_path(answer), method: :put, class: "glyphicon glyphicon-chevron-up" %><br>
-                <span class="score"><%= answer.score %></span><br>
-                <%= link_to "", dislike_answer_path(answer), method: :put, class: "glyphicon glyphicon-chevron-down" %>
-            </td>
-            <td>
-              </div>
-                <div class="answer-description">
-                  <%= markdown(answer.description).html_safe %>
-                </div>
-                  <div class="created-at text-center"><%= time_ago_in_words(answer.created_at) %> ago.</div>
-            </td>
-          </tr>
+      <tr>
+        <td class="answer-text">
+          <div class="answer-votes text-center">
+            <%= link_to "", like_answer_path(answer), method: :put, class: "glyphicon glyphicon-arrow-up" %><br>
+            <span class="score"><%= answer.score %></span><br>
+            <%= link_to "", dislike_answer_path(answer), method: :put, class: "glyphicon glyphicon-arrow-down" %>
+          </td>
+          </div>
+          <td>
+          <div class="answer-description thumbnail">
+            <%= markdown(answer.description).html_safe %>
+            <div class="created-at text-center"><%= time_ago_in_words(answer.created_at) %> ago.</div>
+          </div>
+        </td>
+      </tr>
       <% end %>
     </table>
-
+  </div>
 </div>
-
