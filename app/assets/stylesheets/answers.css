@@ -8,3 +8,9 @@
 	border-color: #d3d3d3;
 }
 
+.answer-author {
+  font-size: 12px;
+  color: #D2D7D3;
+  font-style: italic;
+  padding-bottom: 6px;
+}

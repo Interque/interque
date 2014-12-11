@@ -168,7 +168,8 @@
 	/*border-top: 1px solid #000;*/
 	border-color: #d3d3d3;
 	padding-bottom: 2px;
-	font-size: 13px;
+	font-size: 12px;
+	color: #D2D7D3;
 }
 
 #question_description {
@@ -203,4 +204,8 @@
 
 .glyphicon-arrow-up:hover {
 	color: #5cb85c;
+}
+
+.question-title {
+	font-weight: bold;
 }
