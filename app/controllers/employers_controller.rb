@@ -4,21 +4,25 @@ class EmployersController < ApplicationController
   # GET /employers
   # GET /employers.json
   def index
-    @employers = Employer.all
+    redirect_to root_url
+    #@employers = Employer.all
   end
 
   # GET /employers/1
   # GET /employers/1.json
   def show
+    redirect_to root_url
   end
 
   # GET /employers/new
   def new
-    @employer = Employer.new
+    redirect_to root_url
+    #@employer = Employer.new
   end
 
   # GET /employers/1/edit
   def edit
+    redirect_to root_url
   end
 
   # POST /employers

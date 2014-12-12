@@ -4,7 +4,8 @@ class AnswersController < ApplicationController
   # GET /answers
   # GET /answers.json
   def index
-    @answers = Answer.all
+    redirect_to root_url
+    #@answers = Answer.all
   end
 
   # GET /answers/1
@@ -14,12 +15,13 @@ class AnswersController < ApplicationController
 
   # GET /answers/new
   def new
-    @answer = Answer.new
-    
+    #@answer = Answer.new
+    redirect_to root_url
   end
 
   # GET /answers/1/edit
   def edit
+      redirect_to root_url
   end
 
   # POST /answers

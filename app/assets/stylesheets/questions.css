@@ -60,6 +60,7 @@
 	padding-bottom: 3px;
 	padding-left: 14px;
 	text-align: left;
+	padding-right: 14px;
 }
 
 #question_tag_list {
@@ -111,13 +112,14 @@
 ************TITLES**************
 ********************************/
 
-.question-title{
+.question-title {
 	border-style: none;
 	margin-bottom: 0.8px;
 	font-size: 24px;
+	margin-top: 21px;
 }
 
-.nav-menu{
+.nav-menu {
 	float: right;
 	margin-right: 50px;
 	margin-top: 3%;
