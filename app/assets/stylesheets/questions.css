@@ -54,7 +54,8 @@
 }
 
 .answer-description{
-	max-width: 500px;
+	/*max-width: 500px;*/
+	width: 100%;
 	font-size: 17px;
 	padding-top: 10px;
 	padding-bottom: 3px;
