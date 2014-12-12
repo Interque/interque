@@ -29,6 +29,8 @@ class AnswersController < ApplicationController
   def create
     @answer = current_user.answers.new(answer_params)
 
+    @answer.update_score
+
     respond_to do |format|
       if @answer.save
         format.html { redirect_to :back, notice: 'Answer was successfully created.' }
@@ -40,18 +42,28 @@ class AnswersController < ApplicationController
     end
   end
 
-  def upvote
+  def upvote  
     @answer = Answer.find(params[:id])
+    a = @answer.get_upvotes.size
     @answer.upvote_by current_user
     env["HTTP_REFERER"] += "#answer-#{params[:id]}"
     redirect_to :back
+    if a < @answer.get_upvotes.size
+      @answer.user.score += 1
+      @answer.user.save
+    end
   end
 
   def downvote
     @answer = Answer.find(params[:id])
+    a = @answer.get_downvotes.size
     @answer.downvote_by current_user
     env["HTTP_REFERER"] += "#answer-#{params[:id]}"
     redirect_to :back
+    if a > @answer.get_downvotes.size
+      @answer.user.score -= 1
+      @answer.user.save
+    end
   end
 
   # PATCH/PUT /answers/1

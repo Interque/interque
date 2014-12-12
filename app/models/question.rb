@@ -25,12 +25,11 @@ class Question < ActiveRecord::Base
 		else
 			Question.all  
 		end
+	end
 
-		# if params
-  #   	find(:all, :conditions => ['name LIKE ?', "%#{params}%"])
-  # 	else
-  #   	find(:all)
-  # 	end
+	def update_score
+		user.score += 10
+    user.save
 	end
 
 	def score

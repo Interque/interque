@@ -7,7 +7,13 @@ class Answer < ActiveRecord::Base
 
   validates :description, presence: true
 
+
   def score
   	self.get_upvotes.size - self.get_downvotes.size
   end
+
+	def update_score
+ 		user.score += 10
+    user.save
+	end
 end
