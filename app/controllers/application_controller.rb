@@ -21,17 +21,17 @@ private
 		if current_user.score < 10
 			"grasshopper"
 		elsif current_user.score < 35
-			"1"
+			"Level 1"
 		elsif current_user.score < 50
-			"2"
+			"Level 2"
 		elsif current_user.score < 100
-			"3"
+			"Level 3"
 		elsif current_user.score < 150
-			"4"
+			"Level 4"
 		elsif current_user.score < 200
-			"5"
+			"Level 5"
 		elsif current_user.score < 300
-			"6"
+			"Level 6"
 		elsif current_user.score < 500
 			"7"
 		else
