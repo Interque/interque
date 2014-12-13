@@ -27,7 +27,7 @@
   <div class="answers-container col-md-6 col-md-offset-3 text-center">
     <!-- <h4>Answers</h4> -->
     <table>
-      <% @question.answers.order(:cached_votes_up => :desc).each do |answer| %>
+      <% @question.answers.order(:cached_votes_score => :desc).each do |answer| %>
       <tr>
         <td id="answer-<%= answer.id %>" class="answer-text">
           <div class="answer-votes ">

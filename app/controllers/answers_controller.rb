@@ -21,7 +21,7 @@ class AnswersController < ApplicationController
 
   # GET /answers/1/edit
   def edit
-      redirect_to root_url
+    redirect_to root_url
   end
 
   # POST /answers
@@ -44,11 +44,14 @@ class AnswersController < ApplicationController
 
   def upvote  
     @answer = Answer.find(params[:id])
-    a = @answer.get_upvotes.size
+    a = @answer.score
     @answer.upvote_by current_user
     env["HTTP_REFERER"] += "#answer-#{params[:id]}"
     redirect_to :back
-    if a < @answer.get_upvotes.size
+    p "!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+    p a
+    p "!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+    if a < @answer.score
       @answer.user.score += 1
       @answer.user.save
     end
@@ -56,11 +59,15 @@ class AnswersController < ApplicationController
 
   def downvote
     @answer = Answer.find(params[:id])
-    a = @answer.get_downvotes.size
+    a = @answer.score
     @answer.downvote_by current_user
     env["HTTP_REFERER"] += "#answer-#{params[:id]}"
     redirect_to :back
-    if a > @answer.get_downvotes.size
+    p "!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+    p "this is the downvote"
+    p a
+    p "!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+    if a > @answer.score
       @answer.user.score -= 1
       @answer.user.save
     end

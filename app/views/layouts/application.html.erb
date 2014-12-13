@@ -54,8 +54,9 @@
         </div >
       <% end %>
   </nav>
-
-  <!-- modal -->
+  <% if current_user %>
+    <%= current_user.name %> | <%= current_user.score %> | <%= rank %>
+  <% end %>
 
 <!-- model callback, question model -->
 </header>

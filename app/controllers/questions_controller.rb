@@ -54,6 +54,8 @@ class QuestionsController < ApplicationController
     employer = Employer.find_or_create_by(name: params[:name])
     @question.employer = employer
 
+    @question.update_score
+
     # answer = Answer.create(params)
     # @question.answer = answer
 
