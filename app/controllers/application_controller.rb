@@ -8,9 +8,6 @@ class ApplicationController < ActionController::Base
 
 private
 
-	# def set_application_question
-	# 	@question = Question.new
-	# end
 
 	def current_user
 	  @current_user ||= User.find(session[:user_id]) if session[:user_id]
