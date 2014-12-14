@@ -1,0 +1,82 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+/*******************************
+************IMAGES**************
+********************************/
+
+#logo{
+  display: block;
+  width: 500px;
+  border-bottom: 1px solid #d3d3d3;
+  margin-bottom: 20px;
+}
+
+
+
+
+
+ #search-box{
+ 	margin: 10px;
+ }
+
+ .search-bar {
+  padding: 8px 15px;
+  border: 1px solid #dbdbdb;
+  border-radius: 5px;
+  width: 214px;
+  margin-top: 5px;
+}
+
+.search-button {
+  position: relative;
+  padding: 6px 15px;
+  left: -8px;
+  border: 2px solid #4cae4c;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: #5cb85c;
+  color: #fff;
+  height: 38px;
+}
+
+.all-questions {
+  margin-top: 70px;
+}
+
+.answer-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+div {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.digg_pagination {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.glyphicon:hover {
+  text-decoration: none;
+}
+
+.answer-text {
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 15px;
+}

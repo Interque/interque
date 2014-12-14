@@ -1,12 +1,11 @@
-
-	<div class="login-buttons">
-
-		<div class="login-buttons text-center">
-	  </i><%= link_to "<i class='fa fa-twitter'></i>Sign in with Twitter".html_safe, "/auth/twitter", class: "btn btn-lg btn-social btn-twitter" %><br>
-		  <%= link_to "<i class='fa fa-github'></i> Sign in with Github".html_safe, "/auth/github", class: "btn btn-lg btn-social btn-github" %><br>
-	    <%= link_to "<i class='fa fa-google'></i>Sign in with Google".html_safe, "/auth/google_oauth2", class: "btn btn-lg btn-social btn-google-plus" %>
-		</div>
-	</div>
-	
-
-	
+<div class="welcome-container">
+  <div id="logo"><%= link_to image_tag("logo.png", size: "500x91"), root_path %></div>
+    <div class="login-buttons">
+      </i><%= link_to "<i class='fa fa-twitter'></i>Sign in with Twitter".html_safe, "/auth/twitter", class: "btn btn-lg btn-social btn-twitter" %><br>
+      <%= link_to "<i class='fa fa-github'></i> Sign in with Github".html_safe, "/auth/github", class: "btn btn-lg btn-social btn-github" %><br>
+      <%= link_to "<i class='fa fa-google'></i>Sign in with Google".html_safe, "/auth/google_oauth2", class: "btn btn-lg btn-social btn-google-plus" %>
+    </div>
+    <div id="dictionary">
+      <div><%= image_tag("interque-dictionary.png", class:"dictionary-image") %></div>
+    </div>
+</div>

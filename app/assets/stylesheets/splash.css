@@ -1,15 +1,61 @@
+/*******************************
+*******LOGIN CONTAINER**********
+********************************/
+
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
 .social-login{
-	margin-top: 20%;
-	background-color: #fff;
-	max-width: 400px;
-	max-height: 400px;
+  margin-top: 20%;
+  background-color: #fff;
+  max-width: 400px;
+  max-height: 400px;
 }
 
 .login-buttons{
-	margin-top: 70px;
+  width: 244px;
+  height: 135px;
+  display: inline;
+  float: left;
 }
 
 .btn-social {
   width: 244px;
   height: 45px;
+}
+
+.welcome-container {
+  width: 992px;
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid #d3d3d3;
+  margin-top: 350px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+}
+
+body {
+  background: #68aded;
+  background: -moz-linear-gradient(top, #68aded 24%, #3b8ce8 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(24%, #68aded), color-stop(100%, #3b8ce8));
+  background: -webkit-linear-gradient(top, #68aded 24%, #3b8ce8 100%);
+  background: -o-linear-gradient(top, #68aded 24%, #3b8ce8 100%);
+  background: -ms-linear-gradient(top, #68aded 24%, #3b8ce8 100%);
+  background: linear-gradient(to bottom, #68aded 24%, #3b8ce8 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#68aded', endColorstr='#3b8ce8', GradientType=0 );
+  background-repeat: no-repeat;
+}
+
+.dictionary-image {
+  width: 700px;
+  margin-top: 22px;
+}
+
+#dictionary {
+  height: 135px;
+  display: inline-block;
+  padding: 15px;
 }
