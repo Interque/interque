@@ -16,23 +16,23 @@ private
 
 	def rank
 		if current_user.score < 10
-			"Level: Muggle"
+			"Level 0: Muggle"
 		elsif current_user.score < 35
-			"Level: Grasshopper"
+			"Level 1: Grasshopper"
 		elsif current_user.score < 50
-			"Level: Padawan"
+			"Level 2: Padawan"
 		elsif current_user.score < 100
-			"Level: Bowser"
+			"Level 3: Bowser"
 		elsif current_user.score < 150
-			"Level: Rafiki"
+			"Level 4: Rafiki"
 		elsif current_user.score < 200
-			"Level: Einstein"
+			"Level 5: Einstein"
 		elsif current_user.score < 300
-			"Level: Yoda"
+			"Level 6: Yoda"
 		elsif current_user.score < 500
-			"Level: DeepBlue"
+			"Level 7: DeepBlue"
 		else
-			"Level: Ed Toro"
+			"Level 8: Ed Toro"
 		end
 	end
 	helper_method :rank

@@ -57,6 +57,9 @@ gem 'redcarpet'
 
 gem 'impressionist'
 
+group :development, :test do
+	gem 'rspec-rails'
+end
 # gem 'sunspot_rails'
 # gem 'sunspot_solr'
 # Use ActiveModel has_secure_password
