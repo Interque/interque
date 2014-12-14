@@ -59,7 +59,7 @@
 
   <div class="rank">   
     <% if current_user %>
-      <%= current_user.name %> | <%= current_user.score %> | <%= rank %>
+      <%= current_user.name.downcase %> | <%= current_user.score %> | <%= rank %>
     <% end %>
   </div>
 
