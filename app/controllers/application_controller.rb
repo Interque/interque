@@ -16,21 +16,21 @@ private
 
 	def rank
 		if current_user.score < 10
-			"grasshopper"
+			"Muggle"
 		elsif current_user.score < 35
-			"Level 1"
+			"Grasshopper"
 		elsif current_user.score < 50
-			"Level 2"
+			"Padawan"
 		elsif current_user.score < 100
-			"Level 3"
+			"Bowser"
 		elsif current_user.score < 150
-			"Level 4"
+			"Rafiki"
 		elsif current_user.score < 200
-			"Level 5"
+			"Einstein"
 		elsif current_user.score < 300
-			"Level 6"
+			"Yoda"
 		elsif current_user.score < 500
-			"7"
+			"DeepBlue"
 		else
 			"Ed Toro"
 		end
