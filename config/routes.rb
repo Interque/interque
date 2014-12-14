@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'leaderboard/show'
+
   root 'splash#index'
 
   resources :answers, only: [:update, :create, :destroy]
