@@ -123,3 +123,7 @@ div {
   width: 200px;
   margin: 0px auto;
 }
+
+.logout {
+  padding-right: 19px;
+}
