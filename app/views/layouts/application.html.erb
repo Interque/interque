@@ -7,7 +7,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Nunito|Open+Sans' rel='stylesheet' type='text/css'>
   <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>  
 </head>
@@ -15,9 +15,60 @@
 <!-- HEADER CONTENT - NAV BAR, LOGIN BUTTONS -->
 
 <header>
-<!-- <nav class="navbar">
-  <div id="logo"><%= link_to image_tag("logo.png", size: "500x91"), root_path %></div>
-</nav> -->
+<nav class="navbar">
+  <div id="logo" class="nav-logo"><%= link_to image_tag("logo.png", size: "500x91"), root_path %></div>
+  
+  <div class="nav-buttons">
+  <%= link_to 'Home', root_path, class: "btn btn-success" %>
+
+  <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+      New Question
+    </button>
+    
+    <%= link_to 'Job Board', 'https://guarded-everglades-4684.herokuapp.com/listings', class: "btn btn-success" %>
+    <div class="search-container">
+      <%= form_tag questions_path, :method => 'get' do %>
+          <div id="search-bar">
+            <%= text_field_tag :tag, params[:tag], placeholder: 'filter by tag', class: "search-bar" %>
+            <%= submit_tag "Filter", :name => nil, class: "search-button" %>
+          </div >
+      <% end %>
+    </div>
+  </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="myModalLabel">Create New Question</h4>
+          </div>
+          <div class="modal-body">
+            <%= render 'questions/form' %>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <div class="rank">   
+    <% if current_user %>
+      <%= current_user.name %> | <%= current_user.score %> | <%= rank %>
+    <% end %>
+  </div>
+
+<!-- PROGRESS BAR --> 
+
+  <div class="progress">
+    <div class="progress-bar" role="progressbar" style=<%= "width:#{number_to_percentage(rank_percentage, precision: 0)}" %>>
+    <span><%= number_to_percentage(rank_percentage, precision: 0) %></span>
+  </div>
+</nav>
 
 
 <!-- model callback, question model -->
@@ -32,6 +83,6 @@
   <%= yield %>
   </div>
 
-  
+
 </body>
 </html>

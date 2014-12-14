@@ -2,7 +2,7 @@
 *******LOGIN CONTAINER**********
 ********************************/
 
-html, body {
+html, .splash, body {
     margin: 0;
     height: 100%;
 }
@@ -14,11 +14,8 @@ html, body {
   max-height: 400px;
 }
 
-.login-buttons{
-  width: 244px;
-  height: 135px;
-  display: inline;
-  float: left;
+.login-buttons {
+  padding-bottom: 10px;
 }
 
 .btn-social {
@@ -31,13 +28,13 @@ html, body {
   background-color: #fff;
   border-radius: 5px;
   border: 1px solid #d3d3d3;
-  margin-top: 350px;
+  margin-top: 0px;
   margin-left: auto;
   margin-right: auto;
   padding: 5px;
 }
 
-body {
+.splash {
   background: #68aded;
   background: -moz-linear-gradient(top, #68aded 24%, #3b8ce8 100%);
   background: -webkit-gradient(left top, left bottom, color-stop(24%, #68aded), color-stop(100%, #3b8ce8));
@@ -51,11 +48,25 @@ body {
 
 .dictionary-image {
   width: 700px;
-  margin-top: 22px;
 }
 
 #dictionary {
-  height: 135px;
+  height: 90px;
   display: inline-block;
   padding: 15px;
+  margin-left: 118px;
+}
+
+#white-logo {
+  text-align: center;
+  margin-top: 200px;
+}
+
+.home-links {
+  color: #fff;
+  font-size: 15px;
+}
+
+.home-links:visited {
+  color: #fff;
 }

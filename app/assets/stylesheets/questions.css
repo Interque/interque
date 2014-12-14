@@ -28,6 +28,7 @@
 .all-questions{
   margin: 0 auto;
   margin-top: 50px;
+  background-color: #fff;
 }
 
 .created-at{
@@ -42,7 +43,7 @@
 
 .answer-description{
   /*max-width: 500px;*/
-  width: 100%;
+  width: 514px;
   font-size: 17px;
   padding-top: 10px;
   padding-bottom: 3px;
