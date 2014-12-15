@@ -59,6 +59,7 @@ gem 'impressionist'
 
 group :development, :test do
 	gem 'rspec-rails'
+	gem 'capybara'
 end
 # gem 'sunspot_rails'
 # gem 'sunspot_solr'
