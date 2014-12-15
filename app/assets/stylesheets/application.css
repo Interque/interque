@@ -89,7 +89,6 @@ div {
 }
 
 .nav-buttons {
-  text-align: right;
   float: right;
   margin-top: 22px;
   width: 585px;
@@ -119,6 +118,7 @@ div {
 .progress {
   width: 200px;
   margin: 0px auto;
+  text-align: center;
 }
 
 .logout {
