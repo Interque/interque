@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
-  before_action :require_login, only: [:edit, :update, :new, :create, :destroy, :show]
+  before_action :require_login, only: [:edit, :update, :new, :create, :destroy]
   
   impressionist actions: [:show]
 
