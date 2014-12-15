@@ -16,10 +16,11 @@
 
 <header>
 <nav class="navbar">
-  <div id="logo" class="nav-logo"><%= link_to image_tag("logo.png", size: "500x91"), root_path %></div>
+  <div id="logo" class="nav-logo"><%= link_to image_tag("logo.png", size: "500x91"), root_path %>
+  </div>
   
   <div class="nav-buttons">
-  <%= link_to 'Home', root_path, class: "btn btn-success" %>
+    <%= link_to 'Home', root_path, class: "btn btn-success" %>
 
   <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
@@ -67,9 +68,14 @@
 
   <div class="progress">
     <span class="progress-bar" role="progressbar" style=<%= "width:#{number_to_percentage(rank_percentage, precision: 0)}" %>
-    <span><%= number_to_percentage(rank_percentage, precision: 0) %></span>
+    </span>
+    <span>
+      <%= number_to_percentage(rank_percentage, precision: 0) %>
+    </span>
   </div>
-  <div class="text-center leaderboard-link"><%= link_to "Leaderboard",leaderboard_show_path %></div>
+  <div class="text-center leaderboard-link">
+    <%= link_to "Leaderboard",leaderboard_show_path %>
+  </div>
 </nav>
 
 
