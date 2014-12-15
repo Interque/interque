@@ -103,10 +103,12 @@ div {
 .btn-success {
   height: 38px;
   padding-top: 8px;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .btn-primary {
   height: 38px;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .rank {
