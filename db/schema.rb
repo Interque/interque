@@ -134,7 +134,6 @@ ActiveRecord::Schema.define(version: 20141212042336) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "admin",      default: false
     t.integer  "score",      default: 0
   end
 
