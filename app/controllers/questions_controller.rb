@@ -56,9 +56,6 @@ class QuestionsController < ApplicationController
 
     @question.update_score
 
-    # answer = Answer.create(params)
-    # @question.answer = answer
-
     respond_to do |format|
       if @question.save
         format.html { redirect_to @question, notice: 'Question was successfully created.' }
