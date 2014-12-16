@@ -19,4 +19,5 @@ $(document).on('ready page:load', function(){
   $('.question-description').succinct({
     size: 120
   });
+  $('[data-toggle="tooltip"]').tooltip();
 });
