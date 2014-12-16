@@ -36,7 +36,9 @@
         </div >
       <% end %>
     </span>
-    <div class="text-right"><%= link_to "Logout", signout_path, class:"logout" %></div>
+    <% if current_user %>
+      <div class="text-right"><%= link_to "Logout", signout_path, class:"logout" %></div>
+    <% end %>
   </span>
 
   <div class="rank">   
@@ -45,18 +47,19 @@
     <% end %>
   </div>
   <!-- PROGRESS BAR --> 
-
-    <div class="progress">
-      <span class="progress-bar" role="progressbar" style=<%= "width:#{number_to_percentage(rank_percentage, precision: 0)}" %>
-      </span>
-      <!-- why is the span above not being read? -->
-      <span>
-        <%= number_to_percentage(rank_percentage, precision: 0) %>
-      </span>
-    </div>
-    <div class="text-center leaderboard-link">
-      <%= link_to "Leaderboard",leaderboard_show_path %>
-    </div>
+    <% if current_user %>
+      <div class="progress">
+        <span class="progress-bar" role="progressbar" style=<%= "width:#{number_to_percentage(rank_percentage, precision: 0)}" %>
+        </span>
+        <!-- why is the span above not being read? -->
+        <span>
+          <%= number_to_percentage(rank_percentage, precision: 0) %>
+        </span>
+      </div>
+      <div class="text-center leaderboard-link">
+        <%= link_to "Leaderboard",leaderboard_show_path %>
+      </div>
+    <% end %>
 
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

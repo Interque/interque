@@ -12,7 +12,7 @@
       <%= link_to '', like_question_path(question), method: :put, class: "glyphicon glyphicon-plus-sign", id: "counter", title: "Click if you were also asked this question." %>
       <%# question.description %>
       <%= link_to "#{question.description}", question, class: "question-description" %>
-      <% if question.user_id == current_user.id %>
+      <% if current_user && question.user_id == current_user.id %>
         <%= link_to '', edit_question_path(question), class: "glyphicon glyphicon-edit" %>
         <%= link_to '', question, method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-ban-circle", title: "Delete this question." %><br>
       <% end %>
