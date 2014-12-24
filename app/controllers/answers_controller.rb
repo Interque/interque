@@ -52,7 +52,7 @@ class AnswersController < ApplicationController
     p a
     p "!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
     if a < @answer.score
-      @answer.user.score += 1
+      @answer.user.score += 5
       @answer.user.save
     end
   end
@@ -68,7 +68,7 @@ class AnswersController < ApplicationController
     p a
     p "!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
     if a > @answer.score
-      @answer.user.score -= 1
+      @answer.user.score -= 6
       @answer.user.save
     end
   end
