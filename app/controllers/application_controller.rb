@@ -14,6 +14,12 @@ private
 	end
 	helper_method :current_user
 
+	def admin_access
+		unless current_user.administrator?
+			redirect_to root_path
+		end
+	end
+
 	def rank
 		if current_user.score < 10
 			"Level 0: muggle"
