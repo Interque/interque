@@ -1,6 +1,13 @@
 <p id="notice"><%= notice %></p>
 <br>
 <div class="text-center">
+  <% unless @question.approved? %>
+    <div class="alert alert-success alert-dismissible alert-width">
+      <strong>
+      Thank for your submission! Your question is awaiting moderation.
+      </strong>
+    </div>
+  <% end %>
   <p>
     <h3 class="question-title"><%= @question.title %></h3>
   </p>
@@ -18,8 +25,6 @@
   <br> <!-- ANSWERS BELOW THIS LINE -->
   
   <%= render 'answers/form' %>
-
-
 
   <h4>Answer<a href="#" class="new-answer-btn">(<%= @question.answers.count %>)</a></h4>
   <div class="answers-container col-md-6 col-md-offset-3 text-center">
