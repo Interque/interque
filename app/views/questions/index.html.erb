@@ -6,7 +6,7 @@
 
 <div class="all-questions text-center">
   <% @questions.each do |question| %>
-    <%# if question.approved? %>
+    <% if question.approved? %>
     <h4 class="question-title"><%= question.title %></h4>
       <div class="tags-excluded">
         <%= question.score %>
@@ -21,7 +21,7 @@
       <div class="just-tags">
         Tags: <%= raw question.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %><br>
       </div>
-    <%# end %>
+    <% end %>
   <% end %>
 
 <br>
