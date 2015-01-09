@@ -2,11 +2,13 @@
 <br>
 <div class="text-center">
   <% unless @question.approved? %>
-    <div class="alert alert-success alert-dismissible alert-width">
-      <strong>
-      Thank for your submission! Your question is awaiting moderation.
-      </strong>
-    </div>
+    <%# if current_user.id == @question.user_id %>
+      <div class="alert alert-success alert-dismissible alert-width">
+        <strong>
+        Thank for your submission! Your question is awaiting moderation.
+        </strong>
+      </div>
+    <%# end %>
   <% end %>
   <p>
     <h3 class="question-title"><%= @question.title %></h3>
