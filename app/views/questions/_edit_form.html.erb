@@ -1,0 +1,23 @@
+<%= form_for(@question) do |f| %>
+ 
+  <div class="field title-field">
+    <%# f.label :title %><br>
+    <%= f.text_field :title, placeholder: 'Title' %>
+  </div>
+  <div class="field">
+    <%# f.label :description %><br>
+    <%= f.text_area :description, placeholder: 'Description' %>
+  </div>
+  <a href="https://guides.github.com/features/mastering-markdown/" class="markdown markdown-new">Markdown Supported<i class="fa fa-code"></i></a>
+  <div class="field form-group">
+    <%# label_tag "Employer Name" %><br>
+    <%= text_field_tag :name, nil, placeholder: 'Employer' %>
+  </div>
+  <div class="field">
+    <%# f.label :tag_list, "Tags (separated by commas)" %><br>
+    <%= f.text_field :tag_list, placeholder: 'Tags (separated by commas)' %>
+  </div>
+  <div class="actions new-question-button">
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
+<% end %>
