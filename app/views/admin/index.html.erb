@@ -1,16 +1,17 @@
-<p>approve questions in the console for now</p>
-<p>to do so, just go to the question q = Question.find(id_number)</p>
-<p>q.approved = true</p>
-<p>q.save</p>
+approve questions in the console for now<br>
+q = Question.find(id_number)<br>
+q.approved = true<br>
+q.save<br>
 
 <% if current_user %>
 	<% @questions.each do |question| %>
 		<% if question.approved == false %>
 		<div>
-			Title: <%= question.title %><br>
+			<h4>Title: <%= question.title %><br></h4>
 			Description: <%= question.description %><br>
 			By: <%= question.user.name %><br>
 			<%= link_to "Approve", question_path(question), :method => :put %> (not working currently)
+			<%= link_to '', question, method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-ban-circle", title: "Delete this question." %>
 		</div>
 		<br>
 		<% end %>
