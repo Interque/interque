@@ -1,9 +1,12 @@
 <% if current_user %>
 	<% @questions.each do |question| %>
 		<% if question.approved == false %>
+		<div>
 			Title: <%= question.title %><br>
 			Description: <%= question.description %><br>
-
+			<%= link_to "Approve", question_path(question), :method => :put %>
+		</div>
+		<br>
 		<% end %>
 	<% end %>
 <% end %>
