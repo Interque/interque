@@ -6,3 +6,11 @@ class AdminController < ApplicationController
 		end
   end
 end
+
+# private 
+
+  # def activate
+  # 	@question = Question.find(params[:id])
+  # 	@question.approved = true
+  # 	@question.save
+  # end
