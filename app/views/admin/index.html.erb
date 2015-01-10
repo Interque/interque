@@ -2,7 +2,7 @@
 	<% @questions.each do |question| %>
 		<% if question.approved == false %>
 			Title: <%= question.title %><br>
-			Description: <%= question.description %>
+			Description: <%= question.description %><br>
 
 		<% end %>
 	<% end %>
