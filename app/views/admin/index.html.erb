@@ -1,8 +1,9 @@
 <% if current_user %>
 	<% @questions.each do |question| %>
 		<% if question.approved == false %>
-			<%= question.title %><br>
-			<%= question.description %>
+			Title: <%= question.title %><br>
+			Description: <%= question.description %>
+
 		<% end %>
 	<% end %>
 <% end %>
