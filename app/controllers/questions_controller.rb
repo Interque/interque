@@ -108,7 +108,7 @@ class QuestionsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def question_params
-    params.require(:question).permit(:title, :description, :user_id, :tag_list)
+    params.require(:question).permit(:title, :description, :user_id, :tag_list, :administrator)
   end
 
   def require_login
