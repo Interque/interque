@@ -11,7 +11,7 @@ q.save<br>
 			Description: <%= question.description %><br>
 			By: <%= question.user.name %><br>
 			<span class="approve-question">
-				<%= link_to "Approve", question_path(question), :method => :put, remote: true %>
+				<%= link_to "Approve", approve_question_path(question), :method => :put, remote: true %>
 			</span>
 			<%= link_to '', question, method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-ban-circle", title: "Delete this question." %>
 		</div>
