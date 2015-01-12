@@ -10,7 +10,7 @@ q.save<br>
 			<h4>Title: <%= question.title %><br></h4>
 			Description: <%= question.description %><br>
 			By: <%= question.user.name %><br>
-			<%= link_to "Approve", question_path(question), :method => :put %> (not working currently) 
+			<%= submit_tag "Approve", :approved => true %>
 			<%= link_to '', question, method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-ban-circle", title: "Delete this question." %>
 		</div>
 		<br>
