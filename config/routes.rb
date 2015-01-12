@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :questions do 
     member do 
       put "like", to: "questions#upvote"
+      put :approve
     end
   end
 

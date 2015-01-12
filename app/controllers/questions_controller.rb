@@ -116,4 +116,15 @@ class QuestionsController < ApplicationController
       redirect_to root_url, { :notice => "Please login to continue." }
     end
   end
+
+  # respond_to :js
+
+  # def approve
+  #   @question = Question.find(params[:id])
+  #   if @question.update(approved: true)
+  #     render
+  #   else
+  #     render @question
+  #   end
+  # end
 end
