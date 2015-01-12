@@ -54,7 +54,7 @@ class QuestionsController < ApplicationController
     employer = Employer.find_or_create_by(name: params[:name])
     @question.employer = employer
 
-    @question.update_score
+    #@question.update_score
 
     respond_to do |format|
       if @question.save
@@ -105,6 +105,7 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     if @question.update(approved: true)
       render
+      @question.update_score
     else
       render @question
     end
