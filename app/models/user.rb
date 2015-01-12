@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
 	    user.provider = auth.provider 
 	    user.uid      = auth.uid
 	    user.name     = auth.info.name
+	    user.email		= auth.info.email
 	    user.save
   	end
 	end
@@ -18,6 +19,7 @@ class User < ActiveRecord::Base
 		  user.provider = auth["provider"]
 		  user.uid = auth["uid"]
 		  user.name = auth["info"]["nickname"]
+		  user.email ||= auth["info"]["email"]
 		end
 	end
 end
