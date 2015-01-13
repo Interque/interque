@@ -15,7 +15,7 @@ class Answer < ActiveRecord::Base
 
   #this relates to our gamification system
 	def update_score
- 		user.score += 15
+ 		user.score += 10
     user.save
 	end
 end
