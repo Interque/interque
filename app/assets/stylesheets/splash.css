@@ -21,6 +21,8 @@ html, .splash, body {
 .btn-social {
   width: 244px;
   height: 45px;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 .welcome-container {
