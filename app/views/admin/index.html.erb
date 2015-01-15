@@ -7,7 +7,9 @@
 		<div>
 			<h4>Title: <%= question.title %><br></h4>
 			Description: <%= question.description %><br>
-			By: <%= question.user.name %><br>
+			<% unless question.user.name == nil %>
+				By: <%= question.user.name %><br>
+			<% end %>
 			<span class="approve-question">
 				<%= link_to "Approve", approve_question_path(question), :method => :put, remote: true %>
 			</span>
