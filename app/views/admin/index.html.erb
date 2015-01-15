@@ -7,7 +7,7 @@
 		<div>
 			<h4>Title: <%= question.title %><br></h4>
 			Description: <%= question.description %><br>
-			<% if question.user.name %>
+			<% if question.user != nil %>
 				By: <%= question.user.name %><br>
 			<% end %>
 			<span class="approve-question">
