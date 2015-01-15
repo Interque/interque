@@ -78,7 +78,7 @@
             <% if current_user %>
               <%= render 'questions/form' %>
             <% else %>
-              <span class="alert alert-danger modal-warning" role="alert">Please <%= link_to "login", root_path %> to add a question!</span>
+              <span class="alert alert-danger modal-warning text-center" role="alert">Please <%= link_to "login", root_path %> to add a question!</span>
             <% end %>
           </div>
           <div class="modal-footer">
