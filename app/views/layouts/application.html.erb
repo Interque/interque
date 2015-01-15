@@ -75,7 +75,11 @@
             <h4 class="modal-title" id="myModalLabel">Create New Question</h4>
           </div>
           <div class="modal-body">
-            <%= render 'questions/form' %>
+            <% if current_user %>
+              <%= render 'questions/form' %>
+            <% else %>
+              <span class="alert alert-danger modal-warning" role="alert">Please <%= link_to "login", root_path %> to add a question!</span>
+            <% end %>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

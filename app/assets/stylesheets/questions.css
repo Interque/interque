@@ -198,3 +198,7 @@
 .question-title {
   font-weight: bold;
 }
+
+.modal-warning{
+  padding: 5px;
+}
