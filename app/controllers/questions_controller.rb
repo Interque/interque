@@ -84,7 +84,7 @@ class QuestionsController < ApplicationController
   # DELETE /questions/1
   # DELETE /questions/1.json
   def destroy
-    unless @question.user_id == current_user.id
+    unless @question.user_id == current_user.id || current_user.administrator
       redirect_to root_url
     end
     @question.destroy

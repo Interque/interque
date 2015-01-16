@@ -12,7 +12,7 @@
 			<span class="approve-question">
 				<%= link_to "Approve", approve_question_path(question), :method => :put, remote: true %>
 			</span>
-			<%= link_to '', question, method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-ban-circle", title: "Delete this question." %>
+			<%= link_to '', question_path(question), method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-ban-circle", title: "Delete this question." %>
 		</div>
 		<br>
 		<% end %>
