@@ -15,5 +15,3 @@
 /log/*.log
 /tmp
 
-#Ignore omniauth initializers
-config/initializers/omniauth.rb
