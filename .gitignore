@@ -16,4 +16,4 @@
 /tmp
 
 #Ignore omniauth initializers
-/omniauth.rb
+config/initializers/omniauth.rb
