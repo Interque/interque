@@ -13,10 +13,10 @@ class QuestionsController < ApplicationController
     
     if params[:tag]
       #if (Question.tagged_with(params[:tag])).length > 0
-      @questions = Question.tagged_with(params[:tag].downcase).order(:cached_votes_up => :desc).page(params[:page]).per_page(5)
+      @questions = Question.tagged_with(params[:tag].downcase).order(:cached_votes_up => :desc).page(params[:page]).per_page(7)
       #end
     else
-      @questions = Question.all.order(:cached_votes_up => :desc).page(params[:page]).per_page(5)
+      @questions = Question.all.order(:cached_votes_up => :desc).page(params[:page]).per_page(7)
     end
 
     # if params[:employer]
