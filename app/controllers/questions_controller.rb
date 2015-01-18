@@ -15,9 +15,20 @@ class QuestionsController < ApplicationController
       #if (Question.tagged_with(params[:tag])).length > 0
       @questions = Question.tagged_with(params[:tag].downcase).order(:cached_votes_up => :desc).page(params[:page]).per_page(7)
       #end
+    # elsif params[:unanswered]
+    #   if Question.answers.count == 0
+    #     @questions = 
     else
       @questions = Question.all.order(:cached_votes_up => :desc).page(params[:page]).per_page(7)
     end
+
+    # if params[:unanswered]
+    #   if Question.answers.count == 0
+    #     @questions = Question.all.order(:cached_votes_up => :desc).page(params[:page]).per_page(7)
+    #   else
+    #     redirect_to root_url, { :notice => "There are currently no unanswered questions." }
+    #   end
+    # end
 
     # if params[:employer]
     #   @questions = Question.search(params[:employer]).order(:cached_votes_up => :desc)  
