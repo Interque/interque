@@ -83,6 +83,12 @@
   padding: 0 15px;
 }
 
+.num-answers{
+  color: black;
+  font-size: 15px;
+  padding: 0 15px;
+}
+
 .new-question-button{
   padding: 10px;
 }
