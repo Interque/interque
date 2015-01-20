@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   # before_filter :set_application_question
 
-
+  @@counter
 
 private
 
@@ -70,4 +70,16 @@ private
 		(current_user.score.to_f/rank_total.to_f)*100
 	end
 	helper_method :rank_percentage
+
+	def unapproved_questions
+		@questions = Question.all
+		@@counter = 0
+		@questions.each do |question|
+			if question.approved? == false
+				@@counter += 1
+			end
+		end
+		return @@counter
+	end
+	helper_method :unapproved_questions
 end

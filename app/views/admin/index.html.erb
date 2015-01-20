@@ -3,6 +3,7 @@
 <% if current_user %>
 	<% @questions.each do |question| %>
 		<% if question.approved == false %>
+			
 		<div>
 			<h4>Title: <%= question.title %><br></h4>
 			Description: <%= question.description %><br>
