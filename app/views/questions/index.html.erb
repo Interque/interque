@@ -2,9 +2,14 @@
 <!-- <h2 class="list-title text-center">Listing questions</h2> -->
 
 <% if @questions.any? %>
-
-<%# link_to "Unanswered", questions_path(:unanswered => ) %>
-
+<div class="text-center">
+  <% if params[:unanswered] %>
+    <%= link_to "All", questions_path %>
+  <%# elsif params[:answered] %>
+  <% else %>
+    <%= link_to "Unanswered", questions_path(unanswered: true) %>
+  <% end %>
+</div>
 <div class="all-questions text-center">
   <% @questions.each do |question| %>
     <% if question.approved? %>
@@ -37,7 +42,9 @@
 <% end %>
 <div class="row">
   <div class="col-md-4 col-md-offset-4 text-center digg_pagination">
-    <%= will_paginate @questions %>
+    <% unless params[:unanswered] %>
+      <%= will_paginate @questions %>
+    <% end %>
   </div>
 </div>
 

@@ -15,9 +15,8 @@ class QuestionsController < ApplicationController
       #if (Question.tagged_with(params[:tag])).length > 0
       @questions = Question.tagged_with(params[:tag].downcase).order(:cached_votes_up => :desc).page(params[:page]).per_page(7)
       #end
-    # elsif params[:unanswered]
-    #   if Question.answers.count == 0
-    #     @questions = 
+    elsif params[:unanswered]
+      @questions = Question.includes(:answers).where(:answers => {id: nil})
     else
       @questions = Question.all.order(:cached_votes_up => :desc).page(params[:page]).per_page(7)
     end
