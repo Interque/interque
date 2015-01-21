@@ -1,2 +1,7 @@
-<h1>Notifications#index</h1>
-<p>Find me in app/views/notifications/index.html.erb</p>
+<% if current_user %>
+	<% current_user.questions.each do |question| %>
+		<% if question.approved == true %>
+			Your question, <strong><%= link_to "#{question.title}", question_path(question) %>,</strong> has been approved.
+		<% end %><br>
+	<% end %>
+<% end %>
