@@ -17,6 +17,8 @@ class QuestionsController < ApplicationController
       #end
     elsif params[:unanswered]
       @questions = Question.includes(:answers).where(:answers => {id: nil}).order(:cached_votes_up => :desc)
+    elsif params[:answered]
+      @questions = Question.all.order(:cached_votes_up => :desc).page(params[:page]).per_page(7)
     else
       @questions = Question.all.order(:cached_votes_up => :desc).page(params[:page]).per_page(7)
     end

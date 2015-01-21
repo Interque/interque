@@ -4,8 +4,9 @@
 <% if @questions.any? %>
 <div class="text-center">
   <% if params[:unanswered] %>
-    <%= link_to "View All", questions_path %>
-  <%# elsif params[:answered] %>
+    <%= link_to "View All", questions_path(answered: true) %>
+  <% elsif params[:answered] %>
+    <%= link_to "View Unanswered", questions_path(unanswered: true) %>
   <% else %>
     <%= link_to "View Unanswered", questions_path(unanswered: true) %>
   <% end %>
