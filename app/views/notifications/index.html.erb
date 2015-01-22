@@ -2,18 +2,18 @@
 	<% if current_user %>
 		<% current_user.questions.each do |question| %>
 			<% if question.approved == true %>
-				Your question, <strong><%= link_to "#{question.title}", question_path(question) %>,</strong> has been approved.<br>
+				Your question, <%= link_to "#{question.title}", question_path(question) %>, has been <span class="notifications">approved.</span><br>
 			<% end %>
 			
 			<% question.answers.each do |answer| %>
-				<%= answer.user.name %> added an answer to your question, <%= link_to "#{question.title}", question_path(question) %>.<br>
+				<%= answer.user.name %> <span class="notifications">added an answer</span> to your question, <%= link_to "#{question.title}", question_path(question) %>.<br>
 				
 				
 				<% @users.each do |user| %>
 					<% if user.voted_up_on? answer %>
-						<%= user.name %> upvoted your answer to <%= link_to "#{question.title}", question_path(question) %>.
+						<%= user.name %> <span class="notifications">upvoted</span> your answer to <%= link_to "#{question.title}", question_path(question) %>.<br>
 					<% elsif user.voted_down_on? answer %>
-						<%= user.name %> downvoted your answer to <%= link_to "#{question.title}", question_path(question) %>
+						<%= user.name %> <span class="notifications">downvoted</span> your answer to <%= link_to "#{question.title}", question_path(question) %>. <br>
 					<% end %>
 				<% end %>
 				
