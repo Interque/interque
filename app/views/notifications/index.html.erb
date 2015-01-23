@@ -10,9 +10,9 @@
 				
 				
 				<% @users.each do |user| %>
-					<% if user.voted_up_on? answer %>
+					<% if user.voted_up_on? current_user.answer %>
 						<%= user.name %> <span class="notifications">upvoted</span> your answer to <%= link_to "#{question.title}", question_path(question) %>.<br>
-					<% elsif user.voted_down_on? answer %>
+					<% elsif user.voted_down_on? current_user.answer %>
 						<%= user.name %> <span class="notifications">downvoted</span> your answer to <%= link_to "#{question.title}", question_path(question) %>. <br>
 					<% end %>
 				<% end %>
