@@ -16,7 +16,7 @@
 		</div>
 	
 		<div class="notifications-voted col-md-4">
-			<h4 class="text-center">Upvotes</h4>
+			<h4 class="text-center">Upvotes</h4><span></span>
 			<% current_user.answers.order(updated_at: :desc).each do |answer| %>	
 				<% @users.each do |user| %>
 					<% if user.voted_up_on? answer %>
