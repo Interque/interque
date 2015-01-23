@@ -1,6 +1,6 @@
 <div>
 	<% if current_user %>
-		<% current_user.questions.each do |question| %>
+		<% current_user.questions.order(id: :desc).each do |question| %>
 			<% if question.approved == true %>
 				Your question, <%= link_to "#{question.title}", question_path(question) %>, has been <span class="notifications">approved.</span><br>
 			<% end %>
