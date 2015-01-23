@@ -3,8 +3,8 @@ class Question < ActiveRecord::Base
 
 	belongs_to :user
 	belongs_to :employer
-	has_many :answers
-	has_many :comments
+	has_many :answers, dependent: :destroy
+	has_many :comments, dependent: :destroy
 	acts_as_votable
 	acts_as_taggable
 
