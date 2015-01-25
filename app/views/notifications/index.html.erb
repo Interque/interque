@@ -21,10 +21,11 @@
 			<% current_user.answers.order(updated_at: :desc).each do |answer| %>
 			<!-- current_user.answers.includes(:voters, :question) each do |answer|	 -->
 				<% @users.each do |user| %>
+					<% question = answer.question %>
 					<% if user.voted_up_on? answer %>
-						<%= user.name %> <span class="notifications">upvoted</span> your answer to <%= link_to "#{Question.find(answer.question_id).title}", question_path(answer.question_id) %>.<br>
+						<%= user.name %> <span class="notifications">upvoted</span> your answer to <%= link_to "#{question.title}", question_path(answer.question_id) %>.<br>
 					<% elsif user.voted_down_on? answer %>
-						<%= user.name %> <span class="notifications">downvoted</span> your answer to <%= link_to "#{Question.find(answer.question_id).title}", question_path(answer.question_id) %>. <br>
+						<%= user.name %> <span class="notifications">downvoted</span> your answer to <%= link_to "#{question.title}", question_path(answer.question_id) %>. <br>
 					<% end %>
 				<% end %>
 			<% end %>		
