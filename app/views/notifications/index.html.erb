@@ -3,32 +3,13 @@
 		<div class="notifications-added col-md-8">
 			<h4 class="col-md-offset-2">Approvals &amp; Answers</h4>
 			<span class="text-center">
-				<% current_user.questions.order(id: :desc).each do |question| %>
-				<!-- current_user.questions.include(answers: user) do |question| -->
-					<% if question.approved == true %>
-						Your question, <%= link_to "#{question.title}", question_path(question) %>, has been <span class="notifications">approved.</span><br>
-					<% end %>
-			
-					<% question.answers.each do |answer| %>
-						<%= answer.user.name %> <span class="notifications">added an answer</span> to your question, <%= link_to "#{question.title}", question_path(question) %>.<br>
-					<% end %>
-				<% end %>
+				<%= render 'approved' %>
 			</span>
 		</div>
 	
 		<div class="notifications-voted col-md-4">
 			<h4 class="text-center">Votes</h4><span></span>
-			<% current_user.answers.order(updated_at: :desc).each do |answer| %>
-			<!-- current_user.answers.includes(:voters, :question) each do |answer|	 -->
-				<% @users.each do |user| %>
-					<% question = answer.question %>
-					<% if user.voted_up_on? answer %>
-						<%= user.name %> <span class="notifications">upvoted</span> your answer to <%= link_to "#{question.title}", question_path(answer.question_id) %>.<br>
-					<% elsif user.voted_down_on? answer %>
-						<%= user.name %> <span class="notifications">downvoted</span> your answer to <%= link_to "#{question.title}", question_path(answer.question_id) %>. <br>
-					<% end %>
-				<% end %>
-			<% end %>		
+			<%= render 'upvoted' %>		
 		</div>	
 	<% end %>
 </div>
