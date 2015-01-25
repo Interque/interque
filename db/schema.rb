@@ -135,6 +135,7 @@ ActiveRecord::Schema.define(version: 20150112165722) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "admin",         default: false
     t.integer  "score",         default: 0
     t.boolean  "administrator", default: false
     t.string   "email"
