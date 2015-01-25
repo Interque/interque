@@ -2,13 +2,13 @@
 	<!-- current_user.answers.includes(:voters, :question) each do |answer|	 -->
 	<% answer.votes_for.each do |voter| %>
 		<% question = answer.question %>
-		<% user = User.find(voter.voter_id) %>
-		
-		<% if user.voted_up_on? answer %>
-			<%= user.name %> <span class="notifications">upvoted</span> your answer to <%= link_to "#{question.title}", question_path(answer.question_id) %>.<br>
-		<% elsif user.voted_down_on? answer %>
-				<%= user.name %> <span class="notifications">downvoted</span> your answer to <%= link_to "#{question.title}", question_path(answer.question_id) %>. <br>
+		<% if User.exists?(voter.voter_id) %>
+			<% user = User.find(voter.voter_id) %>
+			<% if user.voted_up_on? answer %>
+				<%= user.name %> <span class="notifications">upvoted</span> your answer to <%= link_to "#{question.title}", question_path(answer.question_id) %>.<br>
+			<% elsif user.voted_down_on? answer %>
+					<%= user.name %> <span class="notifications">downvoted</span> your answer to <%= link_to "#{question.title}", question_path(answer.question_id) %>. <br>
+			<% end %>
 		<% end %>
-		
 	<% end %>
 <% end %>
