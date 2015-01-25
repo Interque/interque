@@ -21,7 +21,9 @@ class AnswersController < ApplicationController
 
   # GET /answers/1/edit
   def edit
-    redirect_to root_url
+    unless current_user && current_user.administrator
+      redirect_to root_url
+    end
   end
 
   # POST /answers
