@@ -74,7 +74,7 @@
 }
 
 .just-tags{
-  padding-bottom: 15px;
+  padding-bottom: 20px;
 }
 
 .question-description{
@@ -207,4 +207,12 @@
 
 .modal-warning{
   padding: 10px;
+}
+
+
+/*******************************
+*************ICONS**************
+********************************/
+.glyphicon-bell {
+  font-size: 0.6em;
 }
