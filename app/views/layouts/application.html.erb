@@ -48,7 +48,8 @@
 
   <div class="rank hidden-xs">   
     <% if current_user %>
-      <span><%= link_to current_user.name.downcase, notifications_index_path, data: {toggle: "tooltip", placement: "top"}, title: "See my notifications feed." %> | <%= current_user.score %> | <%= rank %></span>
+      <span><%= link_to '', notifications_index_path, class:"glyphicon glyphicon-bell", data: {toggle: "tooltip", placement: "left"}, title: "See my notifications feed." %>
+      <%= current_user.name.downcase %> | <%= current_user.score %> | <%= rank %> </span>
     <% end %>
   </div>
   <!-- PROGRESS BAR --> 
