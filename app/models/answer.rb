@@ -18,4 +18,9 @@ class Answer < ActiveRecord::Base
  		user.score += 10
     user.save
 	end
+
+  def update_bounty
+    user.score += 25
+    user.save
+  end
 end
