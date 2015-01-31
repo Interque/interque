@@ -36,9 +36,13 @@ private
 		elsif current_user.score < 300
 			"Level 6: yoda"
 		elsif current_user.score < 500
-			"Level 7: deepBlue"
+			"Level 7: Deep Blue"
+		elsif current_user.score < 750
+			"Level 8: Watson"
+		elsif current_user.score < 1000
+			"Level 9: Skynet"
 		else
-			"Level 8: ED TORO"
+			"Level 10: ED TORO"
 		end
 	end
 	helper_method :rank
@@ -60,8 +64,12 @@ private
 			300
 		elsif current_user.score < 500
 			500
+		elsif current_user.score < 750
+			750
+		elsif current_user.score < 1000
+			1000
 		else
-			500
+			1000
 		end
 	end
 	helper_method :rank_total
