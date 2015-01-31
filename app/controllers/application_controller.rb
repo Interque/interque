@@ -51,23 +51,23 @@ private
 		if current_user.score < 10
 			10
 		elsif current_user.score < 35
-			35
+			25 #25
 		elsif current_user.score < 50
-			50
+			50 #15
 		elsif current_user.score < 100
-			100
+			100 #50
 		elsif current_user.score < 150
-			150
+			150 #50
 		elsif current_user.score < 200
-			200
+			200 #50
 		elsif current_user.score < 300
-			300
+			300 #100
 		elsif current_user.score < 500
-			500
+			500 #200
 		elsif current_user.score < 750
-			750
+			750 #250
 		elsif current_user.score < 1000
-			1000
+			1000 #250
 		else
 			1000
 		end
