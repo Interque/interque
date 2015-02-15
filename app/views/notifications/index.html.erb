@@ -1,15 +1,25 @@
-<div>
-	<% if current_user %>
-		<div class="notifications-added col-md-8">
-			<h4 class="col-md-offset-2">Approvals &amp; Answers</h4>
-			<span class="text-center">
-				<%= render 'approved' %>
-			</span>
+<% if current_user %>
+
+		<div class="text-center overall-status">
+			You have added <%= current_user.questions.count %> questions &amp; <%= current_user.answers.count %> answers.
+			<% if current_user.questions.count == 0 %>
+				Do everyone a favor and add your first <a href="" data-toggle="modal" data-target="#myModal">
+      New Question!</a>
+			<% end %>
 		</div>
-	
-		<div class="notifications-voted col-md-4">
-			<h4 class="text-center">Votes</h4><span></span>
-			<%= render 'upvoted' %>		
-		</div>	
-	<% end %>
-</div>
+
+
+		<div class="votes-and-approvals">
+			<div class="notifications-added col-md-8">
+				<h4 class="col-md-offset-2">Approvals &amp; Answers</h4>
+				<span class="text-center">
+					<%= render 'approved' %>
+				</span>
+			</div>
+		
+			<div class="notifications-voted col-md-4">
+				<h4 class="text-center">Votes</h4><span></span>
+				<%= render 'upvoted' %>		
+			</div>	
+		</div>
+<% end %>
