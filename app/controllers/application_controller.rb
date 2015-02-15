@@ -51,7 +51,9 @@ private
 		if current_user.score < 10
 			10
 		elsif current_user.score < 35
-			25 #25
+			35 #25
+			# @denominator = 25
+			# @numerator = current_user.score.to_f - 10
 		elsif current_user.score < 50
 			50 #15
 		elsif current_user.score < 100
@@ -75,7 +77,9 @@ private
 	helper_method :rank_total
 
 	def rank_percentage
+		
 		(current_user.score.to_f/rank_total.to_f)*100
+		
 	end
 	helper_method :rank_percentage
 
