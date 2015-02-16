@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get "sitemap" => "sitemap#show", format: :xml, as: :sitemap
+  # get "sitemap" => "sitemap#show", format: :xml, as: :sitemap
 
   get 'notifications/index'
 
