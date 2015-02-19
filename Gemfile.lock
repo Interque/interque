@@ -163,6 +163,8 @@ GEM
     shareable (1.1.4)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    sitemap_generator (5.0.5)
+      builder
     spring (1.2.0)
     sprockets (2.12.3)
       hike (~> 1.2)
@@ -213,6 +215,7 @@ DEPENDENCIES
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   shareable
+  sitemap_generator
   spring
   sqlite3
   turbolinks

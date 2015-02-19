@@ -57,6 +57,7 @@ gem 'bootstrap-modal-rails'
 gem 'redcarpet'
 
 gem 'impressionist'
+gem 'sitemap_generator'
 
 group :development, :test do
 	gem 'rspec-rails'
