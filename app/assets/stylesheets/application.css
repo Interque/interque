@@ -130,3 +130,8 @@ div {
 .leaderboard-link{
   padding-top: 10px;
 }
+
+.admin-user-count{
+  text-align: left;
+  margin: 10px;
+}

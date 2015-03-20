@@ -1,22 +1,37 @@
-<h4>Pending Questions:</h4>
+<div class="col-md-8">
 
-<% if current_user %>
-	<% @questions.each do |question| %>
-		<% if question.approved == false %>
-			
-		<div>
-			<h4>Title: <%= question.title %><br></h4>
-			Description: <%= question.description %><br>
-			<% if question.user != nil %>
-				By: <%= question.user.name %><br>
+	<h4>Pending Questions:</h4>
+
+	<% if current_user %>
+		<% @questions.each do |question| %>
+			<% if question.approved == false %>
+				
+			<div>
+				<h4>Title: <%= question.title %><br></h4>
+				Description: <%= question.description %><br>
+				<% if question.user != nil %>
+					By: <%= question.user.name %><br>
+				<% end %>
+				<span class="approve-question">
+					<%= link_to "Approve", approve_question_path(question), :method => :put, remote: true %>
+				</span>
+				<%= link_to '', question_path(question), method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-ban-circle", title: "Delete this question." %>
+			</div>
+			<br>
 			<% end %>
-			<span class="approve-question">
-				<%= link_to "Approve", approve_question_path(question), :method => :put, remote: true %>
-			</span>
-			<%= link_to '', question_path(question), method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-ban-circle", title: "Delete this question." %>
-		</div>
-		<br>
 		<% end %>
-	<% end %>
-<% end %> 
+	<% end %> 
+</div>
 
+<div class="col-md-4">
+	<h4>Stats</h4>
+			<p>Registered Users: <%= User.count %></p>
+			<p>Last Registered User: <%= User.last.name %></p>
+			<% unless Answer.last.nil? %>
+				<p>Last Answer: <%= Answer.last.description %>, by <%= Answer.last.user.name %></p>
+			<% end %>
+			<% unless Question.last.nil? %>
+				<p>Last Question: <%= Question.last.description %> by, <%= Question.last.user.name %></p>
+			<% end %>
+		</ul>
+</div>
