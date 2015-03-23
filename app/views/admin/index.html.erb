@@ -28,10 +28,10 @@
 			<p>Registered Users: <%= User.count %></p>
 			<p>Last Registered User: <%= User.last.name %></p>
 			<% unless Answer.last.nil? %>
-				<p>Last Answer: <%= Answer.last.description %>, by <%= Answer.last.user.name %></p>
+				<p><%= link_to "Last Answer: ", question_path(Answer.question) %><%= Answer.last.description %>, by <%= Answer.last.user.name %></p>
 			<% end %>
 			<% unless Question.last.nil? %>
-				<p>Last Question: <%= Question.last.description %> by, <%= Question.last.user.name %></p>
+				<p><%= link_to "Last Question: ", question_path(Question.last) %> <%= Question.last.description %> by, <%= Question.last.user.name %></p>
 			<% end %>
 		</ul>
 </div>
