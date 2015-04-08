@@ -7,7 +7,12 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 i = 1
 while i < 20
-	# Question.new({ title: "A question #{i}", description: "test q #{i}", user_id: 1, employer_id: 1, approved: true }).save(validate: false)
-	Answer.new({ description: "an answer #{i}", question_id: i, user_id: 1 }).save
+	if Question.count < 19
+		Question.new({ title: "A question #{i}", description: "test q #{i}", user_id: 1, employer_id: 1, approved: true }).save(validate: false)
+	elsif Answer.count < 19
+		Answer.new({ description: "an answer #{i}", question_id: i, user_id: 1 }).save
+	elsif User.count < 19
+		User.new({ name: "User#{i}" }).save
+	end
 	i += 1
 end
