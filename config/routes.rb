@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'bounty/index'
+
   # get "sitemap" => "sitemap#show", format: :xml, as: :sitemap
 
   get 'notifications/index'
