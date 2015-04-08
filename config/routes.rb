@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  get 'bounty/index'
+  # get 'bounty/index'
+  match 'bounty', to: 'bounty#index', via: [:get]
 
   # get "sitemap" => "sitemap#show", format: :xml, as: :sitemap
 
