@@ -31,7 +31,12 @@ class AnswersController < ApplicationController
   def create
     @answer = current_user.answers.new(answer_params)
 
-    @answer.update_score
+    
+    if @answer.question.bounty
+      @answer.update_bounty
+    else
+      @answer.update_score
+    end
 
     respond_to do |format|
       if @answer.save
@@ -54,8 +59,13 @@ class AnswersController < ApplicationController
     p a
     p "!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
     if a < @answer.score
-      @answer.user.score += 5
-      @answer.user.save
+      if @answer.question.bounty
+        @answer.user.score += 10
+        @answer.user.save
+      else
+        @answer.user.score += 5
+        @answer.user.save
+      end
     end
   end
 
