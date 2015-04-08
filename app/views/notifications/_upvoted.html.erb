@@ -1,4 +1,4 @@
-<% cache do %>
+<% cache "votes" do %>
 	<% current_user.answers.order(updated_at: :desc).each do |answer| %>
 		<!-- current_user.answers.includes(:voters, :question) each do |answer|	 -->
 		<% answer.votes_for.each do |voter| %>

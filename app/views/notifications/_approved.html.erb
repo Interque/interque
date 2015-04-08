@@ -1,4 +1,4 @@
-<% cache do %>
+<% cache "additions" do %>
 	<% current_user.questions.order(id: :desc).each do |question| %>
 		<!-- current_user.questions.include(answers: user) do |question| -->
 		<% if question.approved %>
