@@ -42,6 +42,7 @@ class AnswersController < ApplicationController
       if @answer.save
         format.html { redirect_to :back, notice: 'Answer was successfully created.' }
         format.json { render :show, status: :created, location: @answer }
+        expire_fragment("approvals")
       else
         format.html { render :new }
         format.json { render json: @answer.errors, status: :unprocessable_entity }
@@ -67,6 +68,7 @@ class AnswersController < ApplicationController
         @answer.user.save
       end
     end
+    expire_fragment("votes")
   end
 
   def downvote
@@ -83,6 +85,7 @@ class AnswersController < ApplicationController
       @answer.user.score -= 6
       @answer.user.save
     end
+    expire_fragment("votes")
   end
 
   # PATCH/PUT /answers/1
@@ -92,9 +95,6 @@ class AnswersController < ApplicationController
       if @answer.update(answer_params)
         format.html { redirect_to @answer, notice: 'Answer was successfully updated.' }
         format.json { render :show, status: :ok, location: @answer }
-
-        expire_fragment("votes")
-        expire_fragment("additions")
       else
         format.html { render :edit }
         format.json { render json: @answer.errors, status: :unprocessable_entity }
