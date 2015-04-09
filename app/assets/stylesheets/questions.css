@@ -101,6 +101,11 @@
   color: #5cb85c;
 }
 
+.bounty-faq {
+  float: right;
+  margin-bottom: 5px;
+}
+
 .bounty-faq:hover {
   color: orange;
   text-decoration: none;

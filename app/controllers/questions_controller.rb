@@ -87,8 +87,6 @@ class QuestionsController < ApplicationController
         format.html { redirect_to @question, notice: 'Question was successfully updated.' }
         format.json { render :show, status: :ok, location: @question }
         
-        expire_fragment("votes")
-        expire_fragment("additions")
       else
         format.html { render :edit }
         format.json { render json: @question.errors, status: :unprocessable_entity }
@@ -121,6 +119,7 @@ class QuestionsController < ApplicationController
     if @question.update(approved: true)
       render
       @question.update_score
+      expire_fragment("approvals")
     else
       render @question
     end
