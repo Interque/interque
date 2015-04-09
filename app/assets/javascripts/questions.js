@@ -7,4 +7,5 @@ $( document ).on('ready page:load', function() {
   });
 
   $('#notice').fadeOut(1200);
+
 });

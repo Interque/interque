@@ -101,6 +101,12 @@
   color: #5cb85c;
 }
 
+.bounty-faq:hover {
+  color: orange;
+  text-decoration: none;
+  border-style: none;
+}
+
 /*******************************
 ************TITLES**************
 ********************************/

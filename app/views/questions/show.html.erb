@@ -11,10 +11,22 @@
     <%# end %>
   <% end %>
   <p>
-    <h3 class="question-title"><%= @question.title %></h3>
+    <% if @question.bounty %>
+      <h2>| BOUNTY QUESTION |</h2>
+      <h3 class="question-title"><%= @question.title %></h3>
+    <% else %>
+      <h3 class="question-title"><%= @question.title %></h3>
+    <% end %>
   </p>
 
   <!-- QUESTION COMMMENTS BELOW THIS LINE -->
+
+  <% if @question.bounty %>
+    <div class="text-right bounty-faq">
+      <h4><%= link_to "What's a bounty question?", '#', class: "bounty-faq", data: {toggle: "tooltip", placement: "top"}, title: "Answers and upvotes on bounty questions are worth more leaderboard points. At the end of each bounty period, we choose the best bounty answer and award a prize to the submitting user." %></h4>
+
+    </div>
+  <% end %>
 
   <div id="question-container">
     <h4><%= markdown(@question.description).html_safe %></h4>
