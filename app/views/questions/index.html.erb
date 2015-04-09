@@ -4,7 +4,9 @@
 <% if @questions.any? %>
 <div class="text-center">
   <ul class="nav nav-tabs nav-justified">
-    <% if params[:answered] %>
+    <% if !(params[:answered]) && !(params[:unanswered]) %>
+      <li role="presentation" class="active">
+    <% elsif params[:answered] %>
       <li role="presentation" class="active">
     <% else %>
       <li role="presentation">
