@@ -17,12 +17,13 @@
     </li>
   </ul>
 </div>
+
 <div class="all-questions text-center">
   <% @questions.each do |question| %>
     <% if question.approved? %>
       <%# if question.answers.count == 0 %>
       <%# end %>
-    <h4 class="question-title"><%= "|BOUNTY| #{question.title} |BOUNTY|" %></h4>
+    <h4 class="question-title"><span class="bounty">|BOUNTY|</span> <%= question.title %> <span class="bounty">|BOUNTY|</span></h4>
       <div class="tags-excluded">
         <%= question.score %>
         <%= link_to '', like_question_path(question), method: :put, class: "glyphicon glyphicon-plus-sign", id: "counter", data: {toggle: "tooltip", placement: "top"}, title: "I was also asked this question"%>
