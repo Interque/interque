@@ -9,18 +9,18 @@
     <% else %>
       <li role="presentation">
     <% end %>  
-        <%= link_to "All Qs", questions_path(answered: true) %>
+        <%= link_to "All", questions_path(answered: true) %>
       </li>
     <% if params[:unanswered] %>
       <li role="presentation" class="active">
     <% else %>
       <li role="presentation">
     <% end %>
-        <%= link_to "Unanswered Qs", questions_path(unanswered: true) %>
+        <%= link_to "Unanswered", questions_path(unanswered: true) %>
       </li> 
 
       <li role="presentation">
-        <%= link_to "Bounty Qs", bounty_path %>
+        <%= link_to "Bounty", bounty_path %>
       </li>
 
       <li role="presentation">
