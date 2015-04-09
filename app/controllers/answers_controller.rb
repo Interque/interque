@@ -31,7 +31,12 @@ class AnswersController < ApplicationController
   def create
     @answer = current_user.answers.new(answer_params)
 
-    @answer.update_score
+    
+    if @answer.question.bounty
+      @answer.update_bounty
+    else
+      @answer.update_score
+    end
 
     respond_to do |format|
       if @answer.save
@@ -54,8 +59,13 @@ class AnswersController < ApplicationController
     p a
     p "!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
     if a < @answer.score
-      @answer.user.score += 5
-      @answer.user.save
+      if @answer.question.bounty
+        @answer.user.score += 10
+        @answer.user.save
+      else
+        @answer.user.score += 5
+        @answer.user.save
+      end
     end
   end
 
@@ -82,6 +92,9 @@ class AnswersController < ApplicationController
       if @answer.update(answer_params)
         format.html { redirect_to @answer, notice: 'Answer was successfully updated.' }
         format.json { render :show, status: :ok, location: @answer }
+
+        expire_fragment("votes")
+        expire_fragment("additions")
       else
         format.html { render :edit }
         format.json { render json: @answer.errors, status: :unprocessable_entity }

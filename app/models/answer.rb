@@ -20,7 +20,7 @@ class Answer < ActiveRecord::Base
 	end
 
   def update_bounty
-    user.score += 25
+    user.score += 35
     user.save
   end
 end

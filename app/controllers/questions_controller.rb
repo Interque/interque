@@ -86,6 +86,9 @@ class QuestionsController < ApplicationController
       if @question.update(question_params)
         format.html { redirect_to @question, notice: 'Question was successfully updated.' }
         format.json { render :show, status: :ok, location: @question }
+        
+        expire_fragment("votes")
+        expire_fragment("additions")
       else
         format.html { render :edit }
         format.json { render json: @question.errors, status: :unprocessable_entity }

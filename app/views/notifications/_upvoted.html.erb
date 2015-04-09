@@ -1,13 +1,15 @@
-<% current_user.answers.order(updated_at: :desc).each do |answer| %>
-	<!-- current_user.answers.includes(:voters, :question) each do |answer|	 -->
-	<% answer.votes_for.each do |voter| %>
-		<% question = answer.question %>
-		<% if User.exists?(voter.voter_id) %>
-			<% user = User.find(voter.voter_id) %>
-			<% if user.voted_up_on? answer %>
-				<span class="glyphicon glyphicon-arrow-up"></span> <%= user.name %> <span class="notifications">upvoted</span> your answer to <%= link_to "#{question.title}", question_path(answer.question_id) %>.<br>
-			<% elsif user.voted_down_on? answer %>
-					<span class="glyphicon glyphicon-arrow-down"></span> <%= user.name %> <span class="notifications">downvoted</span> your answer to <%= link_to "#{question.title}", question_path(answer.question_id) %>.<br>
+<% cache do %>
+	<% current_user.answers.order(updated_at: :desc).each do |answer| %>
+		<!-- current_user.answers.includes(:voters, :question) each do |answer|	 -->
+		<% answer.votes_for.each do |voter| %>
+			<% question = answer.question %>
+			<% if User.exists?(voter.voter_id) %>
+				<% user = User.find(voter.voter_id) %>
+				<% if user.voted_up_on? answer %>
+					<span class="glyphicon glyphicon-arrow-up"></span> <%= user.name %> <span class="notifications">upvoted</span> your answer to <%= link_to "#{question.title}", question_path(answer.question_id) %>.<br>
+				<% elsif user.voted_down_on? answer %>
+						<span class="glyphicon glyphicon-arrow-down"></span> <%= user.name %> <span class="notifications">downvoted</span> your answer to <%= link_to "#{question.title}", question_path(answer.question_id) %>.<br>
+				<% end %>
 			<% end %>
 		<% end %>
 	<% end %>

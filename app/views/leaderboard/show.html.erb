@@ -1,6 +1,25 @@
+<div class="text-center">
+  <ul class="nav nav-tabs nav-justified">
+    <li role="presentation">
+      <%= link_to "All Qs", questions_path(answered: true) %>
+    </li>
+    <li role="presentation">
+      <%= link_to "Unanswered Qs", questions_path(unanswered: true) %>
+    </li> 
+
+    <li role="presentation">
+      <%= link_to "Bounty Qs", bounty_path %>
+    </li>
+
+    <li role="presentation">
+      <%= link_to "Leaderboard",leaderboard_show_path %>
+    </li>
+  </ul>
+</div>
+
 <h3 class="text-center">Interque Leaderboard</h3>
 
-	<table class="table">
+	<table class="table table-striped">
 		<th class="text-center">Rank</th>
 		<th class="text-center">Name</th>
 		<th class="text-center">Points</th>

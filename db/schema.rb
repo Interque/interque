@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150112165722) do
+ActiveRecord::Schema.define(version: 20150326002152) do
 
   create_table "answers", force: true do |t|
     t.text     "description"
@@ -97,6 +97,7 @@ ActiveRecord::Schema.define(version: 20150112165722) do
     t.integer  "cached_weighted_total",   default: 0
     t.float    "cached_weighted_average", default: 0.0
     t.boolean  "approved",                default: false
+    t.boolean  "bounty",                  default: false
   end
 
   add_index "questions", ["cached_votes_down"], name: "index_questions_on_cached_votes_down"
