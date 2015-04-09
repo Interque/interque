@@ -1,0 +1,70 @@
+<% if @questions.any? %>
+<div class="text-center">
+  <ul class="nav nav-tabs nav-justified">
+    <li role="presentation">
+      <%= link_to "All Qs", questions_path(answered: true) %>
+    </li>
+    <li role="presentation">
+      <%= link_to "Unanswered Qs", questions_path(unanswered: true) %>
+    </li> 
+
+    <li role="presentation">
+      <%= link_to "Bounty Qs", bounty_path %>
+    </li>
+
+    <li role="presentation">
+      <%= link_to "Leaderboard",leaderboard_show_path %>
+    </li>
+  </ul>
+</div>
+
+<div class="all-questions text-center">
+  <% @questions.each do |question| %>
+    <% if question.approved? %>
+      <%# if question.answers.count == 0 %>
+      <%# end %>
+    <h4 class="question-title"><span class="bounty">|BOUNTY|</span> <%= question.title %> <span class="bounty">|BOUNTY|</span></h4>
+      <div class="tags-excluded">
+        <%= question.score %>
+        <%= link_to '', like_question_path(question), method: :put, class: "glyphicon glyphicon-plus-sign", id: "counter", data: {toggle: "tooltip", placement: "top"}, title: "I was also asked this question"%>
+        <%# question.description %>
+        <%= link_to "#{question.description}", question, class: "question-description" %>
+        <% if (current_user && question.user_id == current_user.id) || (current_user && current_user.administrator) %>
+          <br>
+          <%= link_to '', edit_question_path(question), class: "glyphicon glyphicon-edit" %>
+          <%= link_to '', question, method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-ban-circle", title: "Delete this question." %><br>
+        <% end %>
+      </div>
+        <%= link_to "Answers(#{question.answers.count})", question, class: "num-answers" %>
+      <div class="just-tags">
+        Tags: <%= raw question.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %><br>
+      </div>
+    <% end %>
+  <% end %>
+
+<br>
+
+</div>
+<% else %>
+  <div class="alert alert-warning" role="alert">
+    No bounty question yet...but it's coming soon.
+  </div>
+<% end %>
+<div class="row">
+  <div class="col-md-4 col-md-offset-4 text-center digg_pagination">
+    <%# unless params[:unanswered] %>
+      <%# will_paginate @questions %>
+    <%# end %>
+  </div>
+</div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57752020-1', 'auto');
+  ga('send', 'pageview');
+
+</script>

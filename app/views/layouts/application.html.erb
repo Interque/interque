@@ -44,6 +44,7 @@
       <div class="text-right"><%= link_to "Logout", signout_path, class: "logout" %></div>
       <% if current_user.administrator? %>
         <div class="text-right"><%= link_to "Admin(#{unapproved_questions})", admin_index_path, class: "logout" %>
+        <!-- <div class="col-md-12 col-offset-2"><%= link_to "BountyQs", bounty_path %></div> -->
         </div>
       <% end %>
     <% end %>
@@ -65,9 +66,9 @@
           <%= number_to_percentage(rank_percentage, precision: 0) %>
         </span>
       </div>
-      <div class="text-center leaderboard-link">
-        <%= link_to "Leaderboard",leaderboard_show_path %>
-      </div>
+      <!-- <div class="text-center leaderboard-link"> -->
+        <%# link_to "Leaderboard",leaderboard_show_path %>
+      <!-- </div> -->
     <% end %>
 
     <!-- Modal -->

@@ -3,35 +3,51 @@
 
 <% if @questions.any? %>
 <div class="text-center">
-  <% if params[:unanswered] %>
-    <%= link_to "View All", questions_path(answered: true) %>
-  <% elsif params[:answered] %>
-    <%= link_to "View Unanswered", questions_path(unanswered: true) %>
-  <% else %>
-    <%= link_to "View Unanswered", questions_path(unanswered: true) %>
-  <% end %>
+  <ul class="nav nav-tabs nav-justified">
+    <%# if params[:unanswered] %>
+      <li role="presentation">
+        <%= link_to "All Qs", questions_path(answered: true) %>
+      </li>
+    <%# elsif params[:answered] %>
+      <li role="presentation">
+        <%= link_to "Unanswered Qs", questions_path(unanswered: true) %>
+      </li> 
+
+      <li role="presentation">
+        <%= link_to "Bounty Qs", bounty_path %>
+      </li>
+
+      <li role="presentation">
+        <%= link_to "Leaderboard", leaderboard_show_path %>
+      </li>
+    <%# else %>
+      <%# link_to "View Unanswered", questions_path(unanswered: true) %>
+    <%# end %>
+  </ul>
 </div>
 <div class="all-questions text-center">
   <% @questions.each do |question| %>
-    <% if question.approved? %>
-      <%# if question.answers.count == 0 %>
-      <%# end %>
-    <h4 class="question-title"><%= question.title %></h4>
-      <div class="tags-excluded">
-        <%= question.score %>
-        <%= link_to '', like_question_path(question), method: :put, class: "glyphicon glyphicon-plus-sign", id: "counter", data: {toggle: "tooltip", placement: "top"}, title: "I was also asked this question"%>
-        <%# question.description %>
-        <%= link_to "#{question.description}", question, class: "question-description" %>
-        <% if (current_user && question.user_id == current_user.id) || (current_user && current_user.administrator) %>
-          <br>
-          <%= link_to '', edit_question_path(question), class: "glyphicon glyphicon-edit" %>
-          <%= link_to '', question, method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-ban-circle", title: "Delete this question." %><br>
-        <% end %>
-      </div>
-        <%= link_to "Answers(#{question.answers.count})", question, class: "num-answers" %>
-      <div class="just-tags">
-        Tags: <%= raw question.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %><br>
-      </div>
+    <% unless question.bounty %>
+      <% if question.approved? %>
+        <%# if question.answers.count == 0 %>
+        <%# end %>
+      <h4 class="question-title"><%= question.title %></h4>
+        <div class="tags-excluded">
+          <%= question.score %>
+          <%= link_to '', like_question_path(question), method: :put, class: "glyphicon glyphicon-plus-sign", id: "counter", data: {toggle: "tooltip", placement: "top"}, title: "I was also asked this question"%>
+          <%# question.description %>
+          <%= link_to "#{question.description}", question, class: "question-description" %>
+          <% if (current_user && question.user_id == current_user.id) || (current_user && current_user.administrator) %>
+            <br>
+            <%= link_to '', edit_question_path(question), class: "glyphicon glyphicon-edit" %>
+            <%= link_to '', question, method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-ban-circle", title: "Delete this question." %><br>
+          <% end %>
+        </div>
+          <%= link_to "Answers(#{question.answers.count})", question, class: "num-answers" %>
+        <div class="just-tags">
+          Tags: <%= raw question.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %><br>
+        </div>
+      <% end %>
     <% end %>
   <% end %>
 
