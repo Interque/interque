@@ -28,30 +28,40 @@
   
   <%= render 'answers/form' %>
 
-  <h4>Answer<a href="#" class="new-answer-btn">(<%= @question.answers.count %>)</a></h4>
-  <div class="answers-container col-md-6 col-md-offset-3 text-center">
-    <!-- <h4>Answers</h4> -->
-    <table>
-      <% @question.answers.order(:cached_votes_score => :desc).each do |answer| %>
-      <tr>
-        <td id="answer-<%= answer.id %>" class="answer-text">
-          <div class="answer-votes ">
-            <%= link_to "", like_answer_path(answer), method: :put, class: "glyphicon glyphicon-arrow-up" %><br>
-            <span class="score"><%= answer.score %></span><br>
-            <%= link_to "", dislike_answer_path(answer), method: :put, class: "glyphicon glyphicon-arrow-down" %>
+  <% if @question.bounty && !current_user %>
+    <br><div class="alert alert-info">
+      answers for bounty questions hidden until (1) you've submitted an answer or (2) a winner has been chosen
+    </div><br>
+  <% elsif @question.bounty && (current_user.answers & @question.answers).length == 0 %>
+    <br><div class="alert alert-info">
+        answers for bounty questions are hidden until (1) you've submitted an answer or (2) a winner has been chosen
+      </div><br>
+  <% else %>
+    <h4>Answer<a href="#" class="new-answer-btn">(<%= @question.answers.count %>)</a></h4>
+    <div class="answers-container col-md-6 col-md-offset-3 text-center">
+      <!-- <h4>Answers</h4> -->
+      <table>
+        <% @question.answers.order(:cached_votes_score => :desc).each do |answer| %>
+        <tr>
+          <td id="answer-<%= answer.id %>" class="answer-text">
+            <div class="answer-votes ">
+              <%= link_to "", like_answer_path(answer), method: :put, class: "glyphicon glyphicon-arrow-up" %><br>
+              <span class="score"><%= answer.score %></span><br>
+              <%= link_to "", dislike_answer_path(answer), method: :put, class: "glyphicon glyphicon-arrow-down" %>
+            </td>
+            </div>
+            <td>
+            <div class="answer-description thumbnail">
+              <%= markdown(answer.description).html_safe %>
+              <div class="created-at text-center"><%= time_ago_in_words(answer.created_at) %> ago.</div>
+              <div class="answer-author text-center">Added by: <%= answer.user.name %></div>
+            </div>
           </td>
-          </div>
-          <td>
-          <div class="answer-description thumbnail">
-            <%= markdown(answer.description).html_safe %>
-            <div class="created-at text-center"><%= time_ago_in_words(answer.created_at) %> ago.</div>
-            <div class="answer-author text-center">Added by: <%= answer.user.name %></div>
-          </div>
-        </td>
-      </tr>
-      <% end %>
-    </table>
-  </div>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  <% end %>
 </div>
 
 <script>
