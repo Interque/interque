@@ -1,12 +1,21 @@
 <% if @questions.any? %>
 <div class="text-center">
-  <% if params[:unanswered] %>
-    <%= link_to "View All", questions_path(answered: true) %>
-  <% elsif params[:answered] %>
-    <%= link_to "View Unanswered", questions_path(unanswered: true) %>
-  <% else %>
-    <%= link_to "View Unanswered", questions_path(unanswered: true) %>
-  <% end %>
+  <ul class="nav nav-tabs nav-justified">
+    <li role="presentation">
+      <%= link_to "All Qs", questions_path(answered: true) %>
+    </li>
+    <li role="presentation">
+      <%= link_to "Unanswered Qs", questions_path(unanswered: true) %>
+    </li> 
+
+    <li role="presentation">
+      <%= link_to "Bounty Qs", bounty_path %>
+    </li>
+
+    <li role="presentation">
+      <%= link_to "Leaderboard",leaderboard_show_path %>
+    </li>
+  </ul>
 </div>
 <div class="all-questions text-center">
   <% @questions.each do |question| %>
