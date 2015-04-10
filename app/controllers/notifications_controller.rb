@@ -5,8 +5,10 @@ class NotificationsController < ApplicationController
   	@answers = Answer.all.order(:updated_at => :desc)
   	@total_votes = 0
   	@total_user_question_answers = 0
+  	@total_approved = 0
   	num_votes
   	total_answers_to_user_questions
+  	total_approved_questions
   end
 
   def num_votes
@@ -21,5 +23,9 @@ class NotificationsController < ApplicationController
   		@total_user_question_answers += question.answers.count
   	end
   	@total_user_question_answers
+  end
+
+  def total_approved_questions
+  	@total_approved = current_user.questions.where(:approved => true).count
   end
 end
