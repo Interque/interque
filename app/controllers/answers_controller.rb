@@ -8,26 +8,20 @@ class AnswersController < ApplicationController
     #@answers = Answer.all
   end
 
-  # GET /answers/1
-  # GET /answers/1.json
   def show
   end
 
-  # GET /answers/new
   def new
     #@answer = Answer.new
     redirect_to root_url
   end
 
-  # GET /answers/1/edit
   def edit
     unless current_user && current_user.administrator
       redirect_to root_url
     end
   end
 
-  # POST /answers
-  # POST /answers.json
   def create
     @answer = current_user.answers.new(answer_params)
 
@@ -88,8 +82,6 @@ class AnswersController < ApplicationController
     expire_fragment("votes")
   end
 
-  # PATCH/PUT /answers/1
-  # PATCH/PUT /answers/1.json
   def update
     respond_to do |format|
       if @answer.update(answer_params)
@@ -102,8 +94,6 @@ class AnswersController < ApplicationController
     end
   end
 
-  # DELETE /answers/1
-  # DELETE /answers/1.json
   def destroy
     @answer.destroy
     respond_to do |format|
@@ -111,6 +101,15 @@ class AnswersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  # def total_votes
+  #   @answers = current_user.answers
+  #   votes_total = 0
+  #   @answers.find_each do |answer|
+  #     votes_total += answer.votes_for.size
+  #   end
+  #   votes_total
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

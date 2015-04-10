@@ -2,6 +2,9 @@
 
 		<div class="text-center overall-status">
 			You have added <%= current_user.questions.count %> questions &amp; <%= current_user.answers.count %> answers.
+			<% unless current_user.answers.count == 0 %>
+				Your answers have received a total of <%= @total_votes %> votes.
+			<% end %>
 			<% if current_user.questions.count == 0 && current_user.answers.count == 0 %>
 				<br>We know you know some stuff. Quit holding out on us and answer some questions! <br> Don't think that you do? <a href="" data-toggle="modal" data-target="#myModal">Ask</a> some!
 			<% elsif current_user.questions.count == 0 %>
