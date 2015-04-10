@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150326002152) do
+ActiveRecord::Schema.define(version: 20150410204324) do
 
   create_table "answers", force: true do |t|
     t.text     "description"
@@ -109,6 +109,18 @@ ActiveRecord::Schema.define(version: 20150326002152) do
   add_index "questions", ["cached_weighted_total"], name: "index_questions_on_cached_weighted_total"
   add_index "questions", ["employer_id"], name: "index_questions_on_employer_id"
   add_index "questions", ["user_id"], name: "index_questions_on_user_id"
+
+  create_table "read_notifications", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "user_approved_questions"
+    t.integer  "votes_on_user_answers"
+    t.integer  "answers_on_user_questions"
+    t.datetime "read_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "read_notifications", ["user_id"], name: "index_read_notifications_on_user_id"
 
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"

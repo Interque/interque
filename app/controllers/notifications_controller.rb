@@ -9,6 +9,28 @@ class NotificationsController < ApplicationController
   	num_votes
   	total_answers_to_user_questions
   	total_approved_questions
+
+  	current_notification = ReadNotification.find_by(:user_id => current_user.id)
+
+  	if current_notification
+  		unless current_notification.user_approved_questions == @total_approved
+  			current_notification.user_approved_questions = @total_approved
+  			current_notification.read_at = Time.now
+  			current_notification.save
+  		end
+  		unless ReadNotification.find_by(:user_id => current_user.id).votes_on_user_answers == @total_votes
+  			ReadNotification.find_by(:user_id => current_user.id).votes_on_user_answers = @total_votes
+  			ReadNotification.find_by(:user_id => current_user.id).read_at = Time.now
+  			ReadNotification.find_by(:user_id => current_user.id).save
+  		end
+  		unless ReadNotification.find_by(:user_id => current_user.id).answers_on_user_questions == @total_user_question_answers
+  			ReadNotification.find_by(:user_id => current_user.id).answers_on_user_questions = @total_user_question_answers
+  			ReadNotification.find_by(:user_id => current_user.id).read_at = Time.now
+  			ReadNotification.find_by(:user_id => current_user.id).save
+  		end
+  	else
+  		ReadNotification.create(:user_id => current_user.id, :user_approved_questions => @total_approved, :votes_on_user_answers => @total_votes, :answers_on_user_questions => @total_user_question_answers, :read_at => Time.now)
+  	end
   end
 
   def num_votes
