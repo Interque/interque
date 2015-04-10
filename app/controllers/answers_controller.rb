@@ -24,7 +24,6 @@ class AnswersController < ApplicationController
 
   def create
     @answer = current_user.answers.new(answer_params)
-
     
     if @answer.question.bounty
       @answer.update_bounty

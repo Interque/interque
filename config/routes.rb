@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # get "sitemap" => "sitemap#show", format: :xml, as: :sitemap
 
   get 'notifications/index'
+  # match 'notifications', to: 'notifications#index', via: [:get]
 
   get 'admin/index'
 

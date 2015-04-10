@@ -23,5 +23,4 @@ class Answer < ActiveRecord::Base
     user.score += 35
     user.save
   end
-
 end
