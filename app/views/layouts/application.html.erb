@@ -52,9 +52,13 @@
 
   <div class="rank hidden-xs">   
     <% if current_user %>
-      <% unless ReadNotification.all.nil? %>
+      <% if ReadNotification.find_by(:user_id => current_user.id) %>
         <% num_notifications = return_unread() %>
+      <% else %>
+        <% create_new_read_notification %>
+        <% num_notifications = @read_notification.return_unread %>
       <% end %>
+      
       <span><%= link_to '', notifications_index_path, class:"glyphicon glyphicon-bell", data: {toggle: "tooltip", placement: "left", notifications: num_notifications}, title: "See my notifications feed." %>
       <%= current_user.name.downcase %> | <%= current_user.score %> | <%= rank %> </span>
     <% end %>

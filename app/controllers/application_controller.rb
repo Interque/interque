@@ -95,23 +95,26 @@ private
 
 	def unread_notifications
 		users_read_notification = ReadNotification.find_by(:user_id => current_user.id)
-		current_user.questions.find_each do |question|
-			if question.approved && question.updated_at > users_read_notification.read_at
-				unless @@user_unread_notifications.include?(question)
-					@@user_unread_notifications << question
-				end
-			elsif question.answers.any? && question.answers.last.updated_at > users_read_notification.read_at
-				unless @@user_unread_notifications.include?(question.answers.last)
-					@@user_unread_notifications << question.answers.last
+		
+		if users_read_notification.nil?
+			ReadNotification.create(:user_id => current_user.id, :read_at => Time.now)
+		else
+			current_user.questions.find_each do |question|
+				if question.approved && question.updated_at > users_read_notification.read_at
+					unless @@user_unread_notifications.include?(question)
+						@@user_unread_notifications << question
+					end
+				elsif question.answers.any? && question.answers.last.updated_at > users_read_notification.read_at
+					unless @@user_unread_notifications.include?(question.answers.last)
+						@@user_unread_notifications << question.answers.last
+					end
 				end
 			end
-		end
 
-		current_user.answers.find_each do |answer|
-			answer.votes_for.find_each do |vote|
-				if vote.updated_at > users_read_notification.read_at
-					unless @@user_unread_notifications.include?(vote)
-						@@user_unread_notifications << vote
+			current_user.answers.find_each do |answer|
+				if answer.votes_for.any? && answer.votes_for.last.updated_at > users_read_notification.read_at
+					unless @@user_unread_notifications.include?(answer.votes_for.last)
+						@@user_unread_notifications << answer.votes_for.last
 					end
 				end
 			end
@@ -123,6 +126,15 @@ private
 		return @@user_unread_notifications.count
 	end
 	helper_method :return_unread
+
+	def create_new_read_notification
+		if ReadNotification.find_by(:user_id => current_user.id)  
+			@read_notification = ReadNotification.find_by(:user_id => current_user.id)
+		else
+			ReadNotification.create(:user_id => current_user.id, :read_at => Time.now)
+		end
+	end
+	helper_method :create_new_read_notification
 end
 
 
