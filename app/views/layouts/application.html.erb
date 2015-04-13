@@ -52,7 +52,9 @@
 
   <div class="rank hidden-xs">   
     <% if current_user %>
-      <% num_notifications = return_unread() %>
+      <% if ReadNotifications.all.any? %>
+        <% num_notifications = return_unread() %>
+      <% end %>
       <span><%= link_to '', notifications_index_path, class:"glyphicon glyphicon-bell", data: {toggle: "tooltip", placement: "left", notifications: num_notifications}, title: "See my notifications feed." %>
       <%= current_user.name.downcase %> | <%= current_user.score %> | <%= rank %> </span>
     <% end %>
