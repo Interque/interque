@@ -49,7 +49,7 @@ class AnswersController < ApplicationController
   def upvote  
     @answer = Answer.find(params[:id])
     a = @answer.score
-    @answer.upvote_by current_user
+    @answer.upvote_by(current_user)
     env["HTTP_REFERER"] += "#answer-#{params[:id]}"
     redirect_to :back
     p "!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
