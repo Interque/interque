@@ -98,6 +98,8 @@ private
 		
 		if users_read_notification.nil?
 			ReadNotification.create(:user_id => current_user.id, :read_at => Time.now)
+		elsif users_read_notification.read_at.nil?
+			@@user_unread_notifications << 1
 		else
 			current_user.questions.find_each do |question|
 				if question.approved && question.updated_at > users_read_notification.read_at
