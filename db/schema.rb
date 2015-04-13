@@ -112,9 +112,6 @@ ActiveRecord::Schema.define(version: 20150410204324) do
 
   create_table "read_notifications", force: true do |t|
     t.integer  "user_id"
-    t.integer  "user_approved_questions"
-    t.integer  "votes_on_user_answers"
-    t.integer  "answers_on_user_questions"
     t.datetime "read_at"
     t.datetime "created_at"
     t.datetime "updated_at"
