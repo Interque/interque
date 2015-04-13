@@ -19,14 +19,14 @@ class NotificationsController < ApplicationController
   			current_notification.save
   		end
   		unless ReadNotification.find_by(:user_id => current_user.id).votes_on_user_answers == @total_votes
-  			ReadNotification.find_by(:user_id => current_user.id).votes_on_user_answers = @total_votes
-  			ReadNotification.find_by(:user_id => current_user.id).read_at = Time.now
-  			ReadNotification.find_by(:user_id => current_user.id).save
+  			current_notification.votes_on_user_answers = @total_votes
+  			current_notification.read_at = Time.now
+  			current_notification.save
   		end
   		unless ReadNotification.find_by(:user_id => current_user.id).answers_on_user_questions == @total_user_question_answers
-  			ReadNotification.find_by(:user_id => current_user.id).answers_on_user_questions = @total_user_question_answers
-  			ReadNotification.find_by(:user_id => current_user.id).read_at = Time.now
-  			ReadNotification.find_by(:user_id => current_user.id).save
+  			current_notification.answers_on_user_questions = @total_user_question_answers
+  			current_notification.read_at = Time.now
+  			current_notification.save
   		end
   	else
   		ReadNotification.create(:user_id => current_user.id, :user_approved_questions => @total_approved, :votes_on_user_answers => @total_votes, :answers_on_user_questions => @total_user_question_answers, :read_at => Time.now)
