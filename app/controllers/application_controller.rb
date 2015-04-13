@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
 
   @@counter
 
+  @@user_unread_notifications = []
+
 private
 
 
@@ -90,4 +92,38 @@ private
 		return @@counter
 	end
 	helper_method :unapproved_questions
+
+	def unread_notifications
+		users_read_notification = ReadNotification.find_by(:user_id => current_user.id)
+		current_user.questions.find_each do |question|
+			if question.approved && question.updated_at > users_read_notification.read_at
+				unless @@user_unread_notifications.include?(question)
+					@@user_unread_notifications << question
+				end
+			elsif question.answers.any? && question.answers.last.updated_at > users_read_notification.read_at
+				unless @@user_unread_notifications.include?(question.answers.last)
+					@@user_unread_notifications << question.answers.last
+				end
+			end
+		end
+
+		current_user.answers.find_each do |answer|
+			answer.votes_for.find_each do |vote|
+				if vote.updated_at > users_read_notification.read_at
+					unless @@user_unread_notifications.include?(vote)
+						@@user_unread_notifications << vote
+					end
+				end
+			end
+		end
+	end
+
+	def return_unread
+		unread_notifications
+		return @@user_unread_notifications.count
+	end
+	helper_method :return_unread
 end
+
+
+

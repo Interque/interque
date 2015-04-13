@@ -20,4 +20,16 @@ $(document).on('ready page:load', function(){
     size: 120
   });
   $('[data-toggle="tooltip"]').tooltip();
+
+  var numNotifications = $('.glyphicon-bell').data('notifications')
+  console.log("numNotifications = " + numNotifications)
+
+  if(numNotifications > 0){
+  	console.log("in the condition")
+  	$('.glyphicon-bell').addClass('notification-bell');
+  } else if(numNotifications == 0){
+  	$('.glyphicon-bell').removeClass('notification-bell');
+  }
+
 });
+
