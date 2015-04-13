@@ -52,7 +52,7 @@
 
   <div class="rank hidden-xs">   
     <% if current_user %>
-      <% if ReadNotifications.all.any? %>
+      <% unless ReadNotification.all.nil? %>
         <% num_notifications = return_unread() %>
       <% end %>
       <span><%= link_to '', notifications_index_path, class:"glyphicon glyphicon-bell", data: {toggle: "tooltip", placement: "left", notifications: num_notifications}, title: "See my notifications feed." %>
