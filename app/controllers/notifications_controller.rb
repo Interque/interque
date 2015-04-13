@@ -11,7 +11,7 @@ class NotificationsController < ApplicationController
   	total_approved_questions
 
   	@current_notification = ReadNotification.find_by(:user_id => current_user.id)
-  	compare_timestamps(@current_notification)
+  	mark_as_read(@current_notification)
   end
 
   def num_votes
@@ -32,45 +32,49 @@ class NotificationsController < ApplicationController
   	@total_approved = current_user.questions.where(:approved => true).count
   end
 
-  def compare_timestamps(current_notification)
+  def mark_as_read(current_notification)
   	# all_questions = current_user.questions.order(:updated_at => :desc)
-  	all_questions = current_user.questions.select { |q| q.updated_at > current_notification.read_at }
+  	# all_questions = current_user.questions.select { |q| q.updated_at > current_notification.read_at }
   	if current_notification
-	  	current_user.questions.find_each do |question|
-	  		if question.updated_at > current_notification.read_at
-	  			current_notification.read_at = question.updated_at
-	  			current_notification.save
+  		current_notification.read_at = Time.now
+  		current_notification.save
+  		@@user_unread_notifications.clear
+  		return_unread
+	  	# current_user.questions.find_each do |question|
+	  	# 	if question.updated_at > current_notification.read_at
+	  	# 		current_notification.read_at = question.updated_at
+	  	# 		current_notification.save
 	  			
-  				@@user_unread_notifications.clear
-  				return_unread
-	  		elsif question.answers.any? && question.answers.last.updated_at > current_notification.read_at
-	  			current_notification.read_at = question.answers.last.updated_at
-	  			current_notification.save
+  		# 		@@user_unread_notifications.clear
+  		# 		return_unread
+	  	# 	elsif question.answers.any? && question.answers.last.updated_at > current_notification.read_at
+	  	# 		current_notification.read_at = question.answers.last.updated_at
+	  	# 		current_notification.save
 	  			
-  				@@user_unread_notifications.clear
-  				return_unread
-	  		end
-	  	end
+  		# 		@@user_unread_notifications.clear
+  		# 		return_unread
+	  	# 	end
+	  	# end
 
-	  	current_user.answers.find_each do |answer|
-	  		answer.votes_for.find_each do |vote|
-	  			if vote.updated_at > current_notification.read_at
-	  				current_notification.read_at = vote.updated_at
-	  				current_notification.save
+	  	# current_user.answers.find_each do |answer|
+	  	# 	answer.votes_for.find_each do |vote|
+	  	# 		if vote.updated_at > current_notification.read_at
+	  	# 			current_notification.read_at = vote.updated_at
+	  	# 			current_notification.save
 	  			
-	  				@@user_unread_notifications.clear
-	  				return_unread
-	  			end
-	  		end
-		  		# votes_by_update = answer.votes_for.order(:updated_at => :desc)
-		  		# if answer.votes.any? && votes_by_update.first.updated_at > current_notification.read_at
-		  		# 	current_notification.read_at = votes_by_update.first.updated_at
-		  		# 	current_notification.save
-		  		# 	@@user_unread_notifications.clear
-		  		# 	return_unread
-		  		# end
+	  	# 			@@user_unread_notifications.clear
+	  	# 			return_unread
+	  	# 		end
+	  	# 	end
+		  # 		# votes_by_update = answer.votes_for.order(:updated_at => :desc)
+		  # 		# if answer.votes.any? && votes_by_update.first.updated_at > current_notification.read_at
+		  # 		# 	current_notification.read_at = votes_by_update.first.updated_at
+		  # 		# 	current_notification.save
+		  # 		# 	@@user_unread_notifications.clear
+		  # 		# 	return_unread
+		  # 		# end
 		  	
-	  	end
+	  	# end
 	  else
 	  	ReadNotification.create(:user_id => current_user.id, :read_at => Time.now)
 	  end
