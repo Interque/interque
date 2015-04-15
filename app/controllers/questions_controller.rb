@@ -123,6 +123,7 @@ class QuestionsController < ApplicationController
       notification = ReadNotification.find_by(:user_id => current_user.id)
       notification.read_at = nil
       notification.save
+      expire_fragment("questions")
     else
       render @question
     end
