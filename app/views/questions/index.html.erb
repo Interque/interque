@@ -35,7 +35,7 @@
   </ul>
 </div>
 <div class="all-questions text-center">
-  <% cache("questions", skip_digest: true) do %>
+  
     <% @questions.each do |question| %>
       <% unless question.bounty == true %>
         <% if question.approved? %>
@@ -60,7 +60,7 @@
         <% end %>
       <% end %>
     <% end %>
-  <% end %>
+  
 
 <br>
 
