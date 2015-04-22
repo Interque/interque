@@ -35,7 +35,7 @@ class AnswersController < ApplicationController
       if @answer.save
         format.html { redirect_to :back, notice: 'Answer was successfully created.' }
         format.json { render :show, status: :created, location: @answer }
-        expire_fragment("approvals")
+        # expire_fragment("approvals")
         notification = ReadNotification.find_by(:user_id => @answer.question.user_id)
         notification.read_at = nil
         notification.save
