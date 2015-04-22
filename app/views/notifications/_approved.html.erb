@@ -1,4 +1,4 @@
-<% cache("approvals", skip_digest: true) do %>
+
 	<% current_user.questions.order(id: :desc).each do |question| %>
 		<!-- current_user.questions.include(answers: user) do |question| -->
 		<% if question.approved %>
@@ -9,4 +9,3 @@
 			<%= answer.user.name %> <span class="notifications">added an answer</span> to your question, <%= link_to "#{question.title}", question_path(question) %>.<br>
 		<% end %>
 	<% end %>
-<% end %>

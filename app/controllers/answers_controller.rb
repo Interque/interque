@@ -64,7 +64,6 @@ class AnswersController < ApplicationController
         @answer.user.save
       end
     end
-    expire_fragment("votes")
   end
 
   def downvote
@@ -81,7 +80,6 @@ class AnswersController < ApplicationController
       @answer.user.score -= 6
       @answer.user.save
     end
-    expire_fragment("votes")
   end
 
   def update
