@@ -55,7 +55,7 @@
       <% if ReadNotification.find_by(:user_id => current_user.id) %>
         <% num_notifications = return_unread() %>
       <% else %>
-        <% ReadNotification.create(:user_id => current_user.id, :read_at => Time.now) %>
+        <% ReadNotification.create(:user_id => current_user.id, :read_at => Time.now).save %>
         <% num_notifications = return_unread() %>
       <% end %>
       
