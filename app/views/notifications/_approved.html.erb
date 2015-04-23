@@ -1,4 +1,4 @@
-<% cache_if(current_user.questions.length > 5, "approvals", skip_digest: true) do %>
+<% cache("approvals", skip_digest: true) do %>
 	<% current_user.questions.order(id: :desc).each do |question| %>
 		<!-- current_user.questions.include(answers: user) do |question| -->
 		<% if question.approved %>
