@@ -151,3 +151,7 @@ div {
 .notification-bell{
   color: red;
 }
+
+header {
+  margin-bottom: 5px;
+}
