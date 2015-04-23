@@ -59,9 +59,11 @@ class AnswersController < ApplicationController
       if @answer.question.bounty
         @answer.user.score += 10
         @answer.user.save
+        expire_fragment("votes")
       else
         @answer.user.score += 5
         @answer.user.save
+        expire_fragment("votes")
       end
     end
   end
@@ -79,6 +81,7 @@ class AnswersController < ApplicationController
     if a > @answer.score
       @answer.user.score -= 6
       @answer.user.save
+      expire_fragment("votes")
     end
   end
 
