@@ -35,12 +35,23 @@ div {
 ********************************/
 
 .navbar {
-  background-color: #fff;
-  text-align: left;
+  background: #68aded;
+  background: -moz-linear-gradient(top, #68aded 24%, #3b8ce8 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(24%, #68aded), color-stop(100%, #3b8ce8));
+  background: -webkit-linear-gradient(top, #68aded 24%, #3b8ce8 100%);
+  background: -o-linear-gradient(top, #68aded 24%, #3b8ce8 100%);
+  background: -ms-linear-gradient(top, #68aded 24%, #3b8ce8 100%);
+  background: linear-gradient(to bottom, #68aded 24%, #3b8ce8 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#68aded', endColorstr='#3b8ce8', GradientType=0 );
+  border-radius: none;
+  height: 105px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
 }
 
 .nav-logo {
   margin-top: auto;
+  margin-left: 2px;
 }
 
  #search-box{
@@ -104,7 +115,7 @@ div {
   height: 38px;
   padding-top: 8px;
   font-family: 'Open Sans', sans-serif;
-}
+  }
 
 .btn-primary {
   height: 38px;
@@ -125,6 +136,7 @@ div {
 
 .logout {
   padding-right: 19px;
+  color: #fff;
 }
 
 .leaderboard-link{
