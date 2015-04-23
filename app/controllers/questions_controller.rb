@@ -119,7 +119,7 @@ class QuestionsController < ApplicationController
     if @question.update(approved: true)
       render
       @question.update_score
-      # expire_fragment("approvals")
+      expire_fragment("approvals")
       notification = ReadNotification.find_by(:user_id => current_user.id)
       notification.read_at = nil
       notification.save

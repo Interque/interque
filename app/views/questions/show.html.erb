@@ -52,10 +52,10 @@
     <br><div class="alert alert-info">
       answers for bounty questions hidden until (1) you've submitted an answer or (2) a winner has been chosen
     </div><br>
-  <% elsif @question.bounty && (current_user.answers & @question.answers).length == 0 %>
+  <% elsif @question.bounty && (current_user.answers & @question.answers).length == 0 && !current_user.administrator %>
     <br><div class="alert alert-info">
-        answers for bounty questions are hidden until (1) you've submitted an answer or (2) a winner has been chosen
-      </div><br>
+      answers for bounty questions are hidden until (1) you've submitted an answer or (2) a winner has been chosen
+    </div><br>
   <% else %>
     <h4>Answer<a href="#" class="new-answer-btn">(<%= @question.answers.count %>)</a></h4>
     <div class="answers-container col-md-6 col-md-offset-3 text-center">
