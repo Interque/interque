@@ -35,10 +35,10 @@ class AnswersController < ApplicationController
       if @answer.save
         format.html { redirect_to :back, notice: 'Answer was successfully created.' }
         format.json { render :show, status: :created, location: @answer }
-        expire_fragment("approvals")
-        notification = ReadNotification.find_by(:user_id => @answer.question.user_id)
-        notification.read_at = nil
-        notification.save
+        # expire_fragment("approvals")
+        # notification = ReadNotification.find_by(:user_id => @answer.question.user_id)
+        # notification.read_at = nil
+        # notification.save
       else
         format.html { render :new }
         format.json { render json: @answer.errors, status: :unprocessable_entity }
@@ -59,12 +59,13 @@ class AnswersController < ApplicationController
       if @answer.question.bounty
         @answer.user.score += 10
         @answer.user.save
+        expire_fragment("votes")
       else
         @answer.user.score += 5
         @answer.user.save
+        expire_fragment("votes")
       end
     end
-    expire_fragment("votes")
   end
 
   def downvote
@@ -80,8 +81,8 @@ class AnswersController < ApplicationController
     if a > @answer.score
       @answer.user.score -= 6
       @answer.user.save
+      expire_fragment("votes")
     end
-    expire_fragment("votes")
   end
 
   def update
@@ -102,6 +103,12 @@ class AnswersController < ApplicationController
       format.html { redirect_to answers_url, notice: 'Answer was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def notify_unread
+    notification = ReadNotification.find_by(:user_id => @answer.question.user_id)
+    notification.read_at = nil
+    notification.save 
   end
 
   # def total_votes

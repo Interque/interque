@@ -20,7 +20,7 @@
 
 <header>
 <nav class="navbar">
-  <span id="logo" class="nav-logo"><%= link_to image_tag("logo.png", size: "500x91"), root_path %>
+  <span id="logo" class="nav-logo"><%= link_to image_tag("interque-white.png", size: "500x91"), root_path %>
   </span>
   
   <span class="nav-buttons hidden-xs">
@@ -49,13 +49,13 @@
       <% end %>
     <% end %>
   </span>
-
+</nav>
   <div class="rank hidden-xs">   
     <% if current_user %>
       <% if ReadNotification.find_by(:user_id => current_user.id) %>
         <% num_notifications = return_unread() %>
       <% else %>
-        <% ReadNotification.create(:user_id => current_user.id, :read_at => Time.now) %>
+        <% ReadNotification.create(:user_id => current_user.id, :read_at => Time.now).save %>
         <% num_notifications = return_unread() %>
       <% end %>
       
@@ -101,7 +101,6 @@
       </div>
     </div>
 
-</nav>
 
 
 <!-- model callback, question model -->

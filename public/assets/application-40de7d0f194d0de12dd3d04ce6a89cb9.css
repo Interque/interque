@@ -1,0 +1,579 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+
+
+.answer-text-box{
+	border-radius: 5px;
+	border-color: #d3d3d3;
+}
+
+.answer-author {
+  font-size: 12px;
+  color: #D2D7D3;
+  font-style: italic;
+  padding-bottom: 6px;
+}
+/* line 5, /Users/todd/rails/interque/app/assets/stylesheets/bounty.css.scss */
+.bounty {
+  color: #0066FF;
+}
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+
+
+th {
+	font-weight: bold;
+	/*font-family: 'Nunito', sans-serif;*/
+}
+
+.leaderboard-user-name,
+.leaderboard-user-score,
+.leaderboard-user-rank
+{
+	font-family: 'Nunito', sans-serif;
+	text-transform: lowercase;
+}
+/* line 5, /Users/todd/rails/interque/app/assets/stylesheets/notifications.css.scss */
+.notifications {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+/* line 10, /Users/todd/rails/interque/app/assets/stylesheets/notifications.css.scss */
+.votes-and-approvals {
+  margin-top: 10px;
+}
+
+/* line 14, /Users/todd/rails/interque/app/assets/stylesheets/notifications.css.scss */
+.overall-status {
+  margin-bottom: 10px;
+}
+.digg_pagination {
+  background: white;
+  cursor: default;
+  /* self-clearing method: */ }
+  .digg_pagination a, .digg_pagination span, .digg_pagination em {
+    padding: 0.2em 0.5em;
+    display: block;
+    float: left;
+    margin-right: 1px; }
+  .digg_pagination .disabled {
+    display: none; }
+  .digg_pagination .current {
+    font-style: normal;
+    font-weight: bold;
+    background: #337AB7;
+    color: white;
+    border: 1px solid #337AB7; }
+  .digg_pagination a {
+    text-decoration: none;
+    color: #105cb6;
+    border: 1px solid #9aafe5; }
+    .digg_pagination a:hover, .digg_pagination a:focus {
+      color: #000033;
+      border-color: #000033; }
+  .digg_pagination .page_info {
+    background: #337AB7;
+    color: white;
+    padding: 0.4em 0.6em;
+    width: 22em;
+    margin-bottom: 0.3em;
+    text-align: center; }
+    .digg_pagination .page_info b {
+      color: #000033;
+      background: #6aa6ed;
+      padding: 0.1em 0.25em; }
+  .digg_pagination:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
+  * html .digg_pagination {
+    height: 1%; }
+  *:first-child + html .digg_pagination {
+    overflow: hidden; }
+
+/*******************************
+*******FIELDS & CONTAINERS******
+********************************/
+
+.answers-container {
+  /*display: none;*/
+  /*margin-top: */
+}
+
+#search-bar{
+  text-align: right;
+  
+}
+
+.random{
+  color: #fff;
+  background-color: red;
+}
+
+#input{
+  color: green;
+}
+
+.list-title{
+  margin-top: 25px;
+}
+
+.all-questions{
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+.created-at{
+  /*font-style: italic;*/
+  font-weight: bold;
+}
+
+#question-container{
+  max-width: 600px; 
+  margin: 0 auto;
+}
+
+.answer-description{
+  width: 514px;
+  font-size: 17px;
+  padding-top: 10px;
+  padding-bottom: 3px;
+  padding-left: 14px;
+  text-align: left;
+  padding-right: 14px;
+}
+
+#question_tag_list {
+  width: 201px;
+}
+
+.tweet {
+  margin-top: 8px;
+  margin-left: 50px;
+}
+
+/*******************************
+**************DIVS**************
+********************************/
+
+.tags-excluded{
+  margin: 0 auto;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: #d3d3d3;
+  padding: 20px;
+  max-width: 45%;
+}
+
+.just-tags{
+  padding-bottom: 20px;
+}
+
+.question-description{
+  color: black;
+  font-size: 20px;
+  padding: 0 15px;
+}
+
+.num-answers{
+  color: black;
+  font-size: 15px;
+  padding: 0 15px;
+}
+
+.new-question-button{
+  padding: 10px;
+}
+
+.glyphicon-ban-circle{
+  color: red;
+}
+
+.glyphicon-plus-sign{
+  color: #5cb85c;
+}
+
+.bounty-faq {
+  float: right;
+  margin-bottom: 5px;
+}
+
+.bounty-faq:hover {
+  color: orange;
+  text-decoration: none;
+  border-style: none;
+}
+
+/*******************************
+************TITLES**************
+********************************/
+
+.question-title {
+  border-style: none;
+  margin-bottom: 0.8px;
+  font-size: 24px;
+  margin-top: 21px;
+}
+
+.nav-menu {
+  float: right;
+  margin-right: 50px;
+  margin-top: 3%;
+}
+
+/*******************************
+************Up/Downvote*********
+********************************/
+
+.answer-votes{
+  display: inline;
+}
+
+.list-item{
+  display: inline;
+  list-style: none;
+}
+
+
+#notice {
+  text-align: center;
+  padding-left: 19px;
+  float: left;
+}
+
+
+#answer_description {
+  height: 206px;
+  width: 500px;
+}
+
+.markdown {
+  font-size: 12px;
+}
+
+.markdown-new {
+  padding-left: 12px;
+}
+/*******************************
+************Forms***************
+********************************/
+
+.field{
+  margin: 10px;
+}
+
+.created-at {
+  /*border-top: 1px solid #000;*/
+  border-color: #d3d3d3;
+  padding-bottom: 2px;
+  font-size: 12px;
+  color: #D2D7D3;
+}
+
+#question_description {
+  height: 156px;
+  width: 342px;
+}
+.answer-content {
+  text-align:left; 
+  padding:5px;
+}
+.answer-thumb {
+  margin: 0%;
+}
+
+.answer-content p{
+  margin: 0%;
+  display: inline;
+}
+
+.glyphicon-arrow-down {
+  padding-left: 2px;
+  color: #000;
+}
+
+.glyphicon-arrow-up {
+  color: #000;
+}
+
+.glyphicon-arrow-down:hover {
+  color: #f00;
+}
+
+.glyphicon-arrow-up:hover {
+  color: #5cb85c;
+}
+
+.question-title {
+  font-weight: bold;
+}
+
+.modal-warning{
+  padding: 10px;
+}
+
+
+/*******************************
+*************ICONS**************
+********************************/
+.glyphicon-bell {
+  font-size: 0.6em;
+}
+/*******************************
+*******LOGIN CONTAINER**********
+********************************/
+
+
+html, .splash, body {
+    margin: 0;
+    height: 100%;
+}
+
+.social-login{
+  margin-top: 20%;
+  background-color: #fff;
+  max-width: 400px;
+  max-height: 400px;
+}
+
+.login-buttons {
+  padding-bottom: 10px;
+}
+
+.btn-social {
+  width: 244px;
+  height: 45px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.welcome-container {
+  width: 992px;
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid #d3d3d3;
+  margin-top: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+  max-width: 100%;
+}
+
+.splash {
+  background: #68aded;
+  background: -moz-linear-gradient(top, #68aded 24%, #3b8ce8 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(24%, #68aded), color-stop(100%, #3b8ce8));
+  background: -webkit-linear-gradient(top, #68aded 24%, #3b8ce8 100%);
+  background: -o-linear-gradient(top, #68aded 24%, #3b8ce8 100%);
+  background: -ms-linear-gradient(top, #68aded 24%, #3b8ce8 100%);
+  background: linear-gradient(to bottom, #68aded 24%, #3b8ce8 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#68aded', endColorstr='#3b8ce8', GradientType=0 );
+  background-repeat: no-repeat;
+}
+
+.dictionary-image {
+  width: 700px;
+}
+
+#dictionary {
+  height: 90px;
+  display: inline-block;
+  padding: 15px;
+  margin-left: 118px;
+}
+
+#white-logo {
+  text-align: center;
+  margin-top: 200px;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.home-links {
+  color: #fff;
+  font-size: 15px;
+}
+
+.home-links:visited {
+  color: #fff;
+}
+
+.home-links:hover {
+  color: #fff;
+}
+
+img {
+  max-width: 100%;
+}
+
+@media only screen and (min-device-width : 400px) {
+  #dictionary {
+    margin-left: 0px;
+  }
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
+
+
+
+div {
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+/*******************************
+************IMAGES**************
+********************************/
+
+#logo{
+  display: inline;
+  width: 500px;
+}
+
+/*******************************
+************NAVBAR**************
+********************************/
+
+.navbar {
+  background: #68aded;
+  background: -moz-linear-gradient(top, #68aded 24%, #3b8ce8 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(24%, #68aded), color-stop(100%, #3b8ce8));
+  background: -webkit-linear-gradient(top, #68aded 24%, #3b8ce8 100%);
+  background: -o-linear-gradient(top, #68aded 24%, #3b8ce8 100%);
+  background: -ms-linear-gradient(top, #68aded 24%, #3b8ce8 100%);
+  background: linear-gradient(to bottom, #68aded 24%, #3b8ce8 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#68aded', endColorstr='#3b8ce8', GradientType=0 );
+  border-radius: none;
+  height: 105px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.nav-logo {
+  margin-top: auto;
+  margin-left: 2px;
+}
+
+ #search-box{
+  margin: 10px;
+ }
+
+ .search-bar {
+  padding: 8px 15px;
+  border: 1px solid #dbdbdb;
+  border-radius: 5px;
+  width: 214px;
+  /*margin-top: 5px;*/
+}
+
+.search-button {
+  position: relative;
+  padding: 6px 15px;
+  left: -8px;
+  border: 2px solid #4cae4c;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: #5cb85c;
+  color: #fff;
+  height: 38px;
+}
+
+.answer-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+
+.digg_pagination {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.glyphicon:hover {
+  text-decoration: none;
+}
+
+.answer-text {
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 15px;
+}
+
+.nav-buttons {
+  float: right;
+  margin-top: 22px;
+  width: 585px;
+  height: 58px;
+}
+
+.search-container {
+  float: right;
+  padding-left: 10px;
+}
+
+.btn-success {
+  height: 38px;
+  padding-top: 8px;
+  font-family: 'Open Sans', sans-serif;
+  }
+
+.btn-primary {
+  height: 38px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.rank {
+  text-align: center;
+  font-family: 'Nunito', sans-serif;
+  font-size: 18px;
+}
+
+.progress {
+  width: 200px;
+  margin: 0px auto;
+  text-align: center;
+}
+
+.logout {
+  padding-right: 19px;
+  color: #fff;
+}
+
+.leaderboard-link{
+  padding-top: 10px;
+}
+
+.admin-user-count{
+  text-align: left;
+  margin: 10px;
+}
+
+.notification-bell{
+  color: red;
+}
