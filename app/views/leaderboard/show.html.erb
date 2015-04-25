@@ -24,14 +24,16 @@
 		<th class="text-center">Name</th>
 		<th class="text-center">Points</th>
 	<% n = 1 %>
-	<% @users.each do |user| %>
-		<tr>
-		<td class="text-center leaderboard-user-rank"><%= n %>.</td>
-		<td class="text-center leaderboard-user-name"><%= user.name %></td> 
-		<td class="text-center leaderboard-user-score"><%= user.score %></td>
-		<% n += 1 %>
-		</tr>
-	<% end %>
+  <% @users.each do |user| %>
+    <% if n < 101 %>
+  		<tr>
+  		<td class="text-center leaderboard-user-rank"><%= n %>.</td>
+  		<td class="text-center leaderboard-user-name"><%= user.name %></td> 
+  		<td class="text-center leaderboard-user-score"><%= user.score %></td>
+  		<% n += 1 %>
+  		</tr>
+  	<% end %>
+  <% end %>
 
 	</table>
 
