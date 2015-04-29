@@ -45,8 +45,7 @@ div {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#68aded', endColorstr='#3b8ce8', GradientType=0 );
   border-radius: none;
   height: 105px;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
+  border-radius: 0px;
 }
 
 .nav-logo {
