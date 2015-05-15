@@ -24,11 +24,14 @@ class AnswersController < ApplicationController
 
   def create
     @answer = current_user.answers.new(answer_params)
+    @question = Question.find(@answer.question_id)
     
     if @answer.question.bounty
       @answer.update_bounty
     else
-      @answer.update_score
+      unless @question.answers.where(:user_id => current_user.id).count > 0
+        @answer.update_score
+      end
     end
 
     respond_to do |format|
