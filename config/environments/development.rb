@@ -34,4 +34,16 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # config.middleware.use ExceptionNotification::Rack,
+  #   :email => {
+  #     sender_address: 'noreply@interque.co',
+  #     exception_recipients: ['todd@interque.co', 'ray@interque.co'],
+  #     # ignore_exceptions: ExceptionNotifier.default_ignore_exceptions # + [RuntimeError]
+      
+  #   }
+
+  # config.action_mailer.delivery_method = :send_mail
+  # config.action_mailer.perform_deliveries = true
+  # config.action_mailer.raise_delivery_errors = true
 end
