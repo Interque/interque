@@ -58,6 +58,7 @@ gem 'redcarpet'
 
 gem 'impressionist'
 gem 'sitemap_generator'
+gem 'exception_notification'
 
 group :development, :test do
 	gem 'rspec-rails'
