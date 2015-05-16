@@ -60,9 +60,14 @@ gem 'impressionist'
 gem 'sitemap_generator'
 gem 'exception_notification'
 
+# gem "tzinfo-data"
+
+
 group :development, :test do
 	gem 'rspec-rails'
 	gem 'capybara'
+
+  # gem 'letter_opener'
 end
 # gem 'sunspot_rails'
 # gem 'sunspot_solr'

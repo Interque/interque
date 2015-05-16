@@ -5,5 +5,7 @@ class AdminController < ApplicationController
   	unless current_user && current_user.administrator?
 			redirect_to root_path
 		end
+
+    raise StandardError
   end
 end
