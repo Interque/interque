@@ -6,6 +6,8 @@ class AdminController < ApplicationController
 			redirect_to root_path
 		end
 
-    # raise StandardError
+    if current_user && current_user.administrator?
+      raise Exception
+    end
   end
 end
