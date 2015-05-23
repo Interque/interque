@@ -78,7 +78,7 @@ Rails.application.configure do
 
   config.middleware.use ExceptionNotification::Rack,
     :email => {
-      sender_address: 'noreply@interque.co',
+      sender_address: 'team@interque.co',
       exception_recipients: ['todd@interque.co', 'ray@interque.co']
       # ignore_exceptions: ExceptionNotifier.default_ignore_exceptions # + [RuntimeError]
       
