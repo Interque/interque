@@ -58,7 +58,7 @@ gem 'redcarpet'
 
 gem 'impressionist'
 gem 'sitemap_generator'
-gem 'exception_notification'
+gem 'exception_notification', '4.0.1'
 
 # gem "tzinfo-data"
 
