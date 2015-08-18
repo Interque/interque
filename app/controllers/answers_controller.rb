@@ -29,7 +29,7 @@ class AnswersController < ApplicationController
     if @answer.question.bounty
       @answer.update_bounty
     else
-      unless @question.answers.where(:user_id => current_user.id).count > 0
+      unless @question.answers && @question.answers.where(:user_id => current_user.id).count > 0
         @answer.update_score
       end
     end

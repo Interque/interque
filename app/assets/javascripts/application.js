@@ -31,5 +31,6 @@ $(document).on('ready page:load', function(){
   	$('.glyphicon-bell').removeClass('notification-bell');
   }
 
+  Turbolinks.enableProgressBar();
 });
 
