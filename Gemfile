@@ -43,11 +43,8 @@ gem 'omniauth-google-oauth2'
 # gem 'better_errors'
 # gem 'binding_of_caller'
 gem 'rails_12factor'
-
 gem 'acts_as_votable', '~> 0.10.0'
-
 gem 'acts-as-taggable-on', '~> 3.4'
-
 gem 'shareable'
 
 gem 'will_paginate'
