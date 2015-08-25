@@ -11,7 +11,7 @@
       <li role="presentation" class="active">
     <% else %>
       <li role="presentation">
-    <% end %>  
+    <% end %>
         <%= link_to "All", questions_path(answered: true) %>
       </li>
     <% if params[:unanswered] %>
@@ -20,7 +20,7 @@
       <li role="presentation">
     <% end %>
         <%= link_to "Unanswered", questions_path(unanswered: true) %>
-      </li> 
+      </li>
 
       <li role="presentation">
         <%= link_to "Bounty", bounty_path %>
@@ -35,7 +35,7 @@
   </ul>
 </div>
 <div class="all-questions text-center">
-  
+
     <% @questions.each do |question| %>
       <% unless question.bounty == true %>
         <% if question.approved? %>
@@ -55,12 +55,12 @@
           </div>
             <%= link_to "Answers(#{question.answers.count})", question, class: "num-answers" %>
           <div class="just-tags">
-            Tags: <%= raw question.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %><br>
+            <%= raw question.tag_list.map { |t| link_to t, tag_path(t)}.join('') %><br>
           </div>
         <% end %>
       <% end %>
     <% end %>
-  
+
 
 <br>
 

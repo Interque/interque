@@ -9,7 +9,7 @@
 
 #search-bar{
   text-align: right;
-  
+
 }
 
 .random{
@@ -36,7 +36,7 @@
 }
 
 #question-container{
-  max-width: 600px; 
+  max-width: 600px;
   margin: 0 auto;
 }
 
@@ -183,7 +183,7 @@
   width: 342px;
 }
 .answer-content {
-  text-align:left; 
+  text-align:left;
   padding:5px;
 }
 .answer-thumb {
@@ -226,4 +226,22 @@
 ********************************/
 .glyphicon-bell {
   font-size: 0.6em;
+}
+
+.add-to-token{
+	overflow: hidden;
+	height: auto !important;
+	height: 15px;
+	margin: 3px;
+	padding: 1px 3px;
+	background-color: #eff2f7;
+	color: #000;
+	cursor: default;
+	border: 1px solid #ccd5e4;
+	font-size: 11px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	/*float: left;*/
+	white-space: nowrap;
 }
