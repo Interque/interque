@@ -1,6 +1,6 @@
 <%= form_for(@new_question = Question.new) do |f| %>
   <%= f.hidden_field :user_id, value: current_user.id if current_user %>
-  
+
   <% if @new_question.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@new_question.errors.count, "error") %> prohibited this question from being saved:</h2>
@@ -15,20 +15,20 @@
 
   <div class="field title-field">
     <%# f.label :title %><br>
-    <%= f.text_field :title, placeholder: 'Title' %>
+    <%= f.text_field :title, placeholder: 'Title', class: 'form-control' %>
   </div>
   <div class="field">
     <%# f.label :description %><br>
-    <%= f.text_area :description, placeholder: 'Description' %>
+    <%= f.text_area :description, placeholder: 'Description', class: 'form-control' %>
   </div>
   <a href="https://guides.github.com/features/mastering-markdown/" class="markdown markdown-new">Markdown Supported<i class="fa fa-code"></i></a>
   <div class="field form-group">
     <%# label_tag "Employer Name" %><br>
-    <%= text_field_tag :name, nil, placeholder: 'Employer' %>
+    <%= text_field_tag :name, nil, placeholder: 'Employer', class: 'form-control' %>
   </div>
   <div class="field">
     <%# f.label :tag_list, "Tags (separated by commas)" %><br>
-    <%= f.text_field :tag_list, placeholder: 'Tags (separated by commas)' %>
+    <%= f.text_field :tag_list, placeholder: 'Tags (separated by commas)', class: 'form-control' %>
   </div>
   <div class="actions new-question-button">
     <%= f.submit class: "btn btn-primary" %>
