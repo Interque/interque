@@ -1,18 +1,17 @@
 <div class="text-center">
   <ul class="nav nav-tabs nav-justified">
     <li role="presentation">
-      <%= link_to "All", questions_path(answered: true) %>
+      <%= link_to "Newest", questions_path(newest: true) %>
+    </li>
+    <li role="presentation">
+      <%= link_to "Popular", questions_path(answered: true) %>
     </li>
     <li role="presentation">
       <%= link_to "Unanswered", questions_path(unanswered: true) %>
-    </li> 
-
-    <li role="presentation">
-      <%= link_to "Bounty", bounty_path %>
     </li>
 
     <li role="presentation" class="active">
-      <%= link_to "Leaderboard",leaderboard_show_path %>
+      <%= link_to "Leaderboard", leaderboard_show_path %>
     </li>
   </ul>
 </div>
@@ -28,7 +27,7 @@
     <% if n < 26 %>
   		<tr>
   		<td class="text-center leaderboard-user-rank"><%= n %>.</td>
-  		<td class="text-center leaderboard-user-name"><%= user.name %></td> 
+  		<td class="text-center leaderboard-user-name"><%= user.name %></td>
   		<td class="text-center leaderboard-user-score"><%= user.score %></td>
   		<% n += 1 %>
   		</tr>
@@ -47,5 +46,3 @@
   ga('send', 'pageview');
 
 </script>
-
-

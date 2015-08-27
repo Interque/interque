@@ -7,13 +7,22 @@
   <ul class="nav nav-tabs nav-justified">
     <% if !(params[:answered]) && !(params[:unanswered]) %>
       <li role="presentation" class="active">
-    <% elsif params[:answered] %>
+    <% elsif params[:newest] %>
       <li role="presentation" class="active">
     <% else %>
       <li role="presentation">
     <% end %>
-        <%= link_to "All", questions_path(answered: true) %>
+        <%= link_to "Newest", questions_path(newest: true) %>
       </li>
+
+    <% if params[:answered] %>
+      <li role="presentation" class="active">
+    <% else %>
+      <li role="presentation">
+    <% end %>
+        <%= link_to "Popular", questions_path(answered: true) %>
+      </li>
+      
     <% if params[:unanswered] %>
       <li role="presentation" class="active">
     <% else %>
@@ -22,9 +31,9 @@
         <%= link_to "Unanswered", questions_path(unanswered: true) %>
       </li>
 
-      <li role="presentation">
-        <%= link_to "Bounty", bounty_path %>
-      </li>
+      <!-- <li role="presentation"> -->
+        <%# link_to "Bounty", bounty_path %>
+      <!-- </li> -->
 
       <li role="presentation">
         <%= link_to "Leaderboard", leaderboard_show_path %>

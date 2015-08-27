@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
   before_action :require_login, only: [:edit, :update, :new, :create, :destroy]
-  
+
   impressionist actions: [:show]
 
   # GET /questions
@@ -10,7 +10,7 @@ class QuestionsController < ApplicationController
     #@questions = Question.all.order(:cached_votes_up => :desc)
     # if !(params[:tag].nil?) && params[:tag].empty?
     #    flash[:notice] = "Please enter some text you'd like to search."
-    
+
     if params[:tag]
       #if (Question.tagged_with(params[:tag])).length > 0
       @questions = Question.tagged_with(params[:tag].downcase).order(:cached_votes_up => :desc).page(params[:page]).per_page(7)
@@ -19,6 +19,8 @@ class QuestionsController < ApplicationController
       @questions = Question.includes(:answers).where(:answers => {id: nil}).order(:cached_votes_up => :desc)
     elsif params[:answered]
       @questions = Question.all.order(:cached_votes_up => :desc).page(params[:page]).per_page(7)
+    elsif params[:newest]
+      @questions = Question.all.order(:created_at => :desc).page(params[:page]).per_page(7)
     else
       @questions = Question.all.order(:cached_votes_up => :desc).page(params[:page]).per_page(7)
     end
@@ -32,14 +34,14 @@ class QuestionsController < ApplicationController
     # end
 
     # if params[:employer]
-    #   @questions = Question.search(params[:employer]).order(:cached_votes_up => :desc)  
+    #   @questions = Question.search(params[:employer]).order(:cached_votes_up => :desc)
   end
 
   # GET /questions/1
   # GET /questions/1.json
   def show
     @answer = Answer.new(question: @question)
-    
+
     #@answer = @question.answers.new
     #@question_comment = @question.comments.new
     #@answer_comment = @answer.comments.new
@@ -86,7 +88,7 @@ class QuestionsController < ApplicationController
       if @question.update(question_params)
         format.html { redirect_to @question, notice: 'Question was successfully updated.' }
         format.json { render :show, status: :ok, location: @question }
-        
+
       else
         format.html { render :edit }
         format.json { render json: @question.errors, status: :unprocessable_entity }
