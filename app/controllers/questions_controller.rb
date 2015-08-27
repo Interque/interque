@@ -22,7 +22,7 @@ class QuestionsController < ApplicationController
     elsif params[:answered]
       @questions = Question.all.order(:cached_votes_up => :desc).page(params[:page]).per_page(7)
     else
-      @questions = Question.all.order(:cached_votes_up => :desc).page(params[:page]).per_page(7)
+      @questions = Question.all.order(:created_at => :desc).page(params[:page]).per_page(7)
     end
 
     # if params[:unanswered]
