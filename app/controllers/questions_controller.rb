@@ -15,12 +15,12 @@ class QuestionsController < ApplicationController
       #if (Question.tagged_with(params[:tag])).length > 0
       @questions = Question.tagged_with(params[:tag].downcase).order(:cached_votes_up => :desc).page(params[:page]).per_page(7)
       #end
+    elsif params[:newest]
+      @questions = Question.all.order(:created_at => :desc).page(params[:page]).per_page(7)
     elsif params[:unanswered]
       @questions = Question.includes(:answers).where(:answers => {id: nil}).order(:cached_votes_up => :desc)
     elsif params[:answered]
       @questions = Question.all.order(:cached_votes_up => :desc).page(params[:page]).per_page(7)
-    elsif params[:newest]
-      @questions = Question.all.order(:created_at => :desc).page(params[:page]).per_page(7)
     else
       @questions = Question.all.order(:cached_votes_up => :desc).page(params[:page]).per_page(7)
     end
