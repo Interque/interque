@@ -1,5 +1,6 @@
 <%# cache("votes", skip_digest: true) do %>
-	<% current_user.answers.order(updated_at: :desc).each do |answer| %>
+	<%# current_user.answers.order(updated_at: :desc).each do |answer| %>
+	<% @voted_answers.each do |answer| %>
 		<!-- current_user.answers.includes(:voters, :question) each do |answer|	 -->
 		<% answer.votes_for.each do |voter| %>
 			<% question = answer.question %>
