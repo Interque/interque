@@ -1,8 +1,9 @@
 class NotificationsController < ApplicationController
   def index
-  	@questions = Question.all.order(:updated_at => :desc)
+  	@questions = Question.all
   	@users = User.all
   	@answers = Answer.all.order(:updated_at => :desc)
+    @voted_answers = Answer.where(:user_id => current_user.id).includes(:votes_for) #.order('cached_votes_up')
   	@total_votes = 0
   	@total_user_question_answers = 0
   	@total_approved = 0
@@ -44,13 +45,13 @@ class NotificationsController < ApplicationController
 	  	# 	if question.updated_at > current_notification.read_at
 	  	# 		current_notification.read_at = question.updated_at
 	  	# 		current_notification.save
-	  			
+
   		# 		@@user_unread_notifications.clear
   		# 		return_unread
 	  	# 	elsif question.answers.any? && question.answers.last.updated_at > current_notification.read_at
 	  	# 		current_notification.read_at = question.answers.last.updated_at
 	  	# 		current_notification.save
-	  			
+
   		# 		@@user_unread_notifications.clear
   		# 		return_unread
 	  	# 	end
@@ -61,7 +62,7 @@ class NotificationsController < ApplicationController
 	  	# 		if vote.updated_at > current_notification.read_at
 	  	# 			current_notification.read_at = vote.updated_at
 	  	# 			current_notification.save
-	  			
+
 	  	# 			@@user_unread_notifications.clear
 	  	# 			return_unread
 	  	# 		end
@@ -73,7 +74,7 @@ class NotificationsController < ApplicationController
 		  # 		# 	@@user_unread_notifications.clear
 		  # 		# 	return_unread
 		  # 		# end
-		  	
+
 	  	# end
 	  else
 	  	ReadNotification.create(:user_id => current_user.id, :read_at => Time.now)
