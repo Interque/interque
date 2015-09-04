@@ -3,7 +3,7 @@ class NotificationsController < ApplicationController
   	@questions = Question.all
   	@users = User.all
   	@answers = Answer.all.order(:updated_at => :desc)
-    @voted_answers = Answer.where(:user_id => current_user.id).includes(:votes_for).order(updated_at: :desc)
+    @voted_answers = Answer.where(:user_id => current_user.id).includes(:votes_for) #.order('cached_votes_up')
   	@total_votes = 0
   	@total_user_question_answers = 0
   	@total_approved = 0
