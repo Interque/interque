@@ -19,4 +19,4 @@
 # 	i += 1
 # end
 
-User.create!(name: "", score: 52)
+User.create!(name: "c", score: 54)
