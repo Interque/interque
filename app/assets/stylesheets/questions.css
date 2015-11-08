@@ -40,6 +40,10 @@
   margin: 0 auto;
 }
 
+#question-container h4 {
+  text-align: left;
+}
+
 .answer-description{
   width: 514px;
   font-size: 17px;
@@ -56,7 +60,6 @@
 
 .tweet {
   margin-top: 8px;
-  margin-left: 50px;
 }
 
 /*******************************
@@ -71,6 +74,7 @@
   border-color: #d3d3d3;
   padding: 20px;
   max-width: 45%;
+  margin-bottom: 20px;
 }
 
 .just-tags{
@@ -121,6 +125,7 @@
   margin-bottom: 0.8px;
   font-size: 24px;
   margin-top: 21px;
+  margin-bottom: 20px;
 }
 
 .nav-menu {
@@ -244,4 +249,38 @@
 	-webkit-border-radius: 5px;
 	/*float: left;*/
 	white-space: nowrap;
+}
+
+.text-center-iq {
+  text-align: center;
+  width: 80%;
+  float: left;
+}
+
+.suggested-questions {
+  width: 20%;
+  display: inline-block;
+  height: 1000px;
+  border-left: 1px dashed #b6b6b6;
+  padding-left: 10px;
+}
+
+.suggested-questions h3 {
+  font-size: 16px;
+}
+
+.suggested-questions p {
+  font-size: 12px;
+}
+
+.btn-success {
+    color: #fff;
+    background-color: #009688;
+    border-color: #00796B;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #536DFE;
+    border-color: #2e6da4;
 }

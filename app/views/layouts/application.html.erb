@@ -20,11 +20,11 @@
 
 <header>
 <nav class="navbar">
-  <span id="logo" class="nav-logo"><%= link_to image_tag("interque-white.png", size: "500x91"), root_path %>
+  <span id="logo" class="nav-logo"><%= link_to image_tag("interque-white.png", size: "400x75"), root_path %>
   </span>
 
   <span class="nav-buttons hidden-xs">
-    <%= link_to 'Home', root_path, class: "btn btn-success" %>
+    <%= link_to 'Home', root_path, class: "btn btn-primary" %>
 
   <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
@@ -33,7 +33,7 @@
 
     <span class="dropdown">
 
-        <%= link_to 'Job Board', 'http://jobs.interque.co/', class: "btn btn-success dropdown-toggle", id: "dropdownMenu1", data: { toggle: "dropdown" }, aria: {haspopup: true, expanded: true} %>
+        <%= link_to 'Job Board', 'http://jobs.interque.co/', class: "btn btn-primary dropdown-toggle", id: "dropdownMenu1", data: { toggle: "dropdown" }, aria: {haspopup: true, expanded: true} %>
       <!-- </span> -->
         <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
           <li><%= link_to 'Listings', 'http://jobs.interque.co/listings' %></li>
