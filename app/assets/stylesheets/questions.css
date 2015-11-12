@@ -45,13 +45,21 @@
 }
 
 .answer-description{
-  width: 514px;
+  width: 500px;
   font-size: 17px;
   padding-top: 10px;
   padding-bottom: 3px;
   padding-left: 14px;
   text-align: left;
   padding-right: 14px;
+}
+
+.answers-container.col-md-12.text-center {
+  padding-right: 40px;
+}
+
+.answers-container.col-md-12.text-center table {
+  margin: 0 auto;
 }
 
 #question_tag_list {
