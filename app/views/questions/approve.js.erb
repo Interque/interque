@@ -1,1 +1,4 @@
-$('.approve-question').html('Approved');
+$('.approve-question').bind('ajax:success', function(e) {
+  $(this).html('Approved');
+  $(this).parent().find('.reject-question').remove();
+});
