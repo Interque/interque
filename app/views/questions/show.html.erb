@@ -2,11 +2,45 @@
   .container {
     margin-right: 0 !important;
   }
+
+  .rank.hidden-xs {
+    display: none;
+  }
+
+  .progress.hidden-xs {
+    display: none;
+  }
 </style>
 
 <p id="notice"><%= notice %></p>
-<br>
 <div class="text-center text-center-iq">
+    <div class="rank-q hidden-xs">
+    <% if current_user %>
+      <% if ReadNotification.find_by(:user_id => current_user.id) %>
+        <% num_notifications = return_unread() %>
+      <% else %>
+        <% ReadNotification.create(:user_id => current_user.id, :read_at => Time.now).save %>
+        <% num_notifications = return_unread() %>
+      <% end %>
+
+      <span><%= link_to '', notifications_index_path, class:"glyphicon glyphicon-bell", data: {toggle: "tooltip", placement: "left", notifications: num_notifications}, title: "See my notifications feed." %>
+      <%= current_user.name.downcase %> | <%= current_user.score %> | <%= rank %> </span>
+    <% end %>
+  </div>
+  <!-- PROGRESS BAR -->
+    <% if current_user %>
+      <div class="progress-q hidden-xs">
+        <span class="progress-bar" role="progressbar" style=<%= "width:#{number_to_percentage(rank_percentage, precision: 0)}" %>
+        </span>
+        <!-- why is the span above not being read? -->
+        <span>
+          <%= number_to_percentage(rank_percentage, precision: 0) %>
+        </span>
+      </div>
+      <!-- <div class="text-center leaderboard-link"> -->
+        <%# link_to "Leaderboard",leaderboard_show_path %>
+      <!-- </div> -->
+    <% end %>
   <% unless @question.approved? %>
     <%# if current_user.id == @question.user_id %>
       <div class="alert alert-success alert-dismissible alert-width">
