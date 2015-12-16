@@ -5,7 +5,7 @@
 	<% if current_user %>
 		<% @questions.each do |question| %>
 			<% if question.approved == false %>
-				
+
 			<div>
 				<h4>Title: <%= question.title %><br></h4>
 				Description: <%= question.description %><br>
@@ -15,12 +15,14 @@
 				<span class="approve-question">
 					<%= link_to "Approve", approve_question_path(question), :method => :put, remote: true %>
 				</span>
+				<span class="reject-question">
 				<%= link_to '', question_path(question), method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-ban-circle", title: "Delete this question." %>
+				</span>
 			</div>
 			<br>
 			<% end %>
 		<% end %>
-	<% end %> 
+	<% end %>
 </div>
 
 <div class="col-md-4">

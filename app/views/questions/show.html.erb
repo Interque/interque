@@ -1,6 +1,9 @@
 <p id="notice"><%= notice %></p>
 <br>
+
 <div class="text-center">
+
+
   <% unless @question.approved? %>
     <%# if current_user.id == @question.user_id %>
       <div class="alert alert-success alert-dismissible alert-width">
@@ -20,7 +23,6 @@
   </p>
 
   <!-- QUESTION COMMMENTS BELOW THIS LINE -->
-
   <% if @question.bounty %>
     <div class="bounty-faq">
       <h3 class="text-center">Bounty: FAQs</h3>
@@ -32,7 +34,7 @@
 
       <h4><%= link_to "What's the prize?", '#', class: "bounty-faq", data: {toggle: "tooltip", placement: "left"}, title: "Prizes will be subject to change each month but the initial prize is going to be an interque t-shirt." %>
       </h4>
-      
+
     </div>
   <% end %>
 
@@ -45,7 +47,9 @@
     <%= pluralize @question.impressionist_count, "view" %>
   </div>
   <br> <!-- ANSWERS BELOW THIS LINE -->
-  
+
+
+
   <%= render 'answers/form' %>
 
   <% if @question.bounty && !current_user %>
@@ -82,6 +86,22 @@
       </table>
     </div>
   <% end %>
+
+<div class="suggested-questions">
+  <h3>Related Question</h3>
+  <% if @related_question %>
+  <div id="question-container">
+    <%= link_to "#{@related_question.description}", @related_question, class: "question-description" %>
+    <!-- p>Created by: <%# @question.user.name %></p -->
+    <p><%= time_ago_in_words(@related_question.created_at) %> ago.</p>
+    <p>Tags: <%= raw @related_question.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %></p><br>
+    <div class="tweet"><%= twitter_button :turbolinks => true %></div>
+    <p><%= pluralize @related_question.impressionist_count, "view" %></p>
+  </div>
+  <% else %>
+    <p>No related questions at this time</p>
+  <% end %>
+</div>
 </div>
 
 <script>
