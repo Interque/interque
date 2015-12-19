@@ -255,8 +255,8 @@
 
 .suggested-questions {
     width: 100%;
-    border-top: 1px dashed #b6b6b6;
-    text-align: center;
+    /*border-top: 1px dashed #b6b6b6;*/
+    /*text-align: center;*/
 }
 
 .suggested-questions h3 {
