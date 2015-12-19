@@ -25,7 +25,7 @@ class AnswersController < ApplicationController
   def create
     @answer = current_user.answers.new(answer_params)
     @question = Question.find(@answer.question_id)
-    
+    p "@question: #{@question}"
     if @answer.question.bounty
       @answer.update_bounty
     else
@@ -38,6 +38,7 @@ class AnswersController < ApplicationController
       if @answer.save
         format.html { redirect_to :back, notice: 'Answer was successfully created.' }
         format.json { render :show, status: :created, location: @answer }
+        Notification.create(recipient_id: @question.user_id, actor_id: current_user.id, action: "answer", notifiable: @question)
         # expire_fragment("approvals")
         # notification = ReadNotification.find_by(:user_id => @answer.question.user_id)
         # notification.read_at = nil

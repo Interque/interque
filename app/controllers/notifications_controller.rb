@@ -1,5 +1,6 @@
 class NotificationsController < ApplicationController
   def index
+    @notifications = Notifications.where(recipient_id: current_user.id)
   	@questions = Question.all
   	@users = User.all
   	@answers = Answer.all.order(:updated_at => :desc)
@@ -14,6 +15,8 @@ class NotificationsController < ApplicationController
   	@current_notification = ReadNotification.find_by(:user_id => current_user.id)
   	mark_as_read(@current_notification)
   end
+
+
 
   def num_votes
   	current_user.answers.find_each do |answer|
