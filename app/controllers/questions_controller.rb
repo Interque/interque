@@ -39,8 +39,25 @@ class QuestionsController < ApplicationController
 
   # GET /questions/1
   # GET /questions/1.json
+
+  def get_related_questions(tags, id)
+    related_questions = []
+    # questions = Question.all
+    Question.find_each do |question|
+      question.tags.each do |tag|
+        if tags.include?(tag) && question.id != id
+          related_questions << question
+          # .append(question)
+        end
+      end
+    end
+    related_questions.sample
+  end
+
   def show
     @answer = Answer.new(question: @question)
+    @related_question = get_related_questions(@question.tags, @question.id)
+    # return @answer, @related_question
 
     #@answer = @question.answers.new
     #@question_comment = @question.comments.new

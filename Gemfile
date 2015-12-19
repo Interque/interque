@@ -50,6 +50,10 @@ gem 'impressionist'
 gem 'sitemap_generator'
 gem 'exception_notification', '4.0.1'
 
+gem 'byebug'
+gem 'better_errors'
+gem 'binding_of_caller'
+
 # gem "tzinfo-data"
 
 group :development, :test do

@@ -245,3 +245,24 @@
 	/*float: left;*/
 	white-space: nowrap;
 }
+
+
+.text-center-iq {
+  text-align: center;
+  width: 80%;
+  float: left;
+}
+
+.suggested-questions {
+    width: 100%;
+    /*border-top: 1px dashed #b6b6b6;*/
+    /*text-align: center;*/
+}
+
+.suggested-questions h3 {
+  font-size: 16px;
+}
+
+.suggested-questions p {
+  font-size: 12px;
+}
