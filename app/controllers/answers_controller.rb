@@ -23,6 +23,10 @@ class AnswersController < ApplicationController
   end
 
   def create
+    unless current_user
+      return
+    end
+
     @answer = current_user.answers.new(answer_params)
     @question = Question.find(@answer.question_id)
     
