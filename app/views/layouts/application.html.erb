@@ -14,6 +14,11 @@
   <meta name="description" content="crowdsourcing programming interview questions">
   <meta name="robots" content="index,follow">
   <meta name="google-site-verification" content="q6SYiwVWudZ2JxJaQQv6W8WjBjP8KrcfImDNhq2hQD4" />
+  <script type="text/javascript">
+    !function(a,b,c,d,e,f,g){a.RaygunObject=e,a[e]=a[e]||function(){
+    (a[e].o=a[e].o||[]).push(arguments)},f=b.createElement(c),g=b.getElementsByTagName(c)[0],
+    f.async=1,f.src=d,g.parentNode.insertBefore(f,g)}(window,document,"script","//cdn.raygun.io/raygun4js/raygun.min.js","rg4js");
+  </script>
 </head>
 
 <!-- HEADER CONTENT - NAV BAR, LOGIN BUTTONS -->
@@ -126,6 +131,10 @@
     <%= yield %>
     </div>
 
-
+    <script type="text/javascript">
+      rg4js('apiKey', 'mzB06tFJxxS0bG8PPiDlXA==');
+      rg4js('enablePulse', true);
+      rg4js('enableCrashReporting', false);
+    </script>
   </body>
 </html>
