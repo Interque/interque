@@ -43,29 +43,81 @@
     <%# end %>
   </ul>
 </div>
-<div class="all-questions text-center">
+<!-- <div class="all-questions text-center"> -->
+<style type="text/css">
+  .question-link {
+    white-space: pre-wrap; /* css-3 */    
+    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */    
+    white-space: -o-pre-wrap; /* Opera 7 */    
+    word-wrap: break-word; /* Internet Explorer 5.5+ */
+  }
+
+</style>
+  <div class="container">
+    <br>
 
     <% @questions.each do |question| %>
       <% unless question.bounty == true %>
         <% if question.approved? %>
-          <%# if question.answers.count == 0 %>
-          <%# end %>
-        <h4 class="question-title"><%= question.title %></h4>
-          <div class="tags-excluded">
-            <%= question.score %>
-            <%= link_to '', like_question_path(question), method: :put, class: "glyphicon glyphicon-plus-sign", id: "counter", data: {toggle: "tooltip", placement: "top"}, title: "I was also asked this question"%>
-            <%# question.description %>
-            <%= link_to "#{question.description}", question, class: "question-description" %>
-            <% if (current_user && question.user_id == current_user.id) || (current_user && current_user.administrator) %>
-              <br>
-              <%= link_to '', edit_question_path(question), class: "glyphicon glyphicon-edit" %>
-              <%= link_to '', question, method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-ban-circle", title: "Delete this question." %><br>
-            <% end %>
+        <div> <!-- individual -->
+          
+          
+          <div class="row" style="position:relative;">
+            <!-- <div class="tags-excluded"> -->
+              <div class="col-md-10 col-sm-10 col-xs-10" style="display:inline-block; border-bottom: 1px solid #A9A9A9; padding:5px;"> <!-- border box -->
+                <div class="text-center" style="position:relative;">
+                  <h4 class="text-center"><%= question.title %></h4>
+                  <span style="float:left; position:absolute; height:2em; top:50%; margin-top:1em;">
+                    <%= link_to '', edit_question_path(question), class: "glyphicon glyphicon-edit", style: "float:left;" %>
+                    <%= link_to '', question, method: :delete, data: { confirm: 'Are you sure?' }, style: "float:left;", class: "glyphicon glyphicon-ban-circle", title: "Delete this question." %>
+                  </span>
+                </div>
+                
+                <%# question.description %>
+                <!-- question-description -->
+                <div>
+                  <div class="question-link" style="margin-top:10px; margin-bottom:10px; max-width:95%;">
+                    <%= link_to "#{question.description}", question, class: "question-link", style: "font-size: 20px; white-space:pre-wrap; word-wrap: break-word;" %>
+                  </div>
+                </div>
+                <% if (current_user && question.user_id == current_user.id) || (current_user && current_user.administrator) %>
+                  <br>
+                  <div class="text-center col-md-offset-4" style="margin: 0 auto;">
+                    <div class="text-center" style="display:block;">
+                      <%= question.score %>
+                      <%= link_to '', like_question_path(question), method: :put, class: "glyphicon glyphicon-plus-sign", id: "counter", data: {toggle: "tooltip", placement: "top"}, title: "I was also asked this question"%>
+                    </div>
+                    <!-- <div class="text-center"> -->
+                      <%#= link_to '', edit_question_path(question), class: "glyphicon glyphicon-edit" %>
+                      <%#= link_to '', question, method: :delete, data: { confirm: 'Are you sure?' }, class: "glyphicon glyphicon-ban-circle", title: "Delete this question." %>
+                    <!-- </div> -->
+                  </div>
+                <% end %>
+              </div>
+                <!-- class: "num-answers" -->
+              <div class="col-md-offset-10" style="height:6em; position:absolute; margin-top:-3em; top:50%;">
+                <a href="/questions/<%= question.id %>" style="color:#A9A9A9">
+                  <div style="background-color:#E8E9EE; padding:8px;">
+                    <p class="text-center" style="font-size:20px;">
+                      <%= question.answers.count %>
+                    </p>
+                    <p class="text-center" style="font-size:12px;margin-top:-5px;">Answers</p>
+                  </div>
+                </a>
+                <%#= link_to "Answers(#{question.answers.count})", question  %>
+              </div>
+            
           </div>
-            <%= link_to "Answers(#{question.answers.count})", question, class: "num-answers" %>
-          <div class="just-tags">
-            <%= raw question.tag_list.map { |t| link_to t, tag_path(t)}.join('') %><br>
+          <!-- class="question-title" -->
+          <div class="col-md-10 text-center" style="margin-top:5px;">
+            <div class="just-tags"> 
+              <%= raw question.tag_list.map { |t| link_to t, tag_path(t)}.join('') %><br>
+            </div>
           </div>
+          <div class="clearfix"></div>
+        </div>
+
         <% end %>
       <% end %>
     <% end %>
@@ -78,7 +130,7 @@
   <div class="alert alert-warning" role="alert">We're sorry, but your search didn't match any results</div>
 <% end %>
 <div class="row">
-  <div class="col-md-4 col-md-offset-4 text-center digg_pagination">
+  <div class="col-md-12 digg_pagination">
     <% unless params[:unanswered] %>
       <%= will_paginate @questions %>
     <% end %>
