@@ -43,7 +43,7 @@
         <% end %>
       <!-- answer-field -->
       
-        <div class="col-md-8">
+        <div class="col-md-8 col-xs-12">
           <div id="wmd-button-bar"></div>
           
           <textarea id="wmd-input" class="wmd-input" name="answer[description]"></textarea>
@@ -62,7 +62,7 @@
           <% end %>
         </div> <!-- end col-md-8 div -->
 
-        <div class="col-md-4">
+        <div class="col-md-4 col-xs-12">
           <h4 class="text-center" style="font-family:'Lato'; margin-bottom:5px;">Preview</h4>
           <div id="wmd-preview" class="wmd-panel wmd-preview"></div>
         </div>
@@ -82,13 +82,13 @@
     <% else %>
       <!-- ALL answers -->
       <div style="margin-top:5%;">
-        <div class="col-md-12 col-md-offset-1">
+        <div class="col-md-12 col-xs-12 col-md-offset-1">
           <h3>Answers</h3>
         </div>
         <% @question.answers.order(:cached_votes_score => :desc).each do |answer| %>
           <div class="row" style="margin-bottom:3%;">
-            <div class="col-md-12" style="">
-              <div id="answer-<%= answer.id %>" class="col-md-1" style="height:50%; margin-top:5px; display:inline-block; vertical-align:middle;">
+            <div class="col-md-12 col-xs-12" style="">
+              <div id="answer-<%= answer.id %>" class="col-md-1 col-xs-1" style="height:50%; margin-top:5px; display:inline-block; vertical-align:middle;">
                 <br>
                 <div class="answer-votes">
                   <span style="float:left; font-size:28px" ><%= answer.score %></span>
@@ -111,32 +111,10 @@
           </div>
         <% end %>
       </div> <!-- END all answers div -->
-      <!-- <div class="answers-container col-xs-12"> -->
-      <!-- <h4>Answers<a href="#" class="new-answer-btn">(<%#= @question.answers.count %>)</a></h4> -->
-        
-        <!-- <table> -->
-          <%# @question.answers.order(:cached_votes_score => :desc).each do |answer| %>
-          <!-- <tr> -->
-            <!-- <td id="answer-<%#= answer.id %>" class="answer-text"> -->
-              <!-- <div class="answer-votes "> -->
-                <%#= link_to "", like_answer_path(answer), method: :put, class: "glyphicon glyphicon-arrow-up" %><br>
-                <!-- <span class="score"><%#= answer.score %></span><br> -->
-                <%#= link_to "", dislike_answer_path(answer), method: :put, class: "glyphicon glyphicon-arrow-down" %>
-              <!-- </td>
-              </div>
-              <td>
-              <div class="answer-description thumbnail"> -->
-                <!-- <div class="created-at text-center"><%#= time_ago_in_words(answer.created_at) %> ago.</div> -->
-                <!-- <div class="answer-author text-center">Added by: <%#= answer.user.name %></div> -->
-              <!-- </div> -->
-          <!--   </td>
-          </tr> -->
-          <%# end %>
-        <!-- </table> -->
-      <!-- </div> -->
+      
     <% end %>
-  <!-- suggested-questions  -->
-    <div class="col-md-12 col-md-offset-4">
+    <!-- suggested-questions  -->
+    <div class="col-md-12 col-xs-12 col-xs-offset-12 col-md-offset-4">
       <h3>Related Question</h3>
       <% if @related_question %>
       <div id="">
