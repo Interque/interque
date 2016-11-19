@@ -104,7 +104,7 @@
             
           </div>
           <!-- class="question-title" -->
-          <div class="col-md-8 text-center" style="margin-top:5px;">
+          <div class="col-md-8 col-xs-8 text-center" style="margin-top:5px;">
             <div class="just-tags"> 
               <%= raw question.tag_list.map { |t| link_to t, tag_path(t)}.join('') %><br>
             </div>
@@ -124,7 +124,7 @@
   <div class="alert alert-warning" role="alert">We're sorry, but your search didn't match any results</div>
 <% end %>
 <div class="row">
-  <div class="col-md-12 digg_pagination">
+  <div class="col-md-12 col-xs-12 digg_pagination">
     <% unless params[:unanswered] %>
       <%= will_paginate @questions %>
     <% end %>
