@@ -71,7 +71,6 @@
     </div>
   <!-- END answers form -->
 
-
     <% if @question.bounty && !current_user %>
       <br><div class="alert alert-info">
         answers for bounty questions hidden until (1) you've submitted an answer or (2) a winner has been chosen
@@ -159,12 +158,6 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Editor.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Sanitizer.js"></script>
 
-<script type="text/javascript">
-  console.log('test');
-  var converter = Markdown.getSanitizingConverter();
-  var editor = new Markdown.Editor(converter);
-  editor.run();
-</script>
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -174,5 +167,11 @@
 
   ga('create', 'UA-57752020-1', 'auto');
   ga('send', 'pageview');
+</script>
 
+<script type="text/javascript">
+  console.log('test');
+  var converter = Markdown.getSanitizingConverter();
+  var editor = new Markdown.Editor(converter);
+  editor.run();
 </script>
