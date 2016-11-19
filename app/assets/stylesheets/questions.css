@@ -41,13 +41,13 @@
 }
 
 .answer-description{
-  width: 514px;
+  /*width: 514px;
   font-size: 17px;
   padding-top: 10px;
   padding-bottom: 3px;
   padding-left: 14px;
   text-align: left;
-  padding-right: 14px;
+  padding-right: 14px;*/
 }
 
 #question_tag_list {

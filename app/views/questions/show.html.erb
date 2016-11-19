@@ -1,149 +1,158 @@
 <link rel="stylesheet" href="//cdn.rawgit.com/balpha/pagedown/master/demo/browser/demo.css" />
-<p id="notice"><%= notice %></p>
-<br>
+<div class="container">
 
-<div class="text-center">
-
-
-  <% unless @question.approved? %>
-    <%# if current_user.id == @question.user_id %>
-      <div class="alert alert-success alert-dismissible alert-width">
-        <strong>
-        Thank for your submission! Your question is awaiting moderation.
-        </strong>
-      </div>
-    <%# end %>
-  <% end %>
-  <p>
-    <% if @question.bounty %>
-      <h2>| BOUNTY QUESTION |</h2>
-      <h3 class="question-title"><%= @question.title %></h3>
-    <% else %>
-      <h3 class="question-title"><%= @question.title %></h3>
-    <% end %>
-  </p>
-
-  <!-- QUESTION COMMMENTS BELOW THIS LINE -->
-  <% if @question.bounty %>
-    <div class="bounty-faq">
-      <h3 class="text-center">Bounty: FAQs</h3>
-      <h4><%= link_to "What's a bounty question?", '#', class: "bounty-faq", data: {toggle: "tooltip", placement: "left"}, title: "Answers and upvotes on bounty questions are worth more leaderboard points. At the end of each bounty period, we choose the best bounty answer and award a prize to the submitting user." %>
-      </h4>
-
-      <h4><%= link_to "How will you choose a winner?", '#', class: "bounty-faq", data: {toggle: "tooltip", placement: "left"}, title: "We're just going to do our best to determine the 'best' solution. We'll get input from the most talented programmers we know if there's a close call." %>
-      </h4>
-
-      <h4><%= link_to "What's the prize?", '#', class: "bounty-faq", data: {toggle: "tooltip", placement: "left"}, title: "Prizes will be subject to change each month but the initial prize is going to be an interque t-shirt." %>
-      </h4>
-
-    </div>
-  <% end %>
-
-  <div id="question-container">
-    <h4><%= markdown(@question.description).html_safe %></h4>
-    <!-- p>Created by: <%# @question.user.name %></p -->
-    <p><%= time_ago_in_words(@question.created_at) %> ago.</p>
-    Tags: <%= raw @question.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %><br>
-    <div class="tweet"><%= twitter_button :turbolinks => true %></div>
-    <%= pluralize @question.impressionist_count, "view" %>
-  </div>
-  <br> <!-- ANSWERS BELOW THIS LINE -->
-  <!-- answers form -->
-  <%= form_for(@answer) do |f| %>
-  <%= f.hidden_field :question_id %>
-  <% if @answer.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@answer.errors.count, "error") %> prohibited this answer from being saved:</h2>
-
-      <ul>
-      <% @answer.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+  <p id="notice"><%= notice %></p>
+    <!-- QUESTION -->
+    <% unless @question.approved? %>
+      <% if current_user.id == @question.user_id %>
+        <div class="alert alert-success alert-dismissible alert-width">
+          <strong>
+          Thank for your submission! Your question is awaiting moderation.
+          </strong>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <!-- answer-field -->
-  <!-- <div align="center" class=""> -->
-    <!-- <div class=""> -->
-      <div id="wmd-button-bar"></div>
-      <!-- <div id="wmd-button-bar"></div> -->
-
-      <%#= f.text_area :description, id: "wd-input", class: "wd-input" %>
-      <textarea id="wmd-input" class="wmd-input" name="answer[description]"></textarea>
-
-      <div id="wmd-preview" class="wmd-panel wmd-preview"></div>
-      
-    <!-- </div> -->
-
-    <div class="">
-      <!-- <div style="margin-right:50px; margin-left:-15px;"> -->
-      <h6 class="text-center" style="font-family: 'Lato'; margin-bottom:5px;">Preview</h6>
-
-    </div>
-        <!-- <a href="https://guides.github.com/features/mastering-markdown/" class="markdown">Markdown Supported<i class="fa fa-code"></i></a> -->
-  <!-- </div> -->
-  <% if current_user %>
-    <div class="field">
-      <%= f.hidden_field :user_id, value: current_user.id %>
-    </div>
-    <div class="actions">
-      <%= f.submit class: "btn btn-success" %>
-    </div>
-  <% end %>
-<% end %>
-<!-- END answers form -->
-
-
-  <% if @question.bounty && !current_user %>
-    <br><div class="alert alert-info">
-      answers for bounty questions hidden until (1) you've submitted an answer or (2) a winner has been chosen
-    </div><br>
-  <% elsif @question.bounty && (current_user.answers & @question.answers).length == 0 && !current_user.administrator %>
-    <br><div class="alert alert-info">
-      answers for bounty questions are hidden until (1) you've submitted an answer or (2) a winner has been chosen
-    </div><br>
-  <% else %>
-    <h4>Answer<a href="#" class="new-answer-btn">(<%= @question.answers.count %>)</a></h4>
-    <div class="answers-container col-md-6 col-md-offset-3 text-center">
-      <!-- <h4>Answers</h4> -->
-      <table>
-        <% @question.answers.order(:cached_votes_score => :desc).each do |answer| %>
-        <tr>
-          <td id="answer-<%= answer.id %>" class="answer-text">
-            <div class="answer-votes ">
-              <%= link_to "", like_answer_path(answer), method: :put, class: "glyphicon glyphicon-arrow-up" %><br>
-              <span class="score"><%= answer.score %></span><br>
-              <%= link_to "", dislike_answer_path(answer), method: :put, class: "glyphicon glyphicon-arrow-down" %>
-            </td>
-            </div>
-            <td>
-            <div class="answer-description thumbnail">
-              <%= markdown(answer.description).html_safe %>
-              <div class="created-at text-center"><%= time_ago_in_words(answer.created_at) %> ago.</div>
-              <div class="answer-author text-center">Added by: <%= answer.user.name %></div>
-            </div>
-          </td>
-        </tr>
-        <% end %>
-      </table>
-    </div>
-  <% end %>
-
-  <div class="suggested-questions">
-    <h3>Related Question</h3>
-    <% if @related_question %>
-    <div id="">
-      <%= link_to "#{@related_question.description}", @related_question, class: "" %>
-      <!-- p>Created by: <%# @question.user.name %></p -->
-      <p><%= time_ago_in_words(@related_question.created_at) %> ago.</p>
-      <p>Tags: <%= raw @related_question.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %></p><br>
-      <!-- <div class="tweet"><%#= twitter_button :turbolinks => true %></div> -->
-      <!-- <p><%# pluralize @related_question.impressionist_count, "view" %></p> -->
-    </div>
-    <% else %>
-      <p>No related questions at this time</p>
     <% end %>
-  </div>
+
+    <div id="question-container">
+      <div class="text-center">
+        <h4><%= markdown(@question.description).html_safe %></h4>
+        <!-- p>Created by: <%# @question.user.name %></p -->
+        <p><%= time_ago_in_words(@question.created_at) %> ago.</p>
+        Tags: <%= raw @question.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %><br>
+        <div class="tweet"><%= twitter_button :turbolinks => true %></div>
+        <%= pluralize @question.impressionist_count, "view" %>
+      </div>
+    </div>
+    <br> 
+    <!-- ANSWERS BELOW THIS LINE -->
+
+    <!-- answers form -->
+    <div style="margin-bottom:5%;">
+      <%= form_for(@answer) do |f| %>
+        <%= f.hidden_field :question_id %>
+        <% if @answer.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@answer.errors.count, "error") %> prohibited this answer from being saved:</h2>
+
+            <ul>
+            <% @answer.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+      <!-- answer-field -->
+      
+        <div class="col-md-8">
+          <div id="wmd-button-bar"></div>
+          
+          <textarea id="wmd-input" class="wmd-input" name="answer[description]"></textarea>
+
+          
+          <div class="text-center">
+            <a href="https://guides.github.com/features/mastering-markdown/" class="markdown">Markdown Supported<i class="fa fa-code"></i></a>
+          </div>
+          <% if current_user.present? %>
+            <div class="field">
+              <%= f.hidden_field :user_id, value: current_user.id %>
+            </div>
+            <div class="actions text-center" style="margin-bottom:25px;">
+              <%= f.submit class: "btn btn-success" %>
+            </div>
+          <% end %>
+        </div> <!-- end col-md-8 div -->
+
+        <div class="col-md-4">
+          <h4 class="text-center" style="font-family:'Lato'; margin-bottom:5px;">Preview</h4>
+          <div id="wmd-preview" class="wmd-panel wmd-preview"></div>
+        </div>
+      
+      <% end %> 
+    </div>
+  <!-- END answers form -->
+
+
+    <% if @question.bounty && !current_user %>
+      <br><div class="alert alert-info">
+        answers for bounty questions hidden until (1) you've submitted an answer or (2) a winner has been chosen
+      </div><br>
+    <% elsif @question.bounty && (current_user.answers & @question.answers).length == 0 && !current_user.administrator %>
+      <br><div class="alert alert-info">
+        answers for bounty questions are hidden until (1) you've submitted an answer or (2) a winner has been chosen
+      </div><br>
+    <% else %>
+      <!-- ALL answers -->
+      <div style="margin-top:5%;">
+        <div class="col-md-12 col-md-offset-1">
+          <h3>Answers</h3>
+        </div>
+        <% @question.answers.order(:cached_votes_score => :desc).each do |answer| %>
+          <div class="row" style="margin-bottom:3%;">
+            <div class="col-md-12" style="">
+              <div id="answer-<%= answer.id %>" class="col-md-1" style="height:50%; margin-top:5px; display:inline-block; vertical-align:middle;">
+                <br>
+                <div class="answer-votes">
+                  <span style="float:left; font-size:28px" ><%= answer.score %></span>
+                  <span style="float:left; height:30px;">
+                    <%= link_to "", like_answer_path(answer), method: :put, class: "glyphicon glyphicon-arrow-up" %><br>
+                    <%= link_to "", dislike_answer_path(answer), method: :put, class: "glyphicon glyphicon-arrow-down" %>
+                  </span>
+                  <!-- class="score" -->
+                </div>
+                <!-- <div class="clearfix"></div> -->
+              </div>
+              <div class="col-xs-10" style="border: 1px solid #A9A9A9; border-padding:5px; border-radius:5px; display:inline-block; vertical-align:middle;">
+                <div style="margin:5px;">
+                  <%= markdown(answer.description).html_safe %>
+                </div>
+                <div class="created-at text-center"><%= time_ago_in_words(answer.created_at) %> ago.</div>
+                <div class="answer-author text-center">Added by: <%= answer.user.name %></div>
+              </div> 
+            </div>              
+          </div>
+        <% end %>
+      </div> <!-- END all answers div -->
+      <!-- <div class="answers-container col-xs-12"> -->
+      <!-- <h4>Answers<a href="#" class="new-answer-btn">(<%#= @question.answers.count %>)</a></h4> -->
+        
+        <!-- <table> -->
+          <%# @question.answers.order(:cached_votes_score => :desc).each do |answer| %>
+          <!-- <tr> -->
+            <!-- <td id="answer-<%#= answer.id %>" class="answer-text"> -->
+              <!-- <div class="answer-votes "> -->
+                <%#= link_to "", like_answer_path(answer), method: :put, class: "glyphicon glyphicon-arrow-up" %><br>
+                <!-- <span class="score"><%#= answer.score %></span><br> -->
+                <%#= link_to "", dislike_answer_path(answer), method: :put, class: "glyphicon glyphicon-arrow-down" %>
+              <!-- </td>
+              </div>
+              <td>
+              <div class="answer-description thumbnail"> -->
+                <!-- <div class="created-at text-center"><%#= time_ago_in_words(answer.created_at) %> ago.</div> -->
+                <!-- <div class="answer-author text-center">Added by: <%#= answer.user.name %></div> -->
+              <!-- </div> -->
+          <!--   </td>
+          </tr> -->
+          <%# end %>
+        <!-- </table> -->
+      <!-- </div> -->
+    <% end %>
+  <!-- suggested-questions  -->
+    <div class="col-md-12 col-md-offset-4">
+      <h3>Related Question</h3>
+      <% if @related_question %>
+      <div id="">
+        <%= link_to "#{@related_question.description}", @related_question, class: "" %>
+        <!-- p>Created by: <%# @question.user.name %></p -->
+        <p><%= time_ago_in_words(@related_question.created_at) %> ago.</p>
+        <p>Tags: <%= raw @related_question.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %></p><br>
+        <!-- <div class="tweet"><%#= twitter_button :turbolinks => true %></div> -->
+        <!-- <p><%# pluralize @related_question.impressionist_count, "view" %></p> -->
+      </div>
+      <% else %>
+        <p>No related questions at this time</p>
+      <% end %>
+    </div>
+  
 </div>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Converter.js"></script>
