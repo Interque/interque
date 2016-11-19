@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="//cdn.rawgit.com/balpha/pagedown/master/demo/browser/demo.css" />
 <%= form_for(@answer) do |f| %>
   <%= f.hidden_field :question_id %>
   <% if @answer.errors.any? %>
@@ -11,13 +12,21 @@
       </ul>
     </div>
   <% end %>
+  <!-- answer-field -->
+  <!-- <div align="center" class=""> -->
+    <!-- <div class=""> -->
+      <div id="wmd-button-bar"></div>
+      <%= f.text_area :description, class: "wd-input", id: "wd-input" %>
+      <div id="wmd-preview" class="wmd-panel wmd-preview" ></div>
+    <!-- </div> -->
 
-  <div align="center" class="answer-field">
-    <div class="field">
-      <%= f.text_area :description, placeholder: 'Add a new answer', class: "answer-text-box" %>
+    <div class="">
+      <!-- <div style="margin-right:50px; margin-left:-15px;"> -->
+      <h6 class="text-center" style="font-family: 'Lato'; margin-bottom:5px;">Preview</h6>
+
     </div>
-        <a href="https://guides.github.com/features/mastering-markdown/" class="markdown">Markdown Supported<i class="fa fa-code"></i></a>
-  </div>
+        <!-- <a href="https://guides.github.com/features/mastering-markdown/" class="markdown">Markdown Supported<i class="fa fa-code"></i></a> -->
+  <!-- </div> -->
   <% if current_user %>
     <div class="field">
       <%= f.hidden_field :user_id, value: current_user.id %>
@@ -27,3 +36,19 @@
     </div>
   <% end %>
 <% end %>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Converter.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Editor.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Sanitizer.js"></script>
+
+<script type="text/javascript">
+  console.log('test');
+  var converter = Markdown.getSanitizingConverter();
+  var editor = new Markdown.Editor(converter);
+  editor.run();
+</script>
+<script type="text/javascript">
+  $(document).on('ready', function(){
+  })
+</script>
