@@ -65,7 +65,7 @@
           
           <div class="row" style="position:relative;">
             <!-- <div class="tags-excluded"> -->
-              <div class="col-md-10 col-sm-10 col-xs-10" style="display:inline-block; border-bottom: 1px solid #A9A9A9; padding:5px;"> <!-- border box -->
+              <div class="col-md-8 col-sm-8 col-xs-8" style="display:inline-block; border-bottom: 1px solid #A9A9A9; padding:5px;"> <!-- border box -->
                 <div class="text-center" style="position:relative;">
                   <h4 class="text-center"><%= question.title %></h4>
                   <span style="float:left; position:absolute; height:2em; top:50%; margin-top:1em;">
@@ -96,7 +96,7 @@
                 <% end %>
               </div>
                 <!-- class: "num-answers" -->
-              <div class="col-md-offset-10" style="height:6em; position:absolute; margin-top:-3em; top:50%;">
+              <div class="col-md-offset-8" style="height:6em; position:absolute; margin-top:-3em; top:50%;">
                 <a href="/questions/<%= question.id %>" style="color:#A9A9A9">
                   <div style="background-color:#E8E9EE; padding:8px;">
                     <p class="text-center" style="font-size:20px;">
@@ -110,7 +110,7 @@
             
           </div>
           <!-- class="question-title" -->
-          <div class="col-md-10 text-center" style="margin-top:5px;">
+          <div class="col-md-8 text-center" style="margin-top:5px;">
             <div class="just-tags"> 
               <%= raw question.tag_list.map { |t| link_to t, tag_path(t)}.join('') %><br>
             </div>
