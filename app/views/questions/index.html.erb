@@ -75,7 +75,10 @@
                 <!-- question-description -->
                 <div>
                   <div class="question-link" style="margin-top:10px; margin-bottom:10px; max-width:95%;">
-                    <%= link_to "#{question.description}", question, class: "question-link", style: "font-size: 20px; white-space:pre-wrap; word-wrap: break-word;" %>
+                    <a href="/question/<%= question.id %>">
+                      <%= markdown(question.description).html_safe %>
+                    </a>
+                    <%#= link_to "#{question.description}", question, class: "question-link", style: "font-size: 20px; white-space:pre-wrap; word-wrap: break-word;" %>
                   </div>
                 </div>
                 <% if (current_user && question.user_id == current_user.id) || (current_user && current_user.administrator) %>
