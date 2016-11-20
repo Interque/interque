@@ -25,7 +25,7 @@
 	<% n = 1 %>
   <% @users.each do |user| %>
     <% if user.name.length > 1 %>
-      <% if n < @users.length && n < 100 %>
+      <% if n < @users.length && n < 50 %>
     		<tr>
     		<td class="text-center leaderboard-user-rank"><%= n %>.</td>
     		<td class="text-center leaderboard-user-name"><%= user.name %></td>

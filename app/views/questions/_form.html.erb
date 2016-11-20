@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="//cdn.rawgit.com/balpha/pagedown/master/demo/browser/demo.css" />
 <%= form_for(@new_question = Question.new) do |f| %>
   <%= f.hidden_field :user_id, value: current_user.id if current_user %>
 
@@ -19,7 +20,10 @@
   </div>
   <div class="field">
     <%# f.label :description %><br>
-    <%= f.text_area :description, placeholder: 'Description', class: 'form-control' %>
+    <%#= f.text_area :description, placeholder: 'Description', class: 'form-control' %>
+    <div id="wmd-button-bar-modal"></div>
+    <textarea class="wd-input-modal" id="wd-input-modal" name="question[description]"></textarea>
+    <%#= f.text_area :description, class: "wd-input-modal", id: "wd-input-modal" %>
   </div>
   <a href="https://guides.github.com/features/mastering-markdown/" class="markdown markdown-new">Markdown Supported<i class="fa fa-code"></i></a>
   <div class="field form-group">
@@ -34,3 +38,18 @@
     <%= f.submit class: "btn btn-primary" %>
   </div>
 <% end %>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Converter.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Editor.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/pagedown/1.0/Markdown.Sanitizer.js"></script>
+
+<script type="text/javascript">
+  console.log('test');
+  var converter = Markdown.getSanitizingConverter();
+  var modalEditor = new Markdown.Editor(converter, "-modal");
+  modalEditor.run();
+</script>
+<script type="text/javascript">
+  $(document).on('ready', function(){
+  })
+</script>
